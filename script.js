@@ -1,31 +1,29 @@
 window.onload = function () {
-	var canvas = document.getElementById('svg_path');
+	var canvas = document.getElementById('svg_path'),
+		map = new SvgMap(canvas);
 
 	for (var i in contours) {
-		var polygon = document.createElementNS('http://www.w3.org/2000/svg', 'path');
-		polygon.setAttributeNS(null, 'd', contours[i]);
-		polygon.setAttributeNS(null, 'stroke', 'black');
-		polygon.setAttributeNS(null, 'stroke-width', '1');
-		polygon.setAttributeNS(null, 'fill', '#f00');
-		(function (i) {
-			polygon.addEventListener('click', function () {
-				alert('You clicked ' + i);
-			});
-		})(i);
-
-		canvas.appendChild(polygon);
+		var path = map.addPath(contours[i]);
+		// (function (i) {
+		// 	path.addEventListener('click', function () {
+		// 		alert('You clicked ' + i);
+		// 	});
+		// })(i);
 	}
 
-	var btn = document.getElementById('zoom_in');
-	var x1 = document.getElementById('x1'),
-		y1 = document.getElementById('y1'),
-		x2 = document.getElementById('x2'),
-		y2 = document.getElementById('y2');
+	map.initialize();
 
-	btn.addEventListener('click', function () {
-		var dimensions = canvas.getBBox();
+	var scale = 0,
+		zoomIn = document.getElementById('zoom_in'),
+		zoomOut = document.getElementById('zoom_out');
 
-		canvas.setAttribute('viewBox', dimensions.x + ' ' + dimensions.y + ' ' + dimensions.width + ' ' + dimensions.height);
-		// canvas.setAttribute('viewBox', x1.value + ' ' + y1.value + ' ' + x2.value + ' ' + y2.value);
+	zoomIn.addEventListener('click', function () {
+		scale--;
+		map.setScale(scale);
+	});
+
+	zoomOut.addEventListener('click', function () {
+		scale++;
+		map.setScale(scale);
 	});
 };
