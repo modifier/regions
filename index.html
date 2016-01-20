@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<style>
+		body {
+			background: #acc;
+		}
+		</style>
+	</head>
+	<body>
+		<div><button id="zoom_in">Zoom in</button></div>
+		<div>X: <input type="range" min="-200" max="1200" value="0" id="x1" /></div>
+		<div>Y: <input type="range" min="-200" max="1200" value="0" id="y1" /></div>
+		<div>X2: <input type="range" min="-200" max="1200" value="1200" id="x2" /></div>
+		<div>Y2: <input type="range" min="-200" max="1200" value="1200" id="y2" /></div>
+		<svg id="svg_path" width="500" height="500" style="border: 1px #000 solid;"></svg>
+		<script src="contours.js"></script>
+		<script src="script.js"></script>
+	</body>
+</html>
