@@ -1,23 +1,29 @@
 <!DOCTYPE html>
 <html>
 	<head>
-		<style>
-		body {
-			background: #acc;
-		}
-
-		#svg_path {
-			cursor: default;
-		}
-		</style>
+		<title>Регионализм в Европе</title>
+		<link href="style.css" rel="stylesheet" />
+		<meta charset="utf-8" />
 	</head>
 	<body>
-		<div>
-			<button id="zoom_in">Zoom in</button>
-			<button id="zoom_out">Zoom out</button>
+		<div class="container">
+			<div class="map-container">
+				<svg id="svg_path" width="1200" height="800"></svg>
+			</div>
+			<div class="details-container hidden" id="details">
+				<img src="https://upload.wikimedia.org/wikipedia/en/thumb/4/4c/Flag_of_Sweden.svg/1600px-Flag_of_Sweden.svg.png" class="flag" alt="Флаг Швеции" />
+				<h2>Швеция</h2>
+				<div class="data"><b>Столица:</b> Стокгольм</div>
+				<div class="data"><b>Население:</b> 10 млн. человек</div>
+				<div class="data"><b>Крупнейшие города:</b> Стокгольм, Гётеборг, Мальмё</div>
+				<div class="data"><b>ВВП:</b> 400 млрд. долларов</div>
+				<div class="data"><b>ВВП на душу населения:</b> 40 тыс. долларов</div>
+				<div class="data"><b>Соседние государства:</b> Норвегия, Дания, Финляндия</data>
+			</div>
 		</div>
-		<svg id="svg_path" width="1000" height="800" style="border: 1px #000 solid;"></svg>
 		<script src="svg_map.js"></script>
+		<script src="data.js"></script>
+		<script src="details.js"></script>
 		<script src="contours.js"></script>
 		<script src="script.js"></script>
 	</body>

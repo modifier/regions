@@ -1,29 +1,16 @@
 window.onload = function () {
-	var canvas = document.getElementById('svg_path'),
-		map = new SvgMap(canvas);
+	var details = new Details(document.getElementById('details')),
+		map = new SvgMap(document.getElementById('svg_path')),
+		$name = document.getElementById('name');
 
-	for (var i in contours) {
-		var path = map.addPath(contours[i]);
-		// (function (i) {
-		// 	path.addEventListener('click', function () {
-		// 		alert('You clicked ' + i);
-		// 	});
-		// })(i);
+	for (var country in contours) {
+		var path = map.addPath(contours[country]);
+		(function (country) {
+			path.addEventListener('click', function () {
+				details.renderCountry(country);
+			});
+		})(country);
 	}
 
 	map.initialize();
-
-	var scale = 0,
-		zoomIn = document.getElementById('zoom_in'),
-		zoomOut = document.getElementById('zoom_out');
-
-	zoomIn.addEventListener('click', function () {
-		scale--;
-		map.setScale(scale);
-	});
-
-	zoomOut.addEventListener('click', function () {
-		scale++;
-		map.setScale(scale);
-	});
 };

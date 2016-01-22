@@ -1,8 +1,13 @@
+// todo: correct zooming
+// todo: coloring
+// todo: capitals and country names
+
 var SvgMap = function ($map) {
 	this.$map = $map;
 	this.scale = 0;
 	this.paths = [];
 	this.position = [0, 0];
+	this.scaleQuantum = 0.5;
 };
 
 SvgMap.prototype.addPath = function (path) {
@@ -19,7 +24,6 @@ SvgMap.prototype.addPath = function (path) {
 };
 
 SvgMap.prototype.initialize = function () {
-	this.setDimensions();
 	this.setBounds();
 	this.attachEvents();
 	this.resetViewport();
@@ -39,11 +43,11 @@ SvgMap.prototype.setDimensions = function () {
 };
 
 SvgMap.prototype.setBounds = function () {
-	var dimensions = this.$map.getBBox();
+	this.setDimensions();
 
 	this.bounds = {
-		x: [dimensions.x, dimensions.width - this.getScaledWidth() + dimensions.x],
-		y: [dimensions.y, dimensions.height - this.getScaledHeight() + dimensions.y]
+		x: [this.dimensions.x1, this.dimensions.x2 - this.getScaledWidth() + this.dimensions.x1],
+		y: [this.dimensions.y1, this.dimensions.y2 - this.getScaledHeight() + this.dimensions.y1]
 	};
 };
 
@@ -59,13 +63,19 @@ SvgMap.prototype.setScale = function (scale) {
 	this.scale = scale;
 
 	// hello I'm tech debt. In order to make correct scaling I need to recalculate center
-	this.position[0] += this.getScaledWidth();
-	this.position[1] += this.getScaledHeight();
+	// this.position[0] += this.getScaledWidth();
+	// this.position[1] += this.getScaledHeight();
 
-	console.log(this.position);
+	this.setBounds();
+
+	if (this.dimensions.x2 < this.getScaledWidth()
+		|| this.dimensions.y2 < this.getScaledHeight()) {
+		this.setScale(scale - this.scaleQuantum);
+
+		return;
+	}
 
 	this.resetViewport();
-	this.setBounds();
 };
 
 function clamp (value, bounds) {
@@ -97,13 +107,13 @@ SvgMap.prototype.attachEvents = function () {
 		that.currentEvent = e;
 	});
 
-	this.$map.addEventListener('mousemove', function (e) {
+	window.addEventListener('mousemove', function (e) {
 		if (that.currentEvent) {
 			that.recalculateViewport(e);
 		}
 	});
 
-	this.$map.addEventListener('mouseup', function (e) {
+	window.addEventListener('mouseup', function (e) {
 		if (that.currentEvent) {
 			that.recalculateViewport(e);
 
@@ -113,9 +123,9 @@ SvgMap.prototype.attachEvents = function () {
 
 	this.$map.addEventListener('wheel', function (e) {
 		if (e.wheelDeltaY < 0) {
-			that.setScale(that.scale + 1);
+			that.setScale(that.scale + that.scaleQuantum);
 		} else if (e.wheelDeltaY > 0) {
-			that.setScale(that.scale - 1);
+			that.setScale(that.scale - that.scaleQuantum);
 		}
 	});
 };
