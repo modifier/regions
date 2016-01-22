@@ -42,13 +42,27 @@ SvgMap.prototype.setBounds = function () {
 	var dimensions = this.$map.getBBox();
 
 	this.bounds = {
-		x: [dimensions.x, dimensions.width - this.width * Math.pow(2, this.scale) + dimensions.x],
-		y: [dimensions.y, dimensions.height - this.height * Math.pow(2, this.scale) + dimensions.y]
+		x: [dimensions.x, dimensions.width - this.getScaledWidth() + dimensions.x],
+		y: [dimensions.y, dimensions.height - this.getScaledHeight() + dimensions.y]
 	};
+};
+
+SvgMap.prototype.getScaledWidth = function () {
+	return this.width * Math.pow(2, this.scale);
+};
+
+SvgMap.prototype.getScaledHeight = function () {
+	return this.height * Math.pow(2, this.scale);
 };
 
 SvgMap.prototype.setScale = function (scale) {
 	this.scale = scale;
+
+	// hello I'm tech debt. In order to make correct scaling I need to recalculate center
+	this.position[0] += this.getScaledWidth();
+	this.position[1] += this.getScaledHeight();
+
+	console.log(this.position);
 
 	this.resetViewport();
 	this.setBounds();
@@ -62,7 +76,7 @@ SvgMap.prototype.resetViewport = function () {
 	this.position[0] = clamp(this.position[0], this.bounds.x);
 	this.position[1] = clamp(this.position[1], this.bounds.y);
 
-	this.$map.setAttribute('viewBox', [this.position[0], this.position[1], this.width * Math.pow(2, this.scale), this.height * Math.pow(2, this.scale)].join(' '));
+	this.$map.setAttribute('viewBox', [this.position[0], this.position[1], this.getScaledWidth(), this.getScaledHeight()].join(' '));
 };
 
 SvgMap.prototype.recalculateViewport = function (e) {
