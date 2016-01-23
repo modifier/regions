@@ -107,7 +107,7 @@ var data = {
 	},
 	"denmark": {
 		"name": "Дания",
-		"neighbors": ["sweden", "bornholm", "slezvig"]
+		"neighbors": ["sweden", "bornholm", "slezvig", "skaneland"]
 	},
 	"flanders": {
 		"name": "Фландрия",
@@ -157,4 +157,12 @@ var data = {
 		"name": "Валлония",
 		"neighbors": ["luxemburg", "flanders", "france", "germany", "netherlands"]
 	},
+	"portugal": {
+		"name": "Португалия",
+		"neighbors": ["@TODO"]
+	},
+	"novorussia": {
+		"name": "Новороссия",
+		"neighbors": ["@TODO"]
+	}
 };
