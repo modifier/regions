@@ -101,4 +101,60 @@ var data = {
 		"name": "Сконеланд",
 		"neighbors": ["sweden", "denmark", "bornholm"]
 	},
+	"belarus": {
+		"name": "Беларусь",
+		"neighbors": ["russia", "lithuania", "latgalia", "ukraine", "latvia"]
+	},
+	"denmark": {
+		"name": "Дания",
+		"neighbors": ["sweden", "bornholm", "slezvig"]
+	},
+	"flanders": {
+		"name": "Фландрия",
+		"neighbors": ["netherlands", "wallonia", "france"]
+	},
+	"frisia": {
+		"name": "Фризия",
+		"neighbors": ["germany", "slezvig", "netherlands"]
+	},
+	"germany": {
+		"name": "Германия",
+		"neighbors": ["poland", "netherlands", "frisia", "wallonia", "luxemburg", "france", "alsace", "bawaria", "switzerland", "czech"]
+	},
+	"ireland": {
+		"name": "Ирландия",
+		"neighbors": ["ulster", "scotland", "wales"]
+	},
+	"luxemburg": {
+		"name": "Люксембург",
+		"neighbors": ["wallonia", "france", "germany"]
+	},
+	"isle_of_man": {
+		"name": "Остров Мэн",
+		"neighbors": ["ulster", "ireland", "scotland"]
+	},
+	"netherlands": {
+		"name": "Нидерланды",
+		"neighbors": ["frisia", "flanders", "france", "germany"]
+	},
+	"poland": {
+		"name": "Польша",
+		"neighbors": ["prussia", "silezia", "slovakia", "czech", "germany", "lithuania", "belarus", "ukraine"]
+	},
+	"scotland": {
+		"name": "Шотландия",
+		"neighbors": ["@TODO: POPULATE"]
+	},
+	"slezvig": {
+		"name": "Шлезвиг",
+		"neighbors": ["denmark", "germany"]
+	},
+	"ulster": {
+		"name": "Ульстер",
+		"neighbors": ["ireland", "scotland", "isle_of_man"]
+	},
+	"wallonia": {
+		"name": "Валлония",
+		"neighbors": ["luxemburg", "flanders", "france", "germany", "netherlands"]
+	},
 };
