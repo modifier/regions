@@ -23,9 +23,8 @@ SvgMap.prototype.addPath = function (path, color) {
 };
 
 SvgMap.prototype.initialize = function () {
-	this.setBounds();
 	this.attachEvents();
-	this.resetViewport();
+	this.onResize();
 };
 
 SvgMap.prototype.setDimensions = function () {
@@ -60,24 +59,15 @@ SvgMap.prototype.getScaledHeight = function () {
 
 SvgMap.prototype.setScale = function (scale) {
 	this.scale = scale;
-
-	// hello I'm tech debt. In order to make correct scaling I need to recalculate center
-	// this.position[0] += this.getScaledWidth();
-	// this.position[1] += this.getScaledHeight();
-
 	this.setBounds();
-
-	if (this.dimensions.x2 < this.getScaledWidth()
-		|| this.dimensions.y2 < this.getScaledHeight()) {
-		this.setScale(scale - this.scaleQuantum);
-
-		return;
-	}
-
 	this.resetViewport();
 };
 
 function clamp (value, bounds) {
+	if (bounds[0] > bounds[1]) {
+		return bounds[0];
+	}
+
 	return value < bounds[0] ? bounds[0] : (value > bounds[1] ? bounds[1] : value);
 }
 
@@ -127,4 +117,22 @@ SvgMap.prototype.attachEvents = function () {
 			that.setScale(that.scale - that.scaleQuantum);
 		}
 	});
+
+	window.addEventListener('resize', function () {
+		that.onResize();
+	});
+};
+
+SvgMap.prototype.onResize = function () {
+	var width = window.innerWidth,
+		height = window.innerHeight;
+
+	this.width = width - 410;
+	this.height = height - 45;
+
+	this.$map.setAttribute('width', this.width);
+	this.$map.setAttribute('height', this.height);
+
+	this.setBounds();
+	this.resetViewport();
 };
