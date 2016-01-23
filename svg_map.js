@@ -58,7 +58,17 @@ SvgMap.prototype.getScaledHeight = function () {
 };
 
 SvgMap.prototype.setScale = function (scale) {
+	var widthBefore = this.getScaledWidth(),
+		heightBefore = this.getScaledHeight();
+
 	this.scale = scale;
+
+	var widthAfter = this.getScaledWidth(),
+		heightAfter = this.getScaledHeight();
+
+	this.position[0] += widthBefore / 2 - widthAfter / 2;
+	this.position[1] += heightBefore / 2 - heightAfter / 2;
+
 	this.setBounds();
 	this.resetViewport();
 };
@@ -127,7 +137,7 @@ SvgMap.prototype.onResize = function () {
 	var width = window.innerWidth,
 		height = window.innerHeight;
 
-	this.width = width - 410;
+	this.width = width - 460;
 	this.height = height - 45;
 
 	this.$map.setAttribute('width', this.width);
