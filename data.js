@@ -6,11 +6,11 @@ var data = {
 		"large_cities": ["Хельсинки", "Эспоо", "Тампере"],
 		"gdp": "",
 		"flag": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/bc/Flag_of_Finland.svg/800px-Flag_of_Finland.svg.png",
-		"neighbors": ["karelia", "sweden", "ingria", "russia", "norway", "saami"]
+		"neighbors": ["karelia", "sweden", "ingria", "russia", "norway", "sapmi"]
 	},
-	"saami": {
-		"name": "Саамы",
-		"population": "",
+	"sapmi": {
+		"name": "Лапландия",
+		"population": "2M",
 		"capital": "",
 		"large_cities": ["Мурманск", "Умео", "Тромсё"],
 		"gdp": "",
@@ -24,7 +24,7 @@ var data = {
 		"large_cities": ["Осло", "Берген", "Тронхейм"],
 		"gdp": "",
 		"flag": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d9/Flag_of_Norway.svg/800px-Flag_of_Norway.svg.png",
-		"neighbors": ["karelia", "finland", "saami", "russia"]
+		"neighbors": ["karelia", "finland", "sapmi", "russia", "sweden"]
 	},
 	"sweden": {
 		"name": "Швеция",
@@ -33,7 +33,7 @@ var data = {
 		"large_cities": ["Стокгольм", "Гётеборг", "Мальмё"],
 		"gdp": "",
 		"flag": "https://upload.wikimedia.org/wikipedia/en/thumb/4/4c/Flag_of_Sweden.svg/1600px-Flag_of_Sweden.svg.png",
-		"neighbors": ["karelia", "finland", "saami", "russia"]
+		"neighbors": ["karelia", "finland", "sapmi", "russia", "norway"]
 	},
 	"iceland": {
 		"name": "Исландия",
@@ -42,7 +42,7 @@ var data = {
 		"large_cities": ["Рейкьявик", "Коупавогюр"],
 		"gdp": "12.4B",
 		"flag": "https://upload.wikimedia.org/wikipedia/en/thumb/4/4c/Flag_of_Sweden.svg/1600px-Flag_of_Sweden.svg.png",
-		"neighbors": ["karelia", "finland", "saami", "russia"]
+		"neighbors": ["karelia", "finland", "sapmi", "russia"]
 	},
 	"ingria": {
 		"name": "Ингерманландия",
@@ -60,6 +60,6 @@ var data = {
 		"large_cities": ["Петрозаводск", "Кондопога"],
 		"gdp": "",
 		"flag": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/69/Flag_of_Karelia.svg/324px-Flag_of_Karelia.svg.png",
-		"neighbors": ["karelia", "finland", "saami", "russia"]
+		"neighbors": ["karelia", "finland", "sapmi", "russia"]
 	}
 };

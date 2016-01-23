@@ -1,5 +1,4 @@
 // todo: correct zooming
-// todo: coloring
 // todo: capitals and country names
 
 var SvgMap = function ($map) {
@@ -10,12 +9,12 @@ var SvgMap = function ($map) {
 	this.scaleQuantum = 0.5;
 };
 
-SvgMap.prototype.addPath = function (path) {
+SvgMap.prototype.addPath = function (path, color) {
 	var polygon = document.createElementNS('http://www.w3.org/2000/svg', 'path');
 	polygon.setAttributeNS(null, 'd', path);
 	polygon.setAttributeNS(null, 'stroke', 'black');
 	polygon.setAttributeNS(null, 'stroke-width', '1');
-	polygon.setAttributeNS(null, 'fill', '#f00');
+	polygon.setAttributeNS(null, 'fill', color);
 
 	this.$map.appendChild(polygon);
 	this.paths.push(polygon);

@@ -42,7 +42,7 @@ Details.prototype.renderCountry = function (name) {
 
 	clearContainer(this.$container);
 	for (var key in elements) {
-		if (elements[key] === null) {
+		if (elements[key] === null || !elements.hasOwnProperty(key)) {
 			continue;
 		}
 
