@@ -1,4 +1,3 @@
-// todo: correct zooming
 // todo: capitals and country names
 
 var SvgMap = function ($map) {
@@ -57,7 +56,10 @@ SvgMap.prototype.getScaledHeight = function () {
 	return this.height * Math.pow(2, this.scale);
 };
 
-SvgMap.prototype.setScale = function (scale) {
+SvgMap.prototype.setScale = function (scale, positionX, positionY) {
+	var offsetX = positionX ? positionX / this.width : 0.5;
+	var offsetY = positionY ? positionY / this.height : 0.5;
+
 	var widthBefore = this.getScaledWidth(),
 		heightBefore = this.getScaledHeight();
 
@@ -66,8 +68,8 @@ SvgMap.prototype.setScale = function (scale) {
 	var widthAfter = this.getScaledWidth(),
 		heightAfter = this.getScaledHeight();
 
-	this.position[0] += widthBefore / 2 - widthAfter / 2;
-	this.position[1] += heightBefore / 2 - heightAfter / 2;
+	this.position[0] += widthBefore * offsetX - widthAfter * offsetX;
+	this.position[1] += heightBefore * offsetY - heightAfter * offsetY;
 
 	this.setBounds();
 	this.resetViewport();
@@ -122,9 +124,9 @@ SvgMap.prototype.attachEvents = function () {
 
 	this.$map.addEventListener('wheel', function (e) {
 		if (e.wheelDeltaY < 0) {
-			that.setScale(that.scale + that.scaleQuantum);
+			that.setScale(that.scale + that.scaleQuantum, e.offsetX, e.offsetY);
 		} else if (e.wheelDeltaY > 0) {
-			that.setScale(that.scale - that.scaleQuantum);
+			that.setScale(that.scale - that.scaleQuantum, e.offsetX, e.offsetY);
 		}
 	});
 

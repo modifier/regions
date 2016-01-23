@@ -33,7 +33,7 @@ var data = {
 		"large_cities": ["Стокгольм", "Гётеборг", "Мальмё"],
 		"gdp": "",
 		"flag": "https://upload.wikimedia.org/wikipedia/en/thumb/4/4c/Flag_of_Sweden.svg/1600px-Flag_of_Sweden.svg.png",
-		"neighbors": ["sapmi", "norway"]
+		"neighbors": ["sapmi", "norway", "estonia"]
 	},
 	"iceland": {
 		"name": "Исландия",
@@ -72,7 +72,7 @@ var data = {
 	},
 	"estonia": {
 		"name": "Эстония",
-		"neighbors": ["ingria", "finland", "russia"]
+		"neighbors": ["ingria", "finland", "russia", "sweden"]
 	},
 	"faroe": {
 		"name": "Фареры"
