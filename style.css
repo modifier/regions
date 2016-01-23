@@ -8,9 +8,13 @@ body {
 	border: 1px #999 solid;
 }
 
+.container {
+	font-size: 0;
+	white-space: nowrap;
+}
+
 .map-container {
 	display: inline-block;
-	width: 900px;
 }
 
 .details-container {

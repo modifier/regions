@@ -6,7 +6,7 @@ var data = {
 		"large_cities": ["Хельсинки", "Эспоо", "Тампере"],
 		"gdp": "",
 		"flag": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/bc/Flag_of_Finland.svg/800px-Flag_of_Finland.svg.png",
-		"neighbors": ["karelia", "sweden", "ingria", "russia", "norway", "sapmi"]
+		"neighbors": ["karelia", "ingria", "sapmi"]
 	},
 	"sapmi": {
 		"name": "Лапландия",
@@ -24,7 +24,7 @@ var data = {
 		"large_cities": ["Осло", "Берген", "Тронхейм"],
 		"gdp": "",
 		"flag": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d9/Flag_of_Norway.svg/800px-Flag_of_Norway.svg.png",
-		"neighbors": ["karelia", "finland", "sapmi", "russia", "sweden"]
+		"neighbors": ["karelia", "sapmi", "sweden"]
 	},
 	"sweden": {
 		"name": "Швеция",
@@ -33,7 +33,7 @@ var data = {
 		"large_cities": ["Стокгольм", "Гётеборг", "Мальмё"],
 		"gdp": "",
 		"flag": "https://upload.wikimedia.org/wikipedia/en/thumb/4/4c/Flag_of_Sweden.svg/1600px-Flag_of_Sweden.svg.png",
-		"neighbors": ["karelia", "finland", "sapmi", "russia", "norway"]
+		"neighbors": ["sapmi", "norway"]
 	},
 	"iceland": {
 		"name": "Исландия",
@@ -41,8 +41,8 @@ var data = {
 		"capital": "	Рейкьявик",
 		"large_cities": ["Рейкьявик", "Коупавогюр"],
 		"gdp": "12.4B",
-		"flag": "https://upload.wikimedia.org/wikipedia/en/thumb/4/4c/Flag_of_Sweden.svg/1600px-Flag_of_Sweden.svg.png",
-		"neighbors": ["karelia", "finland", "sapmi", "russia"]
+		"flag": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/ce/Flag_of_Iceland.svg/1920px-Flag_of_Iceland.svg.png",
+		"neighbors": []
 	},
 	"ingria": {
 		"name": "Ингерманландия",
@@ -60,6 +60,45 @@ var data = {
 		"large_cities": ["Петрозаводск", "Кондопога"],
 		"gdp": "",
 		"flag": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/69/Flag_of_Karelia.svg/324px-Flag_of_Karelia.svg.png",
-		"neighbors": ["karelia", "finland", "sapmi", "russia"]
-	}
+		"neighbors": ["finland", "sapmi", "russia"]
+	},
+	"aland": {
+		"name": "Аланды",
+		"neighbors": ["finland", "sweden", "skaneland"]
+	},
+	"bornholm": {
+		"name": "Борнхольм",
+		"neighbors": ["finland", "sweden", "skaneland", "denmark"]
+	},
+	"estonia": {
+		"name": "Эстония",
+		"neighbors": ["ingria", "finland", "russia"]
+	},
+	"faroe": {
+		"name": "Фареры"
+	},
+	"latgalia": {
+		"name": "Латгалия",
+		"neighbors": ["estonia", "latvia", "russia", "belarus"]
+	},
+	"latvia": {
+		"name": "Латвия",
+		"neighbors": ["estonia", "latgalia", "belarus", "samogitia", "lithuania"]
+	},
+	"lithuania": {
+		"name": "Литва",
+		"neighbors": ["samogitia", "prussia", "latvia", "belarus"]
+	},
+	"prussia": {
+		"name": "Пруссия",
+		"neighbors": ["samogitia", "lithuania", "poland"]
+	},
+	"samogitia": {
+		"name": "Самогития",
+		"neighbors": ["lithuania", "latvia", "prussia"]
+	},
+	"skaneland": {
+		"name": "Сконеланд",
+		"neighbors": ["sweden", "denmark", "bornholm"]
+	},
 };
