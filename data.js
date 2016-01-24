@@ -143,7 +143,7 @@ var data = {
 	},
 	"scotland": {
 		"name": "Шотландия",
-		"neighbors": ["@TODO: POPULATE"]
+		"neighbors": ["england", "ulster", "isle_of_man"]
 	},
 	"slezvig": {
 		"name": "Шлезвиг",
@@ -164,5 +164,33 @@ var data = {
 	"novorussia": {
 		"name": "Новороссия",
 		"neighbors": ["@TODO"]
-	}
+	},
+	"cornwall": {
+		"name": "Корнуолл",
+		"neighbors": []
+	},
+	"devon": {
+		"name": "Девон",
+		"neighbors": ["cornwall", "wessex"]
+	},
+	"england": {
+		"name": "Англия",
+		"neighbors": ["wales", "wessex", "isle_of_wight", "isle_of_man", "yorkshire", "scotland"]
+	},
+	"wales": {
+		"name": "Уэльс",
+		"neighbors": ["england", "ireland", "isle_of_man", "wessex"]
+	},
+	"wessex": {
+		"name": "Уэссекс",
+		"neighbors": ["england", "isle_of_wight", "wales", "devon"]
+	},
+	"isle_of_wight": {
+		"name": "Остров Уайт",
+		"neighbors": ["england", "wessex"]
+	},
+	"yorkshire": {
+		"name": "Йоркшир",
+		"neighbors": ["england"]
+	},
 };
