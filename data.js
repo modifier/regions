@@ -94,7 +94,7 @@ var data = {
 		"neighbors": ["samogitia", "lithuania", "poland"]
 	},
 	"samogitia": {
-		"name": "Самогития",
+		"name": "Жемайтия",
 		"neighbors": ["lithuania", "latvia", "prussia"]
 	},
 	"skaneland": {

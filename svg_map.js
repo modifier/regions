@@ -1,14 +1,13 @@
-// todo: capitals and country names
-
 var SvgMap = function ($map) {
 	this.$map = $map;
 	this.scale = 0;
 	this.paths = [];
+	this.labels = [];
 	this.position = [0, 0];
 	this.scaleQuantum = 0.5;
 };
 
-SvgMap.prototype.addPath = function (path, color) {
+SvgMap.prototype.addPath = function (path, color, label) {
 	var polygon = document.createElementNS('http://www.w3.org/2000/svg', 'path');
 	polygon.setAttributeNS(null, 'd', path);
 	polygon.setAttributeNS(null, 'stroke', 'black');
@@ -16,7 +15,10 @@ SvgMap.prototype.addPath = function (path, color) {
 	polygon.setAttributeNS(null, 'fill', color);
 
 	this.$map.appendChild(polygon);
-	this.paths.push(polygon);
+	this.paths.push({
+		path: polygon,
+		label: label
+	});
 
 	return polygon;
 };
@@ -46,6 +48,8 @@ SvgMap.prototype.setBounds = function () {
 		x: [this.dimensions.x1, this.dimensions.x2 - this.getScaledWidth() + this.dimensions.x1],
 		y: [this.dimensions.y1, this.dimensions.y2 - this.getScaledHeight() + this.dimensions.y1]
 	};
+
+	this.checkLabels();
 };
 
 SvgMap.prototype.getScaledWidth = function () {
@@ -147,4 +151,37 @@ SvgMap.prototype.onResize = function () {
 
 	this.setBounds();
 	this.resetViewport();
+};
+
+// add possibility to manually override position of label
+// source: http://stackoverflow.com/questions/10992691/how-to-place-text-in-the-center-of-an-svg-path
+SvgMap.prototype.checkLabels = function () {
+	for (var i = 0; i < this.labels.length; i++) {
+		this.$map.removeChild(this.labels[i]);
+	}
+
+	this.labels = [];
+
+	for (var i = 0; i < this.paths.length; i++) {
+		var obj = this.paths[i],
+			sizes = obj.path.getBBox();
+
+		var text = document.createElementNS('http://www.w3.org/2000/svg', 'text');
+		text.textContent = obj.label.toUpperCase();
+		text.setAttribute('fill', '#666');
+		text.setAttribute('font-size', 13 * Math.pow(2, this.scale));
+		text.setAttribute('font-family', 'Tahoma, sans-serif');
+		text.setAttribute('font-weight', 'bold');
+		this.$map.appendChild(text);
+
+		var ownSizes = text.getBBox();
+		if (ownSizes.width > sizes.width / 2) {
+			this.$map.removeChild(text);
+
+			continue;
+		}
+
+		text.setAttribute('transform', 'translate(' + (sizes.x + sizes.width / 2 - ownSizes.width / 2) + ' ' + (sizes.y + sizes.height / 2) +')');
+		this.labels.push(text);
+	}
 };

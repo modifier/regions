@@ -6,7 +6,7 @@ window.onload = function () {
 	graphColoring();
 
 	for (var country in contours) {
-		var path = map.addPath(contours[country], data[country].color);
+		var path = map.addPath(contours[country], data[country].color, data[country].name);
 		(function (country) {
 			path.addEventListener('click', function () {
 				details.renderCountry(country);
