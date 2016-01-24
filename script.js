@@ -17,7 +17,7 @@ window.onload = function () {
 	map.initialize();
 };
 
-var colors = ['#FFFBE7', '#F6FFEC', '#FFFCFF', '#FFF3EF'];
+var colors = ['#FFFBE7', '#F6FFEC', '#FFFCFF', '#FFF3EF', '#FFF4EB'];
 function getAvailableColor (country) {
 	var neighbors = data[country].neighbors;
 

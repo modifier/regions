@@ -119,7 +119,7 @@ var data = {
 	},
 	"germany": {
 		"name": "Германия",
-		"neighbors": ["poland", "netherlands", "frisia", "wallonia", "luxemburg", "france", "alsace", "bawaria", "switzerland", "czech"]
+		"neighbors": ["poland", "netherlands", "frisia", "wallonia", "luxemburg", "france", "alsace", "bavaria", "switzerland", "czech"]
 	},
 	"ireland": {
 		"name": "Ирландия",
@@ -139,7 +139,7 @@ var data = {
 	},
 	"poland": {
 		"name": "Польша",
-		"neighbors": ["prussia", "silezia", "slovakia", "czech", "germany", "lithuania", "belarus", "ukraine"]
+		"neighbors": ["prussia", "germany", "czech", "silesia", "moravia", "slovakia", "ukraine", "belarus", "lithuania"]
 	},
 	"scotland": {
 		"name": "Шотландия",
@@ -163,11 +163,11 @@ var data = {
 	},
 	"novorussia": {
 		"name": "Новороссия",
-		"neighbors": ["@TODO"]
+		"neighbors": ["russia", "ukraine"]
 	},
 	"cornwall": {
 		"name": "Корнуолл",
-		"neighbors": []
+		"neighbors": ["devon"]
 	},
 	"devon": {
 		"name": "Девон",
@@ -192,5 +192,41 @@ var data = {
 	"yorkshire": {
 		"name": "Йоркшир",
 		"neighbors": ["england"]
+	},
+	"bavaria": {
+		"name": "Бавария",
+		"neighbors": ["germany", "czech", "austria"]
+	},
+	"czech": {
+		"name": "Чехия",
+		"neighbors": ["germany", "bavaria", "austria", "moravia", "poland"]
+	},
+	"crimea": {
+		"name": "Крым",
+		"neighbors": ["ukraine"]
+	},
+	"hungary": {
+		"name": "Венгрия",
+		"neighbors": ["slovakia", "austria", "ruthenia", "romania", "slovenia", "croatia", "vojvodina"]
+	},
+	"moravia": {
+		"name": "Моравия",
+		"neighbors": ["slovakia", "silesia", "czech", "austria"]
+	},
+	"ruthenia": {
+		"name": "Закарпатье",
+		"neighbors": ["ukraine", "poland", "slovakia", "hungary", "romania"]
+	},
+	"silesia": {
+		"name": "Силезия",
+		"neighbors": ["poland", "czech", "moravia", "slovakia"]
+	},
+	"slovakia": {
+		"name": "Словакия",
+		"neighbors": ["poland", "silesia", "moravia", "austria", "hungary", "ruthenia"]
+	},
+	"ukraine": {
+		"name": "Украина",
+		"neighbors": ["belarus", "poland", "ruthenia", "romania", "moldavia", "transnistria", "crimea", "novorussia", "russia"]
 	},
 };
