@@ -273,4 +273,20 @@ var data = {
 		"name": "Швейцария",
 		"neighbors": ["alsace", "france", "savoy", "austria", "lichtenstein", "germany", "@TODO"]
 	},
+	"balearic_islands": {
+		"name": "Балеарские острова",
+		"neighbors": ["@TODO"]
+	},
+	"outer_hebrides": {
+		"name": "Внешние Гербидские острова",
+		"neighbors": ["scotland"]
+	},
+	"orkney": {
+		"name": "Оркнейские острова",
+		"neighbors": ["scotland", "shetland"]
+	},
+	"shetland": {
+		"name": "Шетландские острова",
+		"neighbors": ["scotland", "orkney"]
+	},
 };
