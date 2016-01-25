@@ -167,11 +167,11 @@ var data = {
 	},
 	"cornwall": {
 		"name": "Корнуолл",
-		"neighbors": ["devon"]
+		"neighbors": ["devon", "channel_islands"]
 	},
 	"devon": {
 		"name": "Девон",
-		"neighbors": ["cornwall", "wessex"]
+		"neighbors": ["cornwall", "wessex", "channel_islands"]
 	},
 	"england": {
 		"name": "Англия",
@@ -183,11 +183,11 @@ var data = {
 	},
 	"wessex": {
 		"name": "Уэссекс",
-		"neighbors": ["england", "isle_of_wight", "wales", "devon"]
+		"neighbors": ["england", "isle_of_wight", "wales", "devon", "channel_islands"]
 	},
 	"isle_of_wight": {
 		"name": "Остров Уайт",
-		"neighbors": ["england", "wessex"]
+		"neighbors": ["england", "wessex", "channel_islands", "normandy"]
 	},
 	"yorkshire": {
 		"name": "Йоркшир",
@@ -228,5 +228,49 @@ var data = {
 	"ukraine": {
 		"name": "Украина",
 		"neighbors": ["belarus", "poland", "ruthenia", "romania", "moldavia", "transnistria", "crimea", "novorussia", "russia"]
+	},
+	"alsace": {
+		"name": "Эльзас",
+		"neighbors": ["germany", "france", "switzerland"]
+	},
+	"austria": {
+		"name": "Австрия",
+		"neighbors": ["south_tyrol", "carinthia", "slovenia", "hungary", "slovakia", "moravia", "czech", "bavaria", "germany", "lichtenstein", "switzerland"]
+	},
+	"britanny": {
+		"name": "Бретань",
+		"neighbors": ["france", "channel_islands", "normandy"]
+	},
+	"carinthia": {
+		"name": "Каринтия",
+		"neighbors": ["austria", "slovenia", "friuli"]
+	},
+	"channel_islands": {
+		"name": "Нормандские острова",
+		"neighbors": ["normandy", "britanny", "wessex", "devon", "cornwall", "isle_of_wight"]
+	},
+	"france": {
+		"name": "Франция",
+		"neighbors": ["england", "normandy", "britanny", "occitania", "savoy", "switzerland", "alsace", "germany", "luxemburg", "wallonia", "flanders"]
+	},
+	"lichtenstein": {
+		"name": "Лихтенштейн",
+		"neighbors": ["switzerland", "austria"]
+	},
+	"normandy": {
+		"name": "Нормандия",
+		"neighbors": ["isle_of_wight", "channel_islands", "britanny", "france"]
+	},
+	"occitania": {
+		"name": "Окситания",
+		"neighbors": ["france", "savoy", "@TODO"]
+	},
+	"savoy": {
+		"name": "Савойя",
+		"neighbors": ["france", "occitania", "switzerland", "@TODO"]
+	},
+	"switzerland": {
+		"name": "Швейцария",
+		"neighbors": ["alsace", "france", "savoy", "austria", "lichtenstein", "germany", "@TODO"]
 	},
 };
