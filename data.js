@@ -157,10 +157,6 @@ var data = {
 		"name": "Валлония",
 		"neighbors": ["luxemburg", "flanders", "france", "germany", "netherlands"]
 	},
-	"portugal": {
-		"name": "Португалия",
-		"neighbors": ["@TODO"]
-	},
 	"novorussia": {
 		"name": "Новороссия",
 		"neighbors": ["russia", "ukraine"]
@@ -275,7 +271,7 @@ var data = {
 	},
 	"balearic_islands": {
 		"name": "Балеарские острова",
-		"neighbors": ["@TODO"]
+		"neighbors": ["catalonia", "@TODO"]
 	},
 	"outer_hebrides": {
 		"name": "Внешние Гербидские острова",
@@ -289,4 +285,60 @@ var data = {
 		"name": "Шетландские острова",
 		"neighbors": ["scotland", "orkney"]
 	},
+	"andalusia": {
+		"name": "Андалусия",
+		"neighbors": ["portugal", "extermadura", "castile", "murcia"]
+	},
+	"andorra": {
+		"name": "Андорра",
+		"neighbors": ["catalonia", "occitania"]
+	},
+	"aragon": {
+		"name": "Арагон",
+		"neighbors": ["occitania", "basque", "catalonia", "castile", "valencia"]
+	},
+	"asturia": {
+		"name": "Астурия",
+		"neighbors": ["galicia", "leon", "cantabria"]
+	},
+	"basque": {
+		"name": "Баскония",
+		"neighbors": ["occitania", "aragon", "castile", "cantabria"]
+	},
+	"cantabria": {
+		"name": "Кантабрия",
+		"neighbors": ["basque", "castile", "leon", "asturia"]
+	},
+	"castile": {
+		"name": "Кастилия",
+		"neighbors": ["cantabria", "basque", "aragon", "valencia", "murcia", "andalusia", "extermadura", "leon", "balearic_islands"]
+	},
+	"catalonia": {
+		"name": "Каталония",
+		"neighbors": ["occitania", "andorra", "aragon", "valencia"]
+	},
+	"extermadura": {
+		"name": "Эстермадура",
+		"neighbors": ["portugal", "leon", "castile", "andalusia"]
+	},
+	"galicia": {
+		"name": "Галисия",
+		"neighbors": ["asturia", "leon", "portugal"]
+	},
+	"leon":  {
+		"name": "Леон",
+		"neighbors": ["galicia", "asturia", "cantabria", "castile", "andalusia", "portugal"]
+	},
+	"murcia": {
+		"name": "Мурсия",
+		"neighbors": ["andalusia", "castile", "valencia"]
+	},
+	"portugal": {
+		"name": "Португалия",
+		"neighbors": ["galicia", "leon", "extermadura", "andalusia"]
+	},
+	"valencia": {
+		"name": "Валенсия",
+		"neighbors": ["murcia", "castile", "aragon", "catalonia"]
+	}
 };
