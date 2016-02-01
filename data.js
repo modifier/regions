@@ -239,7 +239,7 @@ var data = {
 	},
 	"carinthia": {
 		"name": "Каринтия",
-		"neighbors": ["austria", "slovenia", "friuli"]
+		"neighbors": ["austria", "slovenia", "friuli-venezia_giulia"]
 	},
 	"channel_islands": {
 		"name": "Нормандские острова",
@@ -259,19 +259,19 @@ var data = {
 	},
 	"occitania": {
 		"name": "Окситания",
-		"neighbors": ["france", "savoy", "@TODO"]
+		"neighbors": ["france", "savoy", "padania", "liguria"]
 	},
 	"savoy": {
 		"name": "Савойя",
-		"neighbors": ["france", "occitania", "switzerland", "@TODO"]
+		"neighbors": ["france", "occitania", "switzerland", "padania"]
 	},
 	"switzerland": {
 		"name": "Швейцария",
-		"neighbors": ["alsace", "france", "savoy", "austria", "lichtenstein", "germany", "@TODO"]
+		"neighbors": ["alsace", "france", "savoy", "austria", "lichtenstein", "germany", "padania", "south_tyrol"]
 	},
 	"balearic_islands": {
 		"name": "Балеарские острова",
-		"neighbors": ["catalonia", "@TODO"]
+		"neighbors": ["catalonia", "sardinia"]
 	},
 	"outer_hebrides": {
 		"name": "Внешние Гербидские острова",
@@ -340,5 +340,45 @@ var data = {
 	"valencia": {
 		"name": "Валенсия",
 		"neighbors": ["murcia", "castile", "aragon", "catalonia"]
-	}
+	},
+	"corsica": {
+		"name": "Корсика",
+		"neighbors": ["liguria", "occitania", "padania", "italy", "sardinia"]
+	},
+	"friuli-venezia_giulia": {
+		"name": "Фриули-Венеция Джулия",
+		"neighbors": ["venetia", "carinthia", "austria", "@TODO"]
+	},
+	"italy": {
+		"name": "Италия",
+		"neighbors": ["padania", "corsica", "sardinia", "sicily"]
+	},
+	"liguria": {
+		"name": "Лигурия",
+		"neighbors": ["padania", "occitania", "corsica"]
+	},
+	"malta": {
+		"name": "Мальта",
+		"neighbors": ["sicily"]
+	},
+	"padania": {
+		"name": "Падания",
+		"neighbors": ["switzerland", "savoy", "occitania", "liguria", "corsica", "sardinia", "italy", "venetia", "south_tyrol"]
+	},
+	"sardinia": {
+		"name": "Сардиния",
+		"neighbors": ["corsica", "sicily", "balearic_islands"]
+	},
+	"sicily": {
+		"name": "Сицилия",
+		"neighbors": ["italy", "malta", "sardinia"]
+	},
+	"south_tyrol": {
+		"name": "Южный Тироль",
+		"neighbors": ["austria", "switzerland", "padania", "venetia", "carinthia"]
+	},
+	"venetia": {
+		"name": "Венеция",
+		"neighbors": ["south_tyrol", "padania", "friuli-venezia_giulia", "carinthia", "austria"]
+	},
 };
