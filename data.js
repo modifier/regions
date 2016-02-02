@@ -381,4 +381,100 @@ var data = {
 		"name": "Венеция",
 		"neighbors": ["south_tyrol", "padania", "friuli-venezia_giulia", "carinthia", "austria"]
 	},
+	"albania": {
+		"name": "Албания",
+		"neighbors": ["crna_gora", "sandzak", "kosovo", "fyrom", "northern_epirus"]
+	},
+	"bosnia": {
+		"name": "Босния",
+		"neighbors": ["croatia", "vojvodina", "serbia", "crna_gora", "sandzak"]
+	},
+	"bulgaria": {
+		"name": "Болгария",
+		"neighbors": ["romania", "turkey", "greece", "fyrom", "serbia"]
+	},
+	"crna_gora": {
+		"name": "Черногория",
+		"neighbors": ["croatia", "herzegovina", "bosnia", "sandzak", "albania"]
+	},
+	"croatia": {
+		"name": "Хорватия",
+		"neighbors": ["slovenia", "istria", "hungary", "vojvodina", "bosnia"]
+	},
+	"cyprus": {
+		"name": "Кипр",
+		"neighbors": ["trnc", "turkey", "greece"]
+	},
+	"fyrom": {
+		"name": "Македония",
+		"neighbors": ["kosovo", "serbia", "bulgaria", "greece", "northern_epirus", "albania"]
+	},
+	"gagauzia": {
+		"name": "Гагаузия",
+		"neighbors": ["moldavia", "transnistria", "ukraine", "romania"]
+	},
+	"greece": {
+		"name": "Греция",
+		"neighbors": ["northern_epirus", "fyrom", "bulgaria", "turkey", "cyprus"]
+	},
+	"herzegovina": {
+		"name": "Герцеговина",
+		"neighbors": ["croatia", "bosnia", "sandzak", "crna_gora"]
+	},
+	"istria": {
+		"name": "Истрия",
+		"neighbors": ["slovenia", "croatia"]
+	},
+	"kosovo": {
+		"name": "Косово",
+		"neighbors": ["sandzak", "serbia", "fyrom", "albania"]
+	},
+	"moldavia": {
+		"name": "Молдавия",
+		"neighbors": ["romania", "ukraine", "transnistria", "gagauzia"]
+	},
+	"northern_epirus": {
+		"name": "Северный Эпир",
+		"neighbors": ["albania", "fyrom", "greece"]
+	},
+	"romania": {
+		"name": "Румыния",
+		"neighbors": ["hungary", "ukraine", "moldavia", "gagauzia", "bulgaria", "serbia", "vojvodina"]
+	},
+	"russia": {
+		"name": "Россия",
+		"neighbors": ["karelia", "ingria", "estonia", "latgalia", "belarus", "ukraine", "novorussia", "crimea"]
+	},
+	"sandzak": {
+		"name": "Санджак",
+		"neighbors": ["bosnia", "serbia", "kosovo", "albania", "crna_gora", "herzegovina"]
+	},
+	"serbia": {
+		"name": "Сербия",
+		"neighbors": ["vojvodina", "romania", "bulgaria", "fyrom", "kosovo", "sandzak", "bosnia"]
+	},
+	"slovenia": {
+		"name": "Словения",
+		"neighbors": ["friuli-venezia_giulia", "carinthia", "austria", "hungary", "croatia", "istria"]
+	},
+	"szekely_land": {
+		"name": "Секейский край",
+		"neighbors": ["romania"]
+	},
+	"transnistria": {
+		"name": "Приднестровье",
+		"neighbors": ["ukraine", "moldavia", "gagauzia"]
+	},
+	"trnc": {
+		"name": "Турецкая Республика Северного Кипра",
+		"neighbors": ["turkey", "cyprus"]
+	},
+	"turkey": {
+		"name": "Турция",
+		"neighbors": ["bulgaria", "greece", "trnc", "cyprus"]
+	},
+	"vojvodina": {
+		"name": "Воеводина",
+		"neighbors": ["croatia", "hungary", "romania", "serbia", "bosnia"]
+	},
 };
