@@ -287,7 +287,7 @@ var data = {
 	},
 	"andalusia": {
 		"name": "Андалусия",
-		"neighbors": ["portugal", "extermadura", "castile", "murcia", "leon"]
+		"neighbors": ["portugal", "extermadura", "castile", "murcia", "leon", "marocco"]
 	},
 	"andorra": {
 		"name": "Андорра",
@@ -371,7 +371,7 @@ var data = {
 	},
 	"sicily": {
 		"name": "Сицилия",
-		"neighbors": ["italy", "malta", "sardinia"]
+		"neighbors": ["italy", "malta", "sardinia", "tunisia"]
 	},
 	"south_tyrol": {
 		"name": "Южный Тироль",
@@ -476,5 +476,17 @@ var data = {
 	"vojvodina": {
 		"name": "Воеводина",
 		"neighbors": ["croatia", "hungary", "romania", "serbia", "bosnia"]
+	},
+	"algeria": {
+		"name": "Алжир",
+		"neighbors": ["tunisia", "marocco"]
+	},
+	"marocco": {
+		"name": "Марокко",
+		"neighbors": ["algeria", "andalusia"]
+	},
+	"tunisia": {
+		"name": "Тунис",
+		"neighbors": ["algeria", "sicily"]
 	},
 };
