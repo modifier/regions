@@ -5,6 +5,7 @@ window.onload = function () {
 
 	graphColoring();
 	checkDataSymmetry();
+	map.setDimensions({x1: 450, y1: 10, x2: 2500, y2: 2500});
 
 	for (var country in contours) {
 		var path = map.addPath(contours[country], data[country].color, data[country].name);

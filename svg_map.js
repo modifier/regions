@@ -28,21 +28,13 @@ SvgMap.prototype.initialize = function () {
 	this.onResize();
 };
 
-SvgMap.prototype.setDimensions = function () {
-	var dimensions = this.$map.getBBox();
-	this.dimensions = {
-		x1: dimensions.x,
-		y1: dimensions.y,
-		x2: dimensions.width,
-		y2: dimensions.height
-	};
-
-	this.width = this.$map.width.baseVal.value;
-	this.height = this.$map.height.baseVal.value;
+SvgMap.prototype.setDimensions = function (dimensions) {
+	this.dimensions = dimensions;
 };
 
 SvgMap.prototype.setBounds = function () {
-	this.setDimensions();
+	this.width = this.$map.width.baseVal.value;
+	this.height = this.$map.height.baseVal.value;
 
 	this.bounds = {
 		x: [this.dimensions.x1, this.dimensions.x2 - this.getScaledWidth() + this.dimensions.x1],
