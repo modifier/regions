@@ -4,6 +4,7 @@ window.onload = function () {
 		$name = document.getElementById('name');
 
 	graphColoring();
+	checkDataSymmetry();
 
 	for (var country in contours) {
 		var path = map.addPath(contours[country], data[country].color, data[country].name);
@@ -51,5 +52,23 @@ Array.prototype.diff = function(a) {
 function graphColoring () {
 	for (var i in data) {
 		data[i].color = getAvailableColor(i);
+	}
+}
+
+function checkDataSymmetry() {
+	for (var i in data) {
+		var country = data[i];
+
+		for (var j in country.neighbors) {
+			if (!country.neighbors.hasOwnProperty(j)) {
+				continue;
+			}
+
+			var neighborName = country.neighbors[j];
+
+			if (data[neighborName].neighbors.indexOf(i) === -1) {
+				console.log(neighborName + ' does not contain its neighbor ' + i);
+			}
+		}
 	}
 }

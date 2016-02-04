@@ -6,7 +6,7 @@ var data = {
 		"large_cities": ["Хельсинки", "Эспоо", "Тампере"],
 		"gdp": "",
 		"flag": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/bc/Flag_of_Finland.svg/800px-Flag_of_Finland.svg.png",
-		"neighbors": ["karelia", "ingria", "sapmi"]
+		"neighbors": ["karelia", "ingria", "sapmi", "aland", "bornholm", "estonia"]
 	},
 	"sapmi": {
 		"name": "Лапландия",
@@ -24,7 +24,7 @@ var data = {
 		"large_cities": ["Осло", "Берген", "Тронхейм"],
 		"gdp": "",
 		"flag": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d9/Flag_of_Norway.svg/800px-Flag_of_Norway.svg.png",
-		"neighbors": ["karelia", "sapmi", "sweden"]
+		"neighbors": ["karelia", "sapmi", "sweden", "denmark"]
 	},
 	"sweden": {
 		"name": "Швеция",
@@ -33,7 +33,7 @@ var data = {
 		"large_cities": ["Стокгольм", "Гётеборг", "Мальмё"],
 		"gdp": "",
 		"flag": "https://upload.wikimedia.org/wikipedia/en/thumb/4/4c/Flag_of_Sweden.svg/1600px-Flag_of_Sweden.svg.png",
-		"neighbors": ["sapmi", "norway", "estonia"]
+		"neighbors": ["sapmi", "norway", "estonia", "aland", "bornholm", "skaneland"]
 	},
 	"iceland": {
 		"name": "Исландия",
@@ -51,7 +51,7 @@ var data = {
 		"large_cities": ["Санкт-Петербург", "Гатчина", "Выборг", "Сосновый Бор"],
 		"gdp": "",
 		"flag": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/30/Inkerin_lippu.svg/1020px-Inkerin_lippu.svg.png",
-		"neighbors": ["karelia", "finland", "russia"]
+		"neighbors": ["karelia", "finland", "russia", "estonia"]
 	},
 	"karelia": {
 		"name": "Карелия",
@@ -60,7 +60,7 @@ var data = {
 		"large_cities": ["Петрозаводск", "Кондопога"],
 		"gdp": "",
 		"flag": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/69/Flag_of_Karelia.svg/324px-Flag_of_Karelia.svg.png",
-		"neighbors": ["finland", "sapmi", "russia"]
+		"neighbors": ["finland", "sapmi", "russia", "norway", "ingria"]
 	},
 	"aland": {
 		"name": "Аланды",
@@ -72,7 +72,7 @@ var data = {
 	},
 	"estonia": {
 		"name": "Эстония",
-		"neighbors": ["ingria", "finland", "russia", "sweden"]
+		"neighbors": ["ingria", "finland", "russia", "sweden", "latgalia", "latvia"]
 	},
 	"faroe": {
 		"name": "Фареры"
@@ -87,7 +87,7 @@ var data = {
 	},
 	"lithuania": {
 		"name": "Литва",
-		"neighbors": ["samogitia", "prussia", "latvia", "belarus"]
+		"neighbors": ["samogitia", "prussia", "latvia", "belarus", "poland"]
 	},
 	"prussia": {
 		"name": "Пруссия",
@@ -99,15 +99,15 @@ var data = {
 	},
 	"skaneland": {
 		"name": "Сконеланд",
-		"neighbors": ["sweden", "denmark", "bornholm"]
+		"neighbors": ["sweden", "denmark", "bornholm", "aland"]
 	},
 	"belarus": {
 		"name": "Беларусь",
-		"neighbors": ["russia", "lithuania", "latgalia", "ukraine", "latvia"]
+		"neighbors": ["russia", "lithuania", "latgalia", "ukraine", "latvia", "poland"]
 	},
 	"denmark": {
 		"name": "Дания",
-		"neighbors": ["sweden", "bornholm", "slezvig", "skaneland"]
+		"neighbors": ["bornholm", "slezvig", "skaneland", "norway"]
 	},
 	"flanders": {
 		"name": "Фландрия",
@@ -119,11 +119,11 @@ var data = {
 	},
 	"germany": {
 		"name": "Германия",
-		"neighbors": ["poland", "netherlands", "frisia", "wallonia", "luxemburg", "france", "alsace", "bavaria", "switzerland", "czech"]
+		"neighbors": ["poland", "netherlands", "frisia", "wallonia", "luxemburg", "france", "alsace", "bavaria", "switzerland", "czech", "slezvig", "austria"]
 	},
 	"ireland": {
 		"name": "Ирландия",
-		"neighbors": ["ulster", "scotland", "wales"]
+		"neighbors": ["ulster", "scotland", "wales", "isle_of_man"]
 	},
 	"luxemburg": {
 		"name": "Люксембург",
@@ -131,23 +131,23 @@ var data = {
 	},
 	"isle_of_man": {
 		"name": "Остров Мэн",
-		"neighbors": ["ulster", "ireland", "scotland"]
+		"neighbors": ["ulster", "ireland", "scotland", "england", "wales"]
 	},
 	"netherlands": {
 		"name": "Нидерланды",
-		"neighbors": ["frisia", "flanders", "france", "germany"]
+		"neighbors": ["frisia", "flanders", "france", "germany", "wallonia"]
 	},
 	"poland": {
 		"name": "Польша",
-		"neighbors": ["prussia", "germany", "czech", "silesia", "moravia", "slovakia", "ukraine", "belarus", "lithuania"]
+		"neighbors": ["prussia", "germany", "czech", "silesia", "moravia", "slovakia", "ukraine", "belarus", "lithuania", "ruthenia"]
 	},
 	"scotland": {
 		"name": "Шотландия",
-		"neighbors": ["england", "ulster", "isle_of_man"]
+		"neighbors": ["england", "ulster", "isle_of_man", "ireland", "outer_hebrides", "orkney", "shetland"]
 	},
 	"slezvig": {
 		"name": "Шлезвиг",
-		"neighbors": ["denmark", "germany"]
+		"neighbors": ["denmark", "germany", "frisia"]
 	},
 	"ulster": {
 		"name": "Ульстер",
@@ -171,7 +171,7 @@ var data = {
 	},
 	"england": {
 		"name": "Англия",
-		"neighbors": ["wales", "wessex", "isle_of_wight", "isle_of_man", "yorkshire", "scotland"]
+		"neighbors": ["wales", "wessex", "isle_of_wight", "isle_of_man", "yorkshire", "scotland", "france"]
 	},
 	"wales": {
 		"name": "Уэльс",
@@ -195,11 +195,11 @@ var data = {
 	},
 	"czech": {
 		"name": "Чехия",
-		"neighbors": ["germany", "bavaria", "austria", "moravia", "poland"]
+		"neighbors": ["germany", "bavaria", "austria", "moravia", "poland", "silesia"]
 	},
 	"crimea": {
 		"name": "Крым",
-		"neighbors": ["ukraine"]
+		"neighbors": ["ukraine", "russia"]
 	},
 	"hungary": {
 		"name": "Венгрия",
@@ -207,7 +207,7 @@ var data = {
 	},
 	"moravia": {
 		"name": "Моравия",
-		"neighbors": ["slovakia", "silesia", "czech", "austria"]
+		"neighbors": ["slovakia", "silesia", "czech", "austria", "poland"]
 	},
 	"ruthenia": {
 		"name": "Закарпатье",
@@ -223,7 +223,7 @@ var data = {
 	},
 	"ukraine": {
 		"name": "Украина",
-		"neighbors": ["belarus", "poland", "ruthenia", "romania", "moldavia", "transnistria", "crimea", "novorussia", "russia"]
+		"neighbors": ["belarus", "poland", "ruthenia", "romania", "moldavia", "transnistria", "crimea", "novorussia", "russia", "gagauzia"]
 	},
 	"alsace": {
 		"name": "Эльзас",
@@ -231,7 +231,7 @@ var data = {
 	},
 	"austria": {
 		"name": "Австрия",
-		"neighbors": ["south_tyrol", "carinthia", "slovenia", "hungary", "slovakia", "moravia", "czech", "bavaria", "germany", "lichtenstein", "switzerland"]
+		"neighbors": ["south_tyrol", "carinthia", "slovenia", "hungary", "slovakia", "moravia", "czech", "bavaria", "germany", "lichtenstein", "switzerland", "friuli-venezia_giulia", "venetia"]
 	},
 	"britanny": {
 		"name": "Бретань",
@@ -239,7 +239,7 @@ var data = {
 	},
 	"carinthia": {
 		"name": "Каринтия",
-		"neighbors": ["austria", "slovenia", "friuli-venezia_giulia"]
+		"neighbors": ["austria", "slovenia", "friuli-venezia_giulia", "south_tyrol", "venetia"]
 	},
 	"channel_islands": {
 		"name": "Нормандские острова",
@@ -247,7 +247,7 @@ var data = {
 	},
 	"france": {
 		"name": "Франция",
-		"neighbors": ["england", "normandy", "britanny", "occitania", "savoy", "switzerland", "alsace", "germany", "luxemburg", "wallonia", "flanders"]
+		"neighbors": ["england", "normandy", "britanny", "occitania", "savoy", "switzerland", "alsace", "germany", "luxemburg", "wallonia", "flanders", "netherlands"]
 	},
 	"lichtenstein": {
 		"name": "Лихтенштейн",
@@ -259,7 +259,7 @@ var data = {
 	},
 	"occitania": {
 		"name": "Окситания",
-		"neighbors": ["france", "savoy", "padania", "liguria"]
+		"neighbors": ["france", "savoy", "padania", "liguria", "andorra", "aragon", "basque", "catalonia", "corsica"]
 	},
 	"savoy": {
 		"name": "Савойя",
@@ -271,7 +271,7 @@ var data = {
 	},
 	"balearic_islands": {
 		"name": "Балеарские острова",
-		"neighbors": ["catalonia", "sardinia"]
+		"neighbors": ["catalonia", "sardinia", "castile"]
 	},
 	"outer_hebrides": {
 		"name": "Внешние Гербидские острова",
@@ -287,7 +287,7 @@ var data = {
 	},
 	"andalusia": {
 		"name": "Андалусия",
-		"neighbors": ["portugal", "extermadura", "castile", "murcia"]
+		"neighbors": ["portugal", "extermadura", "castile", "murcia", "leon"]
 	},
 	"andorra": {
 		"name": "Андорра",
@@ -315,7 +315,7 @@ var data = {
 	},
 	"catalonia": {
 		"name": "Каталония",
-		"neighbors": ["occitania", "andorra", "aragon", "valencia"]
+		"neighbors": ["occitania", "andorra", "aragon", "valencia", "balearic_islands"]
 	},
 	"extermadura": {
 		"name": "Эстермадура",
@@ -327,7 +327,7 @@ var data = {
 	},
 	"leon":  {
 		"name": "Леон",
-		"neighbors": ["galicia", "asturia", "cantabria", "castile", "andalusia", "portugal"]
+		"neighbors": ["galicia", "asturia", "cantabria", "castile", "andalusia", "portugal", "extermadura"]
 	},
 	"murcia": {
 		"name": "Мурсия",
@@ -347,7 +347,7 @@ var data = {
 	},
 	"friuli-venezia_giulia": {
 		"name": "Фриули-Венеция Джулия",
-		"neighbors": ["venetia", "carinthia", "austria", "@TODO"]
+		"neighbors": ["venetia", "carinthia", "austria", "slovenia"]
 	},
 	"italy": {
 		"name": "Италия",
@@ -367,7 +367,7 @@ var data = {
 	},
 	"sardinia": {
 		"name": "Сардиния",
-		"neighbors": ["corsica", "sicily", "balearic_islands"]
+		"neighbors": ["corsica", "sicily", "balearic_islands", "italy", "padania"]
 	},
 	"sicily": {
 		"name": "Сицилия",
@@ -387,7 +387,7 @@ var data = {
 	},
 	"bosnia": {
 		"name": "Босния",
-		"neighbors": ["croatia", "vojvodina", "serbia", "crna_gora", "sandzak"]
+		"neighbors": ["croatia", "vojvodina", "serbia", "crna_gora", "sandzak", "herzegovina"]
 	},
 	"bulgaria": {
 		"name": "Болгария",
@@ -399,7 +399,7 @@ var data = {
 	},
 	"croatia": {
 		"name": "Хорватия",
-		"neighbors": ["slovenia", "istria", "hungary", "vojvodina", "bosnia"]
+		"neighbors": ["slovenia", "istria", "hungary", "vojvodina", "bosnia", "crna_gora", "herzegovina"]
 	},
 	"cyprus": {
 		"name": "Кипр",
@@ -439,7 +439,7 @@ var data = {
 	},
 	"romania": {
 		"name": "Румыния",
-		"neighbors": ["hungary", "ukraine", "moldavia", "gagauzia", "bulgaria", "serbia", "vojvodina"]
+		"neighbors": ["hungary", "ukraine", "moldavia", "gagauzia", "bulgaria", "serbia", "vojvodina", "ruthenia", "szekely_land"]
 	},
 	"russia": {
 		"name": "Россия",
