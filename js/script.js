@@ -20,7 +20,7 @@ window.onload = function () {
 	map.initialize();
 };
 
-var colors = ['#FFFBE7', '#F6FFEC', '#FFFCFF', '#FFF3EF', '#FFF4EB'];
+var colors = ['#FCEFDC', '#FCFBDC', '#E8FCDC', '#FCDCFB', '#FCDCDC', '#E8D3C1'];
 function getAvailableColor (country) {
 	var neighbors = data[country].neighbors;
 
@@ -38,7 +38,7 @@ function getAvailableColor (country) {
 
 	var availableColors = colors.diff(neighboringColors);
 	if (availableColors.length === 0) {
-		console.log('No more colors available! Taking random');
+		console.log('No more colors available! Taking random for country ' + country);
 
 		return colors[Math.floor(Math.random() * 4)];
 	}
