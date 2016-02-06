@@ -5,6 +5,8 @@ var SvgMap = function ($map) {
 	this.labels = [];
 	this.position = [0, 0];
 	this.scaleQuantum = 0.5;
+	this.minScale = -Infinity;
+	this.maxScale = Infinity;
 };
 
 SvgMap.prototype.addPath = function (path, color, label) {
@@ -52,6 +54,11 @@ SvgMap.prototype.getScaledHeight = function () {
 	return this.height * Math.pow(2, this.scale);
 };
 
+SvgMap.prototype.setScaleBounds = function (minScale, maxScale) {
+	this.minScale = minScale;
+	this.maxScale = maxScale;
+}
+
 SvgMap.prototype.setScale = function (scale, positionX, positionY) {
 	var offsetX = positionX ? positionX / this.width : 0.5;
 	var offsetY = positionY ? positionY / this.height : 0.5;
@@ -59,7 +66,7 @@ SvgMap.prototype.setScale = function (scale, positionX, positionY) {
 	var widthBefore = this.getScaledWidth(),
 		heightBefore = this.getScaledHeight();
 
-	this.scale = scale;
+	this.scale = Math.min(Math.max(scale, this.minScale), this.maxScale);
 
 	var widthAfter = this.getScaledWidth(),
 		heightAfter = this.getScaledHeight();
