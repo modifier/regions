@@ -1,6 +1,6 @@
 window.onload = function () {
 	var details = new Details(document.getElementById('details')),
-		map = new SvgMap(document.getElementById('svg_path')),
+		map = new SvgMap(document.getElementById('map_container')),
 		$name = document.getElementById('name');
 
 	graphColoring();

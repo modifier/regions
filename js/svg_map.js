@@ -1,12 +1,40 @@
-var SvgMap = function ($map) {
-	this.$map = $map;
+var SvgMap = function ($container) {
+	this.$container = $container;
 	this.scale = 0;
 	this.paths = [];
 	this.labels = [];
 	this.position = [0, 0];
-	this.scaleQuantum = 0.5;
+	this.scaleStep = 0.5;
 	this.minScale = -Infinity;
 	this.maxScale = Infinity;
+	this.initializeElements();
+};
+
+SvgMap.prototype.initializeElements = function () {
+	this.$map = document.createElementNS('http://www.w3.org/2000/svg', 'svg');
+	this.$map.id = 'svg_path';
+	this.$container.appendChild(this.$map);
+
+	this.$scaler = document.createElement('div');
+	this.$scaler.id = 'scaler';
+	this.$container.appendChild(this.$scaler);
+
+	var that = this;
+	var $zoomIn = document.createElement('div');
+	$zoomIn.innerText = '+';
+	$zoomIn.className = 'scale-button';
+	this.$scaler.appendChild($zoomIn);
+	$zoomIn.addEventListener('click', function () {
+		that.setScale(that.scale - that.scaleStep);
+	});
+
+	var $zoomOut = document.createElement('div');
+	$zoomOut.innerHTML = '&minus;';
+	$zoomOut.className = 'scale-button';
+	$zoomOut.addEventListener('click', function () {
+		that.setScale(that.scale + that.scaleStep);
+	});
+	this.$scaler.appendChild($zoomOut);
 };
 
 SvgMap.prototype.addPath = function (path, color, label) {
@@ -127,9 +155,9 @@ SvgMap.prototype.attachEvents = function () {
 
 	this.$map.addEventListener('wheel', function (e) {
 		if (e.wheelDeltaY < 0) {
-			that.setScale(that.scale + that.scaleQuantum, e.offsetX, e.offsetY);
+			that.setScale(that.scale + that.scaleStep, e.offsetX, e.offsetY);
 		} else if (e.wheelDeltaY > 0) {
-			that.setScale(that.scale - that.scaleQuantum, e.offsetX, e.offsetY);
+			that.setScale(that.scale - that.scaleStep, e.offsetX, e.offsetY);
 		}
 	});
 
