@@ -20,7 +20,7 @@ window.onload = function () {
 	map.initialize();
 };
 
-var colors = ['#FCEFDC', '#FCFBDC', '#E8FCDC', '#FCDCFB', '#FCDCDC', '#E8D3C1'];
+var colors = ['#FCEFDC', '#FCFBDC', '#E8FCDC', '#FCDCFB', '#FCDCDC'];
 function getAvailableColor (country) {
 	var neighbors = data[country].neighbors;
 

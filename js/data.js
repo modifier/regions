@@ -1,4 +1,8 @@
 var data = {
+	"russia": {
+		"name": "Россия",
+		"neighbors": ["karelia", "ingria", "estonia", "latgalia", "belarus", "ukraine", "novorussia", "crimea"]
+	},
 	"finland": {
 		"name": "Финляндия",
 		"population": "5.5M",
@@ -440,10 +444,6 @@ var data = {
 	"romania": {
 		"name": "Румыния",
 		"neighbors": ["hungary", "ukraine", "moldavia", "gagauzia", "bulgaria", "serbia", "vojvodina", "ruthenia", "szekely_land"]
-	},
-	"russia": {
-		"name": "Россия",
-		"neighbors": ["karelia", "ingria", "estonia", "latgalia", "belarus", "ukraine", "novorussia", "crimea"]
 	},
 	"sandzak": {
 		"name": "Санджак",
