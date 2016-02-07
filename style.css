@@ -65,7 +65,9 @@ body {
 }
 
 .flag {
-	width: 230px;
+	min-width: 140px;
+	height: 140px;
+	border: 1px #eee solid;
 }
 
 h2 {

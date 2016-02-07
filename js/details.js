@@ -24,13 +24,11 @@ Details.prototype.renderCountry = function (name) {
 		countryData = data[name];
 
 	// flag
-	if (countryData.flag) {
-		var $flag = document.createElement('img');
-		$flag.src = countryData.flag;
-		$flag.className = 'flag';
-		$flag.alt = 'Флаг';
-		elements.push($flag);
-	}
+	var $flag = document.createElement('img');
+	$flag.src = 'flags/' + name + '.png';
+	$flag.className = 'flag';
+	$flag.alt = 'Флаг';
+	elements.push($flag);
 
 	// name
 	var $name = document.createElement('h2');
