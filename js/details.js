@@ -39,6 +39,7 @@ Details.prototype.renderCountry = function (name) {
 	elements.push(createDataElement('population', countryData));
 	elements.push(createDataElement('large_cities', countryData));
 	elements.push(createDataElement('gdp', countryData));
+	elements.push(createNeighborsList(countryData.neighbors));
 
 	clearContainer(this.$container);
 	for (var key in elements) {
@@ -68,4 +69,27 @@ function createDataElement (label, content) {
 	$el.innerHTML = '<b>' + dataLabels[label] + ':</b> ' + (Array.isArray(content[label]) ? content[label].join(', ') : content[label]);
 
 	return $el;
+}
+
+function createNeighborsList (neighbors) {
+	if (neighbors === undefined || neighbors.length === 0) {
+		return null;
+	}
+
+	var $el = document.createElement('div');
+	$el.className = 'data';
+	var code = '<b>' + dataLabels.neighbors + ':</b> ',
+		neighborsList = [];
+
+	for (var i = 0; i < neighbors.length; i++) {
+		neighborsList.push(getCountrySpan(neighbors[i]));
+	}
+
+	$el.innerHTML = code + neighborsList.join(', ');
+
+	return $el;
+}
+
+function getCountrySpan (name) {
+	return '<span class="country-name"><img src="flags/' + name + '.png" class="flag-icon" />' + data[name].name + '</span>';
 }

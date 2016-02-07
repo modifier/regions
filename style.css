@@ -75,3 +75,12 @@ h2 {
     font-weight: normal;
     margin: 20px 10px;
 }
+
+.country-name {
+	white-space: nowrap;
+}
+
+.flag-icon {
+	height: 14px;
+	border: 1px #eee solid;
+}
