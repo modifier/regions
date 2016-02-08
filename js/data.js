@@ -284,7 +284,7 @@ var data = {
 	},
 	"andalusia": {
 		"name": "Андалусия",
-		"neighbors": ["portugal", "extremadura", "castile", "murcia", "leon", "morocco"]
+		"neighbors": ["portugal", "extremadura", "castile", "murcia", "leon"]
 	},
 	"andorra": {
 		"name": "Андорра",
@@ -368,7 +368,7 @@ var data = {
 	},
 	"sicily": {
 		"name": "Сицилия",
-		"neighbors": ["italy", "malta", "sardinia", "tunisia"]
+		"neighbors": ["italy", "malta", "sardinia"]
 	},
 	"south_tyrol": {
 		"name": "Южный Тироль",
@@ -388,7 +388,7 @@ var data = {
 	},
 	"bulgaria": {
 		"name": "Болгария",
-		"neighbors": ["romania", "turkey", "greece", "fyrom", "serbia"]
+		"neighbors": ["romania", "greece", "fyrom", "serbia"]
 	},
 	"crna_gora": {
 		"name": "Черногория",
@@ -400,7 +400,7 @@ var data = {
 	},
 	"cyprus": {
 		"name": "Кипр",
-		"neighbors": ["trnc", "turkey", "greece"]
+		"neighbors": ["trnc", "greece"]
 	},
 	"fyrom": {
 		"name": "Македония",
@@ -412,7 +412,7 @@ var data = {
 	},
 	"greece": {
 		"name": "Греция",
-		"neighbors": ["northern_epirus", "fyrom", "bulgaria", "turkey", "cyprus"]
+		"neighbors": ["northern_epirus", "fyrom", "bulgaria", "cyprus"]
 	},
 	"istria": {
 		"name": "Истрия",
@@ -456,26 +456,26 @@ var data = {
 	},
 	"trnc": {
 		"name": "Турецкая Республика Северного Кипра",
-		"neighbors": ["turkey", "cyprus"]
-	},
-	"turkey": {
-		"name": "Турция",
-		"neighbors": ["bulgaria", "greece", "trnc", "cyprus"]
+		"neighbors": ["cyprus"]
 	},
 	"vojvodina": {
 		"name": "Воеводина",
 		"neighbors": ["croatia", "hungary", "romania", "serbia", "bosnia"]
 	},
+	"turkey": {
+		"name": "Турция",
+		"disabled": true
+	},
 	"algeria": {
 		"name": "Алжир",
-		"neighbors": ["tunisia", "morocco"]
+		"disabled": true
 	},
 	"morocco": {
 		"name": "Марокко",
-		"neighbors": ["algeria", "andalusia"]
+		"disabled": true
 	},
 	"tunisia": {
 		"name": "Тунис",
-		"neighbors": ["algeria", "sicily"]
+		"disabled": true
 	},
 };

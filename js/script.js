@@ -9,6 +9,7 @@ var Application = function ($details, $map) {
 	this.map = new SvgMap($map);
 	this.colors = ['#FCEFDC', '#FCFBDC', '#E8FCDC', '#FCDCFB', '#FCDCDC'];
 	this.selectedColor = '#F0E289';
+	this.disabledColor = '#EEEEEE';
 	this.selectedPath = null;
 	this.paths = [];
 };
@@ -27,6 +28,10 @@ Application.prototype.initialize = function () {
 	var that = this;
 	for (var country in this.paths) {
 		if (!this.paths.hasOwnProperty(country)) {
+			continue;
+		}
+
+		if (data[country].disabled) {
 			continue;
 		}
 
@@ -61,6 +66,12 @@ Application.prototype.selectCountry = function (country) {
 
 Application.prototype.colorizePaths = function () {
 	for (var i in data) {
+		if (data[i].disabled) {
+			data[i].color = this.disabledColor;
+
+			continue;
+		}
+
 		data[i].color = this.getAvailableColor(i);
 	}
 };
