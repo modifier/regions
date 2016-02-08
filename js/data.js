@@ -268,7 +268,7 @@ var data = {
 	},
 	"balearic_islands": {
 		"name": "Балеарские острова",
-		"neighbors": ["catalonia", "sardinia", "castile"]
+		"neighbors": ["catalonia", "sardinia", "castile", "valencia"]
 	},
 	"outer_hebrides": {
 		"name": "Внешние Гербидские острова",
@@ -336,7 +336,7 @@ var data = {
 	},
 	"valencia": {
 		"name": "Валенсия",
-		"neighbors": ["murcia", "castile", "aragon", "catalonia"]
+		"neighbors": ["murcia", "castile", "aragon", "catalonia", "balearic_islands"]
 	},
 	"corsica": {
 		"name": "Корсика",
