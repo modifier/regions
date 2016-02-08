@@ -64,6 +64,10 @@ SvgMap.prototype.addPath = function (path, color, label, clickCallback) {
 };
 
 SvgMap.prototype.initialize = function () {
+	this.position = [
+		(this.dimensions.x2 - this.dimensions.x1) / 2,
+		(this.dimensions.y2 - this.dimensions.y1) / 2
+	];
 	this.attachEvents();
 	this.onResize();
 };
