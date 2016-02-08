@@ -21,12 +21,16 @@ Application.prototype.initialize = function () {
 	this.map.setDimensions({x1: 450, y1: 10, x2: 2500, y2: 2500});
 	this.map.setScaleBounds(-1, 0.5);
 
-	var that = this;
 	for (var country in contours) {
 		this.paths[country] = this.map.addPath(contours[country], data[country].color, data[country].name, this.selectCountry.bind(this, country));
 	}
 
-	this.details.addCountryCallback(this.selectCountry.bind(this));
+	var that = this;
+	this.details.addCountryCallback(function (country) {
+		that.selectCountry(country);
+
+		that.followCountry(country);
+	});
 
 	this.map.initialize();
 };
@@ -52,6 +56,12 @@ Application.prototype.selectCountry = function (country) {
 		path: path,
 		country: country
 	};
+};
+
+Application.prototype.followCountry = function (country) {
+	var bbox = this.paths[country].getBBox();
+
+	this.map.setPosition(bbox.x + bbox.width / 2, bbox.y + bbox.height / 2);
 };
 
 Application.prototype.colorizePaths = function () {

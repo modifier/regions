@@ -139,6 +139,12 @@ SvgMap.prototype.recalculateViewport = function (e) {
 	this.resetViewport();
 };
 
+SvgMap.prototype.setPosition = function (positionX, positionY) {
+	this.position = [positionX - this.getScaledWidth() / 2, positionY - this.getScaledHeight() / 2];
+
+	this.resetViewport();
+};
+
 SvgMap.prototype.attachEvents = function () {
 	var that = this;
 
