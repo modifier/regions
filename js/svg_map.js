@@ -7,6 +7,7 @@ var SvgMap = function ($container) {
 	this.scaleStep = 0.5;
 	this.minScale = -Infinity;
 	this.maxScale = Infinity;
+	this.selectedPath = null;
 	this.initializeElements();
 };
 

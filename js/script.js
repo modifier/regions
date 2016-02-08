@@ -1,3 +1,8 @@
+var selectedPath = null,
+	paths = {};
+
+var selectedColor = '#F0E289';
+
 window.onload = function () {
 	var details = new Details(document.getElementById('details')),
 		map = new SvgMap(document.getElementById('map_container')),
@@ -9,16 +14,42 @@ window.onload = function () {
 	map.setScaleBounds(-1, 0.5);
 
 	for (var country in contours) {
-		var path = map.addPath(contours[country], data[country].color, data[country].name);
-		(function (country) {
+		paths[country] = map.addPath(contours[country], data[country].color, data[country].name);
+	}
+
+	for (var country in paths) {
+		if (!paths.hasOwnProperty(country)) {
+			continue;
+		}
+
+		(function (country, path) {
 			path.addEventListener('click', function () {
 				details.renderCountry(country);
+
+				selectCountry(country);
 			});
-		})(country);
+		})(country, paths[country]);
 	}
 
 	map.initialize();
 };
+
+function selectCountry (country) {	
+	if (selectedPath !== null) {
+		var currentName = selectedPath.country,
+			nativeColor = data[currentName].color;
+
+		selectedPath.path.setAttributeNS(null, 'fill', nativeColor);
+	}
+
+	var path = paths[country];
+	path.setAttributeNS(null, 'fill', selectedColor);
+
+	selectedPath = {
+		path: path,
+		country: country
+	};
+}
 
 var colors = ['#FCEFDC', '#FCFBDC', '#E8FCDC', '#FCDCFB', '#FCDCDC'];
 function getAvailableColor (country) {
