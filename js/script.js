@@ -32,11 +32,26 @@ Application.prototype.initialize = function () {
 		that.followCountry(country);
 	});
 
+	this.map.addOceanCallback(this.deselectCountry.bind(this));
+
 	this.map.initialize();
+};
+
+Application.prototype.deselectCountry = function () {
+	this.details.hide();
+
+	if (this.selectedPath !== null) {
+		var currentName = this.selectedPath.country,
+			nativeColor = data[currentName].color;
+
+		this.selectedPath.path.setAttributeNS(null, 'fill', nativeColor);
+	}
 };
 
 Application.prototype.selectCountry = function (country) {
 	if (data[country].disabled) {
+		this.deselectCountry();
+
 		return;
 	}
 

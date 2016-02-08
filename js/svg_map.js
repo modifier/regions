@@ -10,6 +10,7 @@ var SvgMap = function ($container) {
 	this.selectedPath = null;
 	this.isDrag = false;
 	this.animationId = null;
+	this.oceanCallbacks = [];
 	this.initializeElements();
 };
 
@@ -195,6 +196,12 @@ SvgMap.prototype.attachEvents = function () {
 	});
 
 	window.addEventListener('mouseup', function (e) {
+		if (e.target === that.$map) {
+			for (var i = 0; i < that.oceanCallbacks.length; i++) {
+				that.oceanCallbacks[i]();
+			}
+		}
+
 		if (that.currentEvent) {
 			that.recalculateViewport(e);
 
@@ -213,6 +220,10 @@ SvgMap.prototype.attachEvents = function () {
 	window.addEventListener('resize', function () {
 		that.onResize();
 	});
+};
+
+SvgMap.prototype.addOceanCallback = function (oceanCallback) {
+	this.oceanCallbacks.push(oceanCallback);
 };
 
 SvgMap.prototype.onResize = function () {
