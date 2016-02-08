@@ -21,21 +21,9 @@ Application.prototype.initialize = function () {
 	this.map.setDimensions({x1: 450, y1: 10, x2: 2500, y2: 2500});
 	this.map.setScaleBounds(-1, 0.5);
 
-	for (var country in contours) {
-		this.paths[country] = this.map.addPath(contours[country], data[country].color, data[country].name);
-	}
-
 	var that = this;
-	for (var country in this.paths) {
-		if (!this.paths.hasOwnProperty(country)) {
-			continue;
-		}
-
-		(function (country, path) {
-			path.addEventListener('click', function () {
-				that.selectCountry(country);
-			});
-		})(country, this.paths[country]);
+	for (var country in contours) {
+		this.paths[country] = this.map.addPath(contours[country], data[country].color, data[country].name, this.selectCountry.bind(this, country));
 	}
 
 	this.details.addCountryCallback(this.selectCountry.bind(this));

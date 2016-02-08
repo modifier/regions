@@ -8,6 +8,7 @@ var SvgMap = function ($container) {
 	this.minScale = -Infinity;
 	this.maxScale = Infinity;
 	this.selectedPath = null;
+	this.isDrag = false;
 	this.initializeElements();
 };
 
@@ -38,7 +39,7 @@ SvgMap.prototype.initializeElements = function () {
 	this.$scaler.appendChild($zoomOut);
 };
 
-SvgMap.prototype.addPath = function (path, color, label) {
+SvgMap.prototype.addPath = function (path, color, label, clickCallback) {
 	var polygon = document.createElementNS('http://www.w3.org/2000/svg', 'path');
 	polygon.setAttributeNS(null, 'd', path);
 	polygon.setAttributeNS(null, 'stroke', 'black');
@@ -49,6 +50,13 @@ SvgMap.prototype.addPath = function (path, color, label) {
 	this.paths.push({
 		path: polygon,
 		label: label
+	});
+
+	var that = this;
+	polygon.addEventListener('mouseup', function () {
+		if (!that.isDrag) {
+			clickCallback();
+		}
 	});
 
 	return polygon;
@@ -135,12 +143,16 @@ SvgMap.prototype.attachEvents = function () {
 	var that = this;
 
 	this.$map.addEventListener('mousedown', function (e) {
+		that.isDrag = false;
+
 		that.initialPosition = that.position;
 
 		that.currentEvent = e;
 	});
 
 	window.addEventListener('mousemove', function (e) {
+		that.isDrag = true;
+
 		if (that.currentEvent) {
 			that.recalculateViewport(e);
 		}
