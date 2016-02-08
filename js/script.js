@@ -1,62 +1,75 @@
-var selectedPath = null,
-	paths = {};
-
-var selectedColor = '#F0E289';
-
 window.onload = function () {
-	var details = new Details(document.getElementById('details')),
-		map = new SvgMap(document.getElementById('map_container')),
-		$name = document.getElementById('name');
+	var app = new Application(document.getElementById('details'), document.getElementById('map_container'));
 
-	graphColoring();
-	checkDataSymmetry();
-	map.setDimensions({x1: 450, y1: 10, x2: 2500, y2: 2500});
-	map.setScaleBounds(-1, 0.5);
+	app.initialize();
+};
+
+var Application = function ($details, $map) {
+	this.details = new Details($details);
+	this.map = new SvgMap($map);
+	this.colors = ['#FCEFDC', '#FCFBDC', '#E8FCDC', '#FCDCFB', '#FCDCDC'];
+	this.selectedColor = '#F0E289';
+	this.selectedPath = null;
+	this.paths = [];
+};
+
+Application.prototype.initialize = function () {
+	this.colorizePaths();
+	this.checkDataSymmetry();
+
+	this.map.setDimensions({x1: 450, y1: 10, x2: 2500, y2: 2500});
+	this.map.setScaleBounds(-1, 0.5);
 
 	for (var country in contours) {
-		paths[country] = map.addPath(contours[country], data[country].color, data[country].name);
+		this.paths[country] = this.map.addPath(contours[country], data[country].color, data[country].name);
 	}
 
-	for (var country in paths) {
-		if (!paths.hasOwnProperty(country)) {
+	var that = this;
+	for (var country in this.paths) {
+		if (!this.paths.hasOwnProperty(country)) {
 			continue;
 		}
 
 		(function (country, path) {
 			path.addEventListener('click', function () {
-				details.renderCountry(country);
+				that.details.renderCountry(country);
 
-				selectCountry(country);
+				that.selectCountry(country);
 			});
-		})(country, paths[country]);
+		})(country, this.paths[country]);
 	}
 
-	map.initialize();
+	this.map.initialize();
 };
 
-function selectCountry (country) {	
-	if (selectedPath !== null) {
-		var currentName = selectedPath.country,
+Application.prototype.selectCountry = function (country) {
+	if (this.selectedPath !== null) {
+		var currentName = this.selectedPath.country,
 			nativeColor = data[currentName].color;
 
-		selectedPath.path.setAttributeNS(null, 'fill', nativeColor);
+		this.selectedPath.path.setAttributeNS(null, 'fill', nativeColor);
 	}
 
-	var path = paths[country];
-	path.setAttributeNS(null, 'fill', selectedColor);
+	var path = this.paths[country];
+	path.setAttributeNS(null, 'fill', this.selectedColor);
 
-	selectedPath = {
+	this.selectedPath = {
 		path: path,
 		country: country
 	};
-}
+};
 
-var colors = ['#FCEFDC', '#FCFBDC', '#E8FCDC', '#FCDCFB', '#FCDCDC'];
-function getAvailableColor (country) {
+Application.prototype.colorizePaths = function () {
+	for (var i in data) {
+		data[i].color = this.getAvailableColor(i);
+	}
+};
+
+Application.prototype.getAvailableColor = function (country) {
 	var neighbors = data[country].neighbors;
 
 	if (!Array.isArray(neighbors)) {
-		return colors[0];
+		return this.colors[0];
 	}
 
 	var neighboringColors = [];
@@ -67,28 +80,20 @@ function getAvailableColor (country) {
 		}
 	}
 
-	var availableColors = colors.diff(neighboringColors);
+	var availableColors = this.colors.filter(function(i) {
+    	return neighboringColors.indexOf(i) < 0;
+    });
+
 	if (availableColors.length === 0) {
 		console.log('No more colors available! Taking random for country ' + country);
 
-		return colors[Math.floor(Math.random() * 4)];
+		return this.colors[Math.floor(Math.random() * 4)];
 	}
 
 	return availableColors[0];
-}
-
-// source: http://stackoverflow.com/questions/1187518/javascript-array-difference
-Array.prototype.diff = function(a) {
-    return this.filter(function(i) {return a.indexOf(i) < 0;});
 };
 
-function graphColoring () {
-	for (var i in data) {
-		data[i].color = getAvailableColor(i);
-	}
-}
-
-function checkDataSymmetry() {
+Application.prototype.checkDataSymmetry = function () {
 	for (var i in data) {
 		var country = data[i];
 
@@ -104,4 +109,4 @@ function checkDataSymmetry() {
 			}
 		}
 	}
-}
+};
