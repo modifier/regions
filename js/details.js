@@ -4,11 +4,13 @@ var dataLabels = {
 	"large_cities": "Крупнейшие города",
 	"gdp": "ВВП",
 	"gdp_per_capita": "ВВП на душу населения",
-	"neighbors": "Соседние государства"
+	"neighbors": "Соседние страны"
 };
 
 var Details = function ($container) {
 	this.$container = $container;
+	this.countryCallbacks = [];
+	this.initListeners();
 };
 
 Details.prototype.hide = function () {
@@ -53,6 +55,22 @@ Details.prototype.renderCountry = function (name) {
 	this.show();
 };
 
+Details.prototype.addCountryCallback = function (callback) {
+	this.countryCallbacks.push(callback);
+};
+
+Details.prototype.initListeners = function () {
+	var that = this;
+
+	this.$container.addEventListener('click', function (e) {
+		if (e.target.classList.contains('country-name')) {
+			for (var i in that.countryCallbacks) {
+				that.countryCallbacks[i](e.target.getAttribute('data-name'));
+			}
+		}
+	});
+};
+
 function clearContainer ($container) {
 	while ($container.firstChild) {
     	$container.removeChild($container.firstChild);
@@ -91,5 +109,5 @@ function createNeighborsList (neighbors) {
 }
 
 function getCountrySpan (name) {
-	return '<span class="country-name"><img src="flags/' + name + '.png" class="flag-icon" />' + data[name].name + '</span>';
+	return '<span class="country-name" data-name="' + name + '"><img src="flags/' + name + '.png" class="flag-icon" />' + data[name].name + '</span>';
 }

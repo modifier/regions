@@ -64,6 +64,11 @@ body {
 	margin: 10px;
 }
 
+.details-container .country-name {
+	cursor: pointer;
+	color: #0067B3;
+}
+
 .flag {
 	min-width: 140px;
 	height: 140px;

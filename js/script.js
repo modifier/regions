@@ -31,23 +31,25 @@ Application.prototype.initialize = function () {
 			continue;
 		}
 
-		if (data[country].disabled) {
-			continue;
-		}
-
 		(function (country, path) {
 			path.addEventListener('click', function () {
-				that.details.renderCountry(country);
-
 				that.selectCountry(country);
 			});
 		})(country, this.paths[country]);
 	}
 
+	this.details.addCountryCallback(this.selectCountry.bind(this));
+
 	this.map.initialize();
 };
 
 Application.prototype.selectCountry = function (country) {
+	if (data[country].disabled) {
+		return;
+	}
+
+	this.details.renderCountry(country);
+
 	if (this.selectedPath !== null) {
 		var currentName = this.selectedPath.country,
 			nativeColor = data[currentName].color;
