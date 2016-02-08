@@ -9,6 +9,7 @@ var SvgMap = function ($container) {
 	this.maxScale = Infinity;
 	this.selectedPath = null;
 	this.isDrag = false;
+	this.animationId = null;
 	this.initializeElements();
 };
 
@@ -140,9 +141,34 @@ SvgMap.prototype.recalculateViewport = function (e) {
 };
 
 SvgMap.prototype.setPosition = function (positionX, positionY) {
-	this.position = [positionX - this.getScaledWidth() / 2, positionY - this.getScaledHeight() / 2];
+	if (this.animationId !== null) {
+		return;
+	}
 
-	this.resetViewport();
+	var that = this,
+		duration = 400,
+		step = 20,
+		steps = duration / step,
+		endPosition = [positionX - this.getScaledWidth() / 2, positionY - this.getScaledHeight() / 2],
+		positionQuantum = [(endPosition[0] - this.position[0]) / steps, (endPosition[1] - this.position[1]) / steps],
+		indicator = 0;
+
+	this.animationId = setTimeout(function timer () {
+		if (indicator > steps) {
+			that.animationId = null;
+
+			return;
+		}
+
+		indicator++;
+
+		that.position[0] += positionQuantum[0];
+		that.position[1] += positionQuantum[1];
+
+		that.resetViewport();
+
+		that.animationId = setTimeout(timer, step);
+	}, step);
 };
 
 SvgMap.prototype.attachEvents = function () {

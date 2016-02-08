@@ -25,7 +25,7 @@ var data = {
 		"capital": "Осло",
 		"large_cities": ["Осло", "Берген", "Тронхейм"],
 		"gdp": "",
-		"neighbors": ["karelia", "sapmi", "sweden", "denmark"]
+		"neighbors": ["sapmi", "sweden", "denmark"]
 	},
 	"sweden": {
 		"name": "Швеция",
@@ -41,7 +41,7 @@ var data = {
 		"capital": "	Рейкьявик",
 		"large_cities": ["Рейкьявик", "Коупавогюр"],
 		"gdp": "12.4B",
-		"neighbors": []
+		"neighbors": ["faroe"]
 	},
 	"ingria": {
 		"name": "Ингерманландия",
@@ -57,7 +57,7 @@ var data = {
 		"capital": "Петрозаводск",
 		"large_cities": ["Петрозаводск", "Кондопога"],
 		"gdp": "",
-		"neighbors": ["finland", "sapmi", "russia", "norway", "ingria"]
+		"neighbors": ["finland", "sapmi", "russia", "ingria"]
 	},
 	"aland": {
 		"name": "Аланды",
@@ -72,7 +72,8 @@ var data = {
 		"neighbors": ["ingria", "finland", "russia", "sweden", "latgalia", "latvia"]
 	},
 	"faroe": {
-		"name": "Фареры"
+		"name": "Фареры",
+		"neighbors": ["iceland", "shetland"]
 	},
 	"latgalia": {
 		"name": "Латгалия",
@@ -280,7 +281,7 @@ var data = {
 	},
 	"shetland": {
 		"name": "Шетландские острова",
-		"neighbors": ["scotland", "orkney"]
+		"neighbors": ["scotland", "orkney", "faroe"]
 	},
 	"andalusia": {
 		"name": "Андалусия",
