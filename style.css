@@ -1,10 +1,14 @@
-body {
-	margin: 20px;
+html, body {
+	height: 100%;
+	margin: 0;
 }
 
 .container {
 	font-size: 0;
 	white-space: nowrap;
+	height: 100%;
+	padding: 20px;
+    box-sizing: border-box;
 }
 
 #map_container {
@@ -40,10 +44,11 @@ body {
     font-family: Arial;
 }
 
-.details-container {
+.details-container,
+.countries-container {
 	display: inline-block;
 	vertical-align: top;
-	margin-left: 20px;
+    margin-left: 20px;
 	box-shadow: 0px 1px 4px 0px rgba(0,0,0,0.2);
 	width: 400px;
 	font-size: 13px;
@@ -52,7 +57,8 @@ body {
 	white-space: normal;
 }
 
-.details-container.hidden {
+.details-container.hidden,
+.countries-container.hidden {
 	display: none;
 }
 
@@ -62,11 +68,6 @@ body {
 
 .details-container .data {
 	margin: 10px;
-}
-
-.details-container .country-name {
-	cursor: pointer;
-	color: #0067B3;
 }
 
 .flag {
@@ -88,4 +89,25 @@ h2 {
 .flag-icon {
 	height: 14px;
 	border: 1px #eee solid;
+}
+
+.countries-container {
+    padding: 10px;
+    box-sizing: border-box;
+    height: 100%;
+    overflow: auto;
+}
+
+.country-name {
+	cursor: pointer;
+	color: #0067B3;
+}
+
+.countries-container .line {
+	line-height: 1.5em;
+}
+
+.flag-container {
+	width: 35px;
+	display: inline-block;
 }

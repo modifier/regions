@@ -1,12 +1,14 @@
 window.onload = function () {
-	var app = new Application(document.getElementById('details'), document.getElementById('map_container'));
+	var app = new Application(document.getElementById('map_container'), document.getElementById('details'), document.getElementById('list'));
 
 	app.initialize();
 };
 
-var Application = function ($details, $map) {
+var Application = function ($map, $details, $list) {
 	this.details = new Details($details);
 	this.map = new SvgMap($map);
+	this.list = new CountriesList($list);
+
 	this.colors = ['#FCEFDC', '#FCFBDC', '#E8FCDC', '#FCDCFB', '#FCDCDC'];
 	this.selectedColor = '#F0E289';
 	this.disabledColor = '#EEEEEE';
@@ -32,6 +34,14 @@ Application.prototype.initialize = function () {
 		that.followCountry(country);
 	});
 
+	this.list.addCountryCallback(function (country) {
+		that.selectCountry(country);
+
+		that.followCountry(country);
+	});
+
+	this.list.render();
+
 	this.map.addOceanCallback(this.deselectCountry.bind(this));
 
 	this.map.initialize();
@@ -39,6 +49,7 @@ Application.prototype.initialize = function () {
 
 Application.prototype.deselectCountry = function () {
 	this.details.hide();
+	this.list.show();
 
 	if (this.selectedPath !== null) {
 		var currentName = this.selectedPath.country,
@@ -54,6 +65,8 @@ Application.prototype.selectCountry = function (country) {
 
 		return;
 	}
+
+	this.list.hide();
 
 	this.details.renderCountry(country);
 
