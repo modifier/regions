@@ -148,7 +148,7 @@ var data = {
 		"neighbors": ["denmark", "germany", "frisia"]
 	},
 	"ulster": {
-		"name": "Ульстер",
+		"name": "Ольстер",
 		"neighbors": ["ireland", "scotland", "isle_of_man"]
 	},
 	"wallonia": {
