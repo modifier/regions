@@ -79,7 +79,8 @@ html, body {
 h2 {
     font-size: 30px;
     font-weight: normal;
-    margin: 20px 10px;
+    margin: 20px 10px 10px;
+    line-height: 30px;
 }
 
 .country-name {
