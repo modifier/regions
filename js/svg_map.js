@@ -138,8 +138,8 @@ SvgMap.prototype.resetViewport = function () {
 
 SvgMap.prototype.recalculateViewport = function (e) {
 	this.position = [
-		this.initialPosition[0] - (e.offsetX - this.currentEvent.offsetX) * Math.pow(2, this.scale),
-		this.initialPosition[1] - (e.offsetY - this.currentEvent.offsetY) * Math.pow(2, this.scale)
+		this.initialPosition[0] - (e.clientX - this.currentEvent.clientX) * Math.pow(2, this.scale),
+		this.initialPosition[1] - (e.clientY - this.currentEvent.clientY) * Math.pow(2, this.scale)
 	];
 
 	this.resetViewport();
