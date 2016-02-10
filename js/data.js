@@ -2,12 +2,14 @@ var data = {
 	"russia": {
 		"name": "Россия",
 		"genetive": "России",
-		"neighbors": ["karelia", "ingria", "estonia", "latgalia", "belarus", "ukraine", "novorussia", "crimea"]
+		"neighbors": ["karelia", "ingria", "estonia", "latgalia", "belarus", "ukraine", "novorussia", "crimea"],
+		"secessionists": ["sapmi", "crimea", "karelia", "ingria", "prussia"]
 	},
 	"finland": {
 		"name": "Финляндия",
 		"genetive": "Финляндии",
-		"neighbors": ["karelia", "ingria", "sapmi", "aland", "bornholm", "estonia"]
+		"neighbors": ["karelia", "ingria", "sapmi", "aland", "bornholm", "estonia"],
+		"secessionists": ["sapmi", "aland"]
 	},
 	"sapmi": {
 		"name": "Лапландия",
@@ -17,12 +19,14 @@ var data = {
 	"norway": {
 		"name": "Норвегия",
 		"genetive": "Норвегии",
-		"neighbors": ["sapmi", "sweden", "denmark"]
+		"neighbors": ["sapmi", "sweden", "denmark"],
+		"secessionists": ["sapmi"]
 	},
 	"sweden": {
 		"name": "Швеция",
 		"genetive": "Швеции",
-		"neighbors": ["sapmi", "norway", "estonia", "aland", "bornholm", "skaneland"]
+		"neighbors": ["sapmi", "norway", "estonia", "aland", "bornholm", "skaneland"],
+		"secessionists": ["sapmi", "skaneland"]
 	},
 	"iceland": {
 		"name": "Исландия",
@@ -53,7 +57,7 @@ var data = {
 		"neighbors": ["ingria", "finland", "russia", "sweden", "latgalia", "latvia"]
 	},
 	"faroe": {
-		"name": "Фареры",
+		"name": "Фарерские острова",
 		"neighbors": ["iceland", "shetland"],
 		"part_of": ["denmark"]
 	},
@@ -64,12 +68,14 @@ var data = {
 	},
 	"latvia": {
 		"name": "Латвия",
-		"neighbors": ["estonia", "latgalia", "belarus", "samogitia", "lithuania"]
+		"neighbors": ["estonia", "latgalia", "belarus", "samogitia", "lithuania"],
+		"secessionists": ["latgalia"]
 	},
 	"lithuania": {
 		"name": "Литва",
 		"genetive": "Литвы",
-		"neighbors": ["samogitia", "prussia", "latvia", "belarus", "poland"]
+		"neighbors": ["samogitia", "prussia", "latvia", "belarus", "poland"],
+		"secessionists": ["samogitia"]
 	},
 	"prussia": {
 		"name": "Пруссия",
@@ -82,7 +88,7 @@ var data = {
 		"part_of": ["lithuania"]
 	},
 	"skaneland": {
-		"name": "Сконеланд",
+		"name": "Скане",
 		"neighbors": ["sweden", "denmark", "bornholm", "aland"],
 		"part_of": ["sweden"]
 	},
@@ -93,7 +99,8 @@ var data = {
 	"denmark": {
 		"name": "Дания",
 		"genetive": "Дании",
-		"neighbors": ["bornholm", "slesvig", "skaneland", "norway"]
+		"neighbors": ["bornholm", "slesvig", "skaneland", "norway"],
+		"secessionists": ["bornholm", "faroe"]
 	},
 	"flanders": {
 		"name": "Фландрия",
@@ -108,12 +115,14 @@ var data = {
 	"germany": {
 		"name": "Германия",
 		"genetive": "Германии",
-		"neighbors": ["poland", "netherlands", "frisia", "wallonia", "luxembourg", "france", "alsace", "bavaria", "switzerland", "czech", "slesvig", "austria"]
+		"neighbors": ["poland", "netherlands", "frisia", "wallonia", "luxembourg", "france", "alsace", "bavaria", "switzerland", "czech", "slesvig", "austria"],
+		"secessionists": ["frisia", "bavaria", "slesvig"]
 	},
 	"ireland": {
 		"name": "Ирландия",
 		"genetive": "Ирландии",
-		"neighbors": ["ulster", "scotland", "wales", "isle_of_man"]
+		"neighbors": ["ulster", "scotland", "wales", "isle_of_man"],
+		"secessionists": ["ulster"]
 	},
 	"luxembourg": {
 		"name": "Люксембург",
@@ -127,12 +136,14 @@ var data = {
 	"netherlands": {
 		"name": "Нидерланды",
 		"genetive": "Нидерландов",
-		"neighbors": ["frisia", "flanders", "france", "germany", "wallonia"]
+		"neighbors": ["frisia", "flanders", "france", "germany", "wallonia"],
+		"secessionists": ["frisia"]
 	},
 	"poland": {
 		"name": "Польша",
 		"genetive": "Польши",
-		"neighbors": ["prussia", "germany", "czech", "silesia", "moravia", "slovakia", "ukraine", "belarus", "lithuania", "ruthenia"]
+		"neighbors": ["prussia", "germany", "czech", "silesia", "moravia", "slovakia", "ukraine", "belarus", "lithuania", "ruthenia"],
+		"secessionists": ["silesia"]
 	},
 	"scotland": {
 		"name": "Шотландия",
@@ -202,7 +213,8 @@ var data = {
 	"czech": {
 		"name": "Чехия",
 		"genetive": "Чехии",
-		"neighbors": ["germany", "bavaria", "austria", "moravia", "poland", "silesia"]
+		"neighbors": ["germany", "bavaria", "austria", "moravia", "poland", "silesia"],
+		"secessionists": ["moravia", "silesia"]
 	},
 	"crimea": {
 		"name": "Крым",
@@ -235,7 +247,8 @@ var data = {
 	"ukraine": {
 		"name": "Украина",
 		"genetive": "Украины",
-		"neighbors": ["belarus", "poland", "ruthenia", "romania", "moldavia", "transnistria", "crimea", "novorussia", "russia", "gagauzia"]
+		"neighbors": ["belarus", "poland", "ruthenia", "romania", "moldavia", "transnistria", "crimea", "novorussia", "russia", "gagauzia"],
+		"secessionists": ["crimea", "ruthenia", "novorussia"]
 	},
 	"alsace": {
 		"name": "Эльзас",
@@ -245,7 +258,8 @@ var data = {
 	"austria": {
 		"name": "Австрия",
 		"genetive": "Австрии",
-		"neighbors": ["south_tyrol", "carinthia", "slovenia", "hungary", "slovakia", "moravia", "czech", "bavaria", "germany", "liechtenstein", "switzerland", "friuli-venezia_giulia", "venetia"]
+		"neighbors": ["south_tyrol", "carinthia", "slovenia", "hungary", "slovakia", "moravia", "czech", "bavaria", "germany", "liechtenstein", "switzerland", "friuli-venezia_giulia", "venetia"],
+		"secessionists": ["carinthia"]
 	},
 	"brittany": {
 		"name": "Бретань",
@@ -265,7 +279,8 @@ var data = {
 	"france": {
 		"name": "Франция",
 		"genetive": "Франции",
-		"neighbors": ["england", "normandy", "brittany", "occitania", "savoy", "switzerland", "alsace", "germany", "luxembourg", "wallonia", "flanders", "netherlands"]
+		"neighbors": ["england", "normandy", "brittany", "occitania", "savoy", "switzerland", "alsace", "germany", "luxembourg", "wallonia", "flanders", "netherlands"],
+		"secessionists": ["alsace", "brittany", "normandy", "occitania", "savoy", "corsica"]
 	},
 	"liechtenstein": {
 		"name": "Лихтенштейн",
@@ -317,8 +332,7 @@ var data = {
 	},
 	"andorra": {
 		"name": "Андорра",
-		"neighbors": ["catalonia", "occitania"],
-		"part_of": ["spain"]
+		"neighbors": ["catalonia", "occitania"]
 	},
 	"aragon": {
 		"name": "Арагон",
@@ -392,7 +406,8 @@ var data = {
 	"italy": {
 		"name": "Италия",
 		"genetive": "Италии",
-		"neighbors": ["padania", "corsica", "sardinia", "sicily"]
+		"neighbors": ["padania", "corsica", "sardinia", "sicily"],
+		"secessionists": ["padania", "venetia", "liguria", "south_tyrol", "friuli-venezia_giulia", "sicily", "sardinia"]
 	},
 	"liguria": {
 		"name": "Лигурия",
@@ -431,7 +446,8 @@ var data = {
 	"albania": {
 		"name": "Албания",
 		"genetive": "Албании",
-		"neighbors": ["crna_gora", "sandzak", "kosovo", "fyrom", "northern_epirus"]
+		"neighbors": ["crna_gora", "sandzak", "kosovo", "fyrom", "northern_epirus"],
+		"secessionists": ["northern_epirus"]
 	},
 	"bosnia": {
 		"name": "Босния и Герцеговина",
@@ -444,17 +460,20 @@ var data = {
 	"crna_gora": {
 		"name": "Черногория",
 		"genetive": "Черногории",
-		"neighbors": ["croatia", "bosnia", "sandzak", "albania"]
+		"neighbors": ["croatia", "bosnia", "sandzak", "albania"],
+		"secessionists": ["sandzak"]
 	},
 	"croatia": {
 		"name": "Хорватия",
 		"genetive": "Хорватии",
-		"neighbors": ["slovenia", "istria", "hungary", "vojvodina", "bosnia", "crna_gora"]
+		"neighbors": ["slovenia", "istria", "hungary", "vojvodina", "bosnia", "crna_gora"],
+		"secessionists": ["istria"]
 	},
 	"cyprus": {
 		"name": "Кипр",
 		"genetive": "Кипра",
-		"neighbors": ["trnc", "greece"]
+		"neighbors": ["trnc", "greece"],
+		"secessionists": ["trnc"]
 	},
 	"fyrom": {
 		"name": "Македония",
@@ -482,7 +501,8 @@ var data = {
 	"moldavia": {
 		"name": "Молдавия",
 		"genetive": "Молдавии",
-		"neighbors": ["romania", "ukraine", "transnistria", "gagauzia"]
+		"neighbors": ["romania", "ukraine", "transnistria", "gagauzia"],
+		"secessionists": ["transnistria", "gagauzia"]
 	},
 	"northern_epirus": {
 		"name": "Северный Эпир",
@@ -492,7 +512,8 @@ var data = {
 	"romania": {
 		"name": "Румыния",
 		"genetive": "Румынии",
-		"neighbors": ["hungary", "ukraine", "moldavia", "gagauzia", "bulgaria", "serbia", "vojvodina", "ruthenia", "szekely_land"]
+		"neighbors": ["hungary", "ukraine", "moldavia", "gagauzia", "bulgaria", "serbia", "vojvodina", "ruthenia", "szekely_land"],
+		"secessionists": ["szekely_land"]
 	},
 	"sandzak": {
 		"name": "Санджак",
@@ -502,7 +523,8 @@ var data = {
 	"serbia": {
 		"name": "Сербия",
 		"genetive": "Сербии",
-		"neighbors": ["vojvodina", "romania", "bulgaria", "fyrom", "kosovo", "sandzak", "bosnia"]
+		"neighbors": ["vojvodina", "romania", "bulgaria", "fyrom", "kosovo", "sandzak", "bosnia"],
+		"secessionists": ["sandzak", "kosovo", "vojvodina"]
 	},
 	"slovenia": {
 		"name": "Словения",
@@ -546,14 +568,17 @@ var data = {
 	},
 	"uk": {
 		"name": "Великобритания",
-		"genetive": "Великобритании"
+		"genetive": "Великобритании",
+		"secessionists": ["scotland", "england", "wales", "ulster", "cornwall", "devon", "isle_of_wight", "isle_of_man", "wessex", "yorkshire", "channel_islands", "outer_hebrides", "orkney", "shetland"]
 	},
 	"spain": {
 		"name": "Испания",
-		"genetive": "Испании"
+		"genetive": "Испании",
+		"secessionists": ["castile", "catalonia", "basque", "balearic_islands", "andalusia", "aragon", "asturia", "cantabria", "extremadura", "galicia", "leon", "murcia", "valencia"]
 	},
 	"belgium": {
 		"name": "Бельгия",
-		"genetive": "Бельгии"
+		"genetive": "Бельгии",
+		"secessionists": ["flanders", "wallonia"]
 	}
 };

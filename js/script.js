@@ -18,7 +18,8 @@ var Application = function ($map, $details, $list) {
 
 Application.prototype.initialize = function () {
 	this.colorizePaths();
-	this.checkDataSymmetry();
+	this.checkNeighborsSymmetry();
+	this.checkSecessionSymmetry();
 
 	this.map.setDimensions({x1: 450, y1: 10, x2: 2500, y2: 2500});
 	this.map.setScaleBounds(-1, 0.5);
@@ -132,7 +133,7 @@ Application.prototype.getAvailableColor = function (country) {
 	return availableColors[0];
 };
 
-Application.prototype.checkDataSymmetry = function () {
+Application.prototype.checkNeighborsSymmetry = function () {
 	for (var i in data) {
 		var country = data[i];
 
@@ -145,6 +146,32 @@ Application.prototype.checkDataSymmetry = function () {
 
 			if (data[neighborName].neighbors.indexOf(i) === -1) {
 				console.log(neighborName + ' does not contain its neighbor ' + i);
+			}
+		}
+	}
+};
+
+Application.prototype.checkSecessionSymmetry = function () {
+	for (var i in data) {
+		var country = data[i],
+			partOf = country.part_of || [],
+			secessionists = country.secessionists || [];
+
+		for (var j = 0; j < partOf.length; j++) {
+			var partName = partOf[j],
+				jSecessionists = data[partName].secessionists || [];
+
+			if (jSecessionists.indexOf(i) === -1) {
+				console.log(i + ' is not listed among secessionists in the state ' + partName);
+			}
+		}
+
+		for (var j = 0; j < secessionists.length; j++) {
+			var secessionistName = secessionists[j],
+				jParts = data[secessionistName].part_of || [];;
+
+			if (jParts.indexOf(i) === -1) {
+				console.log(secessionistName + ' does not include state ' + i + 'in its parts');
 			}
 		}
 	}

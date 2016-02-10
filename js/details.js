@@ -5,7 +5,8 @@ var dataLabels = {
 	"gdp": "ВВП",
 	"gdp_per_capita": "ВВП на душу населения",
 	"neighbors": "Соседние страны",
-	"part_of": "Часть"
+	"part_of": "Часть",
+	"secessionists": "Регионы"
 };
 
 var Details = function ($container) {
@@ -42,8 +43,9 @@ Details.prototype.renderCountry = function (name) {
 	elements.push(createDataElement('population', countryData));
 	elements.push(createDataElement('large_cities', countryData));
 	elements.push(createDataElement('gdp', countryData));
-	elements.push(createNeighborsList(countryData.neighbors));
+	elements.push(createCountryList(countryData.neighbors, dataLabels.neighbors));
 	elements.push(createPartOf(countryData.part_of));
+	elements.push(createCountryList(countryData.secessionists, dataLabels.secessionists));
 
 	clearContainer(this.$container);
 	for (var key in elements) {
@@ -91,31 +93,30 @@ function createDataElement (label, content) {
 	return $el;
 }
 
-function createNeighborsList (neighbors) {
-	if (neighbors === undefined || neighbors.length === 0) {
+function getCountrySpan (slug, genetive) {
+	var name = genetive ? data[slug].genetive : data[slug].name;
+
+	return '<span class="country-name" data-name="' + slug + '">' +
+		'<img src="flags/' + slug + '.png" class="flag-icon" />' + name + '</span>';
+}
+
+function createCountryList (countries, label) {
+	if (countries === undefined || countries.length === 0) {
 		return null;
 	}
 
 	var $el = document.createElement('div');
 	$el.className = 'data';
-	var code = '<b>' + dataLabels.neighbors + ':</b> ',
-		neighborsList = [];
+	var code = '<b>' + label + ':</b> ',
+		countriesList = [];
 
-	for (var i = 0; i < neighbors.length; i++) {
-		neighborsList.push(getCountrySpan(neighbors[i]));
+	for (var i = 0; i < countries.length; i++) {
+		countriesList.push(getCountrySpan(countries[i]));
 	}
 
-	$el.innerHTML = code + neighborsList.join(', ');
+	$el.innerHTML = code + countriesList.join(', ');
 
 	return $el;
-}
-
-function getCountrySpan (slug, genetive) {
-	var name = genetive ? data[slug].genetive : data[slug].name,
-		exists = Boolean(contours[slug]);
-
-	return '<span class="country-name ' + (exists ? 'exists' : '') + '" data-name="' + slug + '">' +
-		'<img src="flags/' + slug + '.png" class="flag-icon" />' + name + '</span>';
 }
 
 function createPartOf (countries) {
