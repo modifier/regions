@@ -25,7 +25,7 @@ SvgMap.prototype.initializeElements = function () {
 
 	var that = this;
 	var $zoomIn = document.createElement('div');
-	$zoomIn.innerText = '+';
+	$zoomIn.innerHTML = '+';
 	$zoomIn.className = 'scale-button';
 	this.$scaler.appendChild($zoomIn);
 	$zoomIn.addEventListener('click', function () {
@@ -210,9 +210,9 @@ SvgMap.prototype.attachEvents = function () {
 	});
 
 	this.$map.addEventListener('wheel', function (e) {
-		if (e.wheelDeltaY < 0) {
+		if (e.deltaY > 0) {
 			that.setScale(that.scale + that.scaleStep, e.offsetX, e.offsetY);
-		} else if (e.wheelDeltaY > 0) {
+		} else if (e.deltaY < 0) {
 			that.setScale(that.scale - that.scaleStep, e.offsetX, e.offsetY);
 		}
 	});

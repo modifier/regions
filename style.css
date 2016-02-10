@@ -14,6 +14,7 @@ html, body {
 #map_container {
 	display: inline-block;
 	position: relative;
+	-moz-user-select: none;
 }
 
 #svg_path {
