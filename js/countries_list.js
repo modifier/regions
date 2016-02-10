@@ -40,7 +40,7 @@ CountriesList.prototype.render = function () {
 };
 
 CountriesList.prototype.getCountry = function (name) {
-	return '<span class="country-name" data-name="' + name + '"><span class="flag-container"><img src="flags/' + name + '.png" class="flag-icon" /></span>' + data[name].name + '</span>';
+	return '<span class="country-name exists" data-name="' + name + '"><span class="flag-container"><img src="flags/' + name + '.png" class="flag-icon" /></span>' + data[name].name + '</span>';
 };
 
 // @todo: create common class for this and Details and inherit both

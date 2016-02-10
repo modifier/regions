@@ -105,7 +105,7 @@ h2 {
     overflow: auto;
 }
 
-.country-name {
+.country-name.exists {
 	cursor: pointer;
 	color: #0067B3;
 }

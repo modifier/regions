@@ -55,30 +55,26 @@ Application.prototype.deselectCountry = function () {
 		var currentName = this.selectedPath.country,
 			nativeColor = data[currentName].color;
 
-		this.selectedPath.path.setAttributeNS(null, 'fill', nativeColor);
+		if (this.selectedPath.path) {
+			this.selectedPath.path.setAttributeNS(null, 'fill', nativeColor);
+		}
 	}
 };
 
 Application.prototype.selectCountry = function (country) {
-	if (data[country].disabled) {
-		this.deselectCountry();
+	this.deselectCountry();
 
+	if (data[country].disabled) {
 		return;
 	}
 
 	this.list.hide();
-
 	this.details.renderCountry(country);
 
-	if (this.selectedPath !== null) {
-		var currentName = this.selectedPath.country,
-			nativeColor = data[currentName].color;
-
-		this.selectedPath.path.setAttributeNS(null, 'fill', nativeColor);
-	}
-
 	var path = this.paths[country];
-	path.setAttributeNS(null, 'fill', this.selectedColor);
+	if (path) {
+		path.setAttributeNS(null, 'fill', this.selectedColor);
+	}
 
 	this.selectedPath = {
 		path: path,
@@ -87,6 +83,10 @@ Application.prototype.selectCountry = function (country) {
 };
 
 Application.prototype.followCountry = function (country) {
+	if (!this.paths[country]) {
+		return;
+	}
+
 	var bbox = this.paths[country].getBBox();
 
 	this.map.setPosition(bbox.x + bbox.width / 2, bbox.y + bbox.height / 2);

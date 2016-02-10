@@ -4,7 +4,8 @@ var dataLabels = {
 	"large_cities": "Крупнейшие города",
 	"gdp": "ВВП",
 	"gdp_per_capita": "ВВП на душу населения",
-	"neighbors": "Соседние страны"
+	"neighbors": "Соседние страны",
+	"part_of": "Часть"
 };
 
 var Details = function ($container) {
@@ -42,6 +43,7 @@ Details.prototype.renderCountry = function (name) {
 	elements.push(createDataElement('large_cities', countryData));
 	elements.push(createDataElement('gdp', countryData));
 	elements.push(createNeighborsList(countryData.neighbors));
+	elements.push(createPartOf(countryData.part_of));
 
 	clearContainer(this.$container);
 	for (var key in elements) {
@@ -108,6 +110,45 @@ function createNeighborsList (neighbors) {
 	return $el;
 }
 
-function getCountrySpan (name) {
-	return '<span class="country-name" data-name="' + name + '"><img src="flags/' + name + '.png" class="flag-icon" />' + data[name].name + '</span>';
+function getCountrySpan (slug, genetive) {
+	var name = genetive ? data[slug].genetive : data[slug].name,
+		exists = Boolean(contours[slug]);
+
+	return '<span class="country-name ' + (exists ? 'exists' : '') + '" data-name="' + slug + '">' +
+		'<img src="flags/' + slug + '.png" class="flag-icon" />' + name + '</span>';
+}
+
+function createPartOf (countries) {
+	if (countries === undefined || countries.length === 0) {
+		return null;
+	}
+
+	var $el = document.createElement('div');
+	$el.className = 'data';
+	var code = '<b>' + dataLabels.part_of + '</b> ',
+		countriesList = [];
+
+	for (var i = 0; i < countries.length; i++) {
+		countriesList.push(getCountrySpan(countries[i], true));
+	}
+
+	$el.innerHTML = code + joinRussian(countriesList);
+
+	return $el;
+}
+
+function joinRussian (list) {
+	if (list.length === 1) {
+		return list[0];
+	}
+
+	var result = '',
+		firstEls = [],
+		lastEl = list[list.length - 1];
+
+	for (var i = 0; i < list.length - 1; i++) {
+		firstEls.push(list[i]);
+	}
+
+	return firstEls.join(', ') + ' и ' + lastEl;
 }
