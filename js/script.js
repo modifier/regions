@@ -25,9 +25,11 @@ Application.prototype.initialize = function () {
 	this.map.setScaleBounds(-1, 0.5);
 
 	for (var country in contours) {
-		this.paths[country] = this.map.addPath(contours[country], data[country].color, data[country].name, this.selectCountry.bind(this, country));
-		if (data[country].capital) {
-			this.map.addCapital(data[country].capital.coords, data[country].capital.name);
+		var countryData = data[country];
+
+		this.paths[country] = this.map.addPath(contours[country], countryData.color, countryData.name, this.selectCountry.bind(this, country));
+		if (countryData.capital && countryData.capital.coords) {
+			this.map.addCapital(countryData.capital.coords, countryData.capital.name);
 		}
 	}
 
