@@ -221,9 +221,9 @@ SvgMap.prototype.attachEvents = function () {
 
 	this.$map.addEventListener('wheel', function (e) {
 		if (e.deltaY > 0) {
-			that.setScale(that.scale + that.scaleStep, e.offsetX, e.offsetY);
+			that.setScale(that.scale + that.scaleStep, e.layerX, e.layerY);
 		} else if (e.deltaY < 0) {
-			that.setScale(that.scale - that.scaleStep, e.offsetX, e.offsetY);
+			that.setScale(that.scale - that.scaleStep, e.layerX, e.layerY);
 		}
 	});
 
@@ -309,7 +309,7 @@ SvgMap.prototype.checkCapitals = function () {
 		label.setAttribute('font-size', 13 * scaleCoefficient);
 		label.setAttribute('font-family', 'Tahoma, sans-serif');
 		label.setAttribute('x', capital.position[0] + 5 * scaleCoefficient);
-		label.setAttribute('y', capital.position[1] + 5 * scaleCoefficient);
+		label.setAttribute('y', capital.position[1] - 5 * scaleCoefficient);
 
 		capital.label = label;
 		this.$map.appendChild(label);
