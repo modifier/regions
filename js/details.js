@@ -39,10 +39,7 @@ Details.prototype.renderCountry = function (name) {
 	$name.innerText = countryData.name;
 	elements.push($name);
 
-	elements.push(createDataElement('capital', countryData));
-	elements.push(createDataElement('population', countryData));
-	elements.push(createDataElement('large_cities', countryData));
-	elements.push(createDataElement('gdp', countryData));
+	elements.push(createCapitalElement(countryData.capital));
 	elements.push(createCountryList(countryData.neighbors, dataLabels.neighbors));
 	elements.push(createPartOf(countryData.part_of));
 	elements.push(createCountryList(countryData.secessionists, dataLabels.secessionists));
@@ -152,4 +149,16 @@ function joinRussian (list) {
 	}
 
 	return firstEls.join(', ') + ' и ' + lastEl;
+}
+
+function createCapitalElement (capital) {
+	if (!capital) {
+		return null;
+	}
+
+	var $el = document.createElement('div');
+	$el.className = 'data';
+	$el.innerHTML = '<b>' + dataLabels.capital + ':</b> ' + capital.name;
+
+	return $el;
 }

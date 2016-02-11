@@ -26,6 +26,9 @@ Application.prototype.initialize = function () {
 
 	for (var country in contours) {
 		this.paths[country] = this.map.addPath(contours[country], data[country].color, data[country].name, this.selectCountry.bind(this, country));
+		if (data[country].capital) {
+			this.map.addCapital(data[country].capital.coords, data[country].capital.name);
+		}
 	}
 
 	var that = this;

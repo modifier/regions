@@ -9,7 +9,11 @@ var data = {
 		"name": "Финляндия",
 		"genetive": "Финляндии",
 		"neighbors": ["karelia", "ingria", "sapmi", "aland", "bornholm", "estonia"],
-		"secessionists": ["sapmi", "aland"]
+		"secessionists": ["sapmi", "aland"],
+		"capital": {
+			"name": "Хельсинки",
+			"coords": [2035, 781]
+		}
 	},
 	"sapmi": {
 		"name": "Лапландия",
@@ -20,37 +24,65 @@ var data = {
 		"name": "Норвегия",
 		"genetive": "Норвегии",
 		"neighbors": ["sapmi", "sweden", "denmark"],
-		"secessionists": ["sapmi"]
+		"secessionists": ["sapmi"],
+		"capital": {
+			"name": "Осло",
+			"coords": [1563, 851]
+		}
 	},
 	"sweden": {
 		"name": "Швеция",
 		"genetive": "Швеции",
 		"neighbors": ["sapmi", "norway", "estonia", "aland", "bornholm", "skaneland"],
-		"secessionists": ["sapmi", "skaneland"]
+		"secessionists": ["sapmi", "skaneland"],
+		"capital": {
+			"name": "Стокгольм",
+			"coords": [1822, 872]
+		}
 	},
 	"iceland": {
 		"name": "Исландия",
-		"neighbors": ["faroe"]
+		"neighbors": ["faroe"],
+		"capital": {
+			"name": "Рейкьявик",
+			"coords": [646, 340]
+		}
 	},
 	"ingria": {
 		"name": "Ингерманландия",
 		"neighbors": ["karelia", "finland", "russia", "estonia"],
-		"part_of": ["russia"]
+		"part_of": ["russia"],
+		"capital": {
+			"name": "Санкт-Петербург",
+			"coords": [2221, 749]
+		}
 	},
 	"karelia": {
 		"name": "Карелия",
 		"neighbors": ["finland", "sapmi", "russia", "ingria"],
-		"part_of": ["russia"]
+		"part_of": ["russia"],
+		"capital": {
+			"name": "Петрозаводск",
+			"coords": [2304, 581]
+		}
 	},
 	"aland": {
 		"name": "Аланды",
 		"neighbors": ["finland", "sweden", "skaneland"],
-		"part_of": ["finland"]
+		"part_of": ["finland"],
+		"capital": {
+			"name": "Мариехамн",
+			"coords": [1877, 812]
+		}
 	},
 	"bornholm": {
 		"name": "Борнхольм",
 		"neighbors": ["finland", "sweden", "skaneland", "denmark"],
-		"part_of": ["denmark"]
+		"part_of": ["denmark"],
+		"capital": {
+			"name": "Рённе",
+			"coords": [1723, 1167]
+		}
 	},
 	"estonia": {
 		"name": "Эстония",
@@ -88,9 +120,13 @@ var data = {
 		"part_of": ["lithuania"]
 	},
 	"skaneland": {
-		"name": "Скане",
+		"name": "Скания",
 		"neighbors": ["sweden", "denmark", "bornholm", "aland"],
-		"part_of": ["sweden"]
+		"part_of": ["sweden"],
+		"capital": {
+			"name": "Мальмё",
+			"coords": [1659, 1134]
+		}
 	},
 	"belarus": {
 		"name": "Беларусь",

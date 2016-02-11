@@ -11,6 +11,7 @@ var SvgMap = function ($container) {
 	this.isDrag = false;
 	this.animationId = null;
 	this.oceanCallbacks = [];
+	this.capitals = [];
 	this.initializeElements();
 };
 
@@ -64,6 +65,14 @@ SvgMap.prototype.addPath = function (path, color, label, clickCallback) {
 	return polygon;
 };
 
+SvgMap.prototype.addCapital = function (position, name) {
+	this.capitals.push({
+		position: position,
+		name: name,
+		path: null
+	});
+}
+
 SvgMap.prototype.initialize = function () {
 	this.position = [
 		(this.dimensions.x2 - this.dimensions.x1) / 2,
@@ -87,6 +96,7 @@ SvgMap.prototype.setBounds = function () {
 	};
 
 	this.checkLabels();
+	this.checkCapitals();
 };
 
 SvgMap.prototype.getScaledWidth = function () {
@@ -270,5 +280,38 @@ SvgMap.prototype.checkLabels = function () {
 
 		text.setAttribute('transform', 'translate(' + (sizes.x + sizes.width / 2 - ownSizes.width / 2) + ' ' + (sizes.y + sizes.height / 2) +')');
 		this.labels.push(text);
+	}
+};
+
+SvgMap.prototype.checkCapitals = function () {
+	for (var i = 0; i < this.capitals.length; i++) {
+		var capital = this.capitals[i];
+
+		if (capital.circle && capital.label) {
+			this.$map.removeChild(capital.circle);
+			this.$map.removeChild(capital.label);
+		}
+
+		var scaleCoefficient =  Math.pow(2, this.scale);
+
+		var circle = document.createElementNS('http://www.w3.org/2000/svg', 'circle');
+		circle.setAttributeNS(null, 'cx', capital.position[0]);
+		circle.setAttributeNS(null, 'cy', capital.position[1]);
+		circle.setAttributeNS(null, 'r', 3 * scaleCoefficient);
+		circle.setAttributeNS(null, 'fill', 'black');
+
+		capital.circle = circle;
+		this.$map.appendChild(circle);
+
+		var label = document.createElementNS('http://www.w3.org/2000/svg', 'text');
+		label.textContent = capital.name;
+		label.setAttribute('fill', '#000');
+		label.setAttribute('font-size', 13 * scaleCoefficient);
+		label.setAttribute('font-family', 'Tahoma, sans-serif');
+		label.setAttribute('x', capital.position[0] + 5 * scaleCoefficient);
+		label.setAttribute('y', capital.position[1] + 5 * scaleCoefficient);
+
+		capital.label = label;
+		this.$map.appendChild(label);
 	}
 };
