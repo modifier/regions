@@ -36,7 +36,7 @@ Details.prototype.renderCountry = function (name) {
 
 	// name
 	var $name = document.createElement('h2');
-	$name.innerText = countryData.name;
+	$name.innerHTML = countryData.name;
 	elements.push($name);
 
 	elements.push(createCapitalElement(countryData.capital));

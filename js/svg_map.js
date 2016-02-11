@@ -206,7 +206,7 @@ SvgMap.prototype.attachEvents = function () {
 	});
 
 	window.addEventListener('mouseup', function (e) {
-		if (e.target === that.$map) {
+		if (e.target === that.$map && !that.isDrag) {
 			for (var i = 0; i < that.oceanCallbacks.length; i++) {
 				that.oceanCallbacks[i]();
 			}
