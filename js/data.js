@@ -667,27 +667,47 @@ var data = {
 		"name": "Албания",
 		"genetive": "Албании",
 		"neighbors": ["crna_gora", "sandzak", "kosovo", "fyrom", "northern_epirus"],
-		"secessionists": ["northern_epirus"]
+		"secessionists": ["northern_epirus"],
+		"capital": {
+			"name": "Тирана",
+			"coords": [2039, 2073]
+		}
 	},
 	"bosnia": {
 		"name": "Босния и Герцеговина",
-		"neighbors": ["croatia", "vojvodina", "serbia", "crna_gora", "sandzak"]
+		"neighbors": ["croatia", "vojvodina", "serbia", "crna_gora", "sandzak"],
+		"capital": {
+			"name": "Сараево",
+			"coords": [1946, 1920]
+		}
 	},
 	"bulgaria": {
 		"name": "Болгария",
-		"neighbors": ["romania", "greece", "fyrom", "serbia"]
+		"neighbors": ["romania", "greece", "fyrom", "serbia"],
+		"capital": {
+			"name": "Болгария",
+			"coords": [2206, 1956]
+		}
 	},
 	"crna_gora": {
 		"name": "Черногория",
 		"genetive": "Черногории",
 		"neighbors": ["croatia", "bosnia", "sandzak", "albania"],
-		"secessionists": ["sandzak"]
+		"secessionists": ["sandzak"],
+		"capital": {
+			"name": "Подгорица",
+			"coords": [2006, 2001]
+		}
 	},
 	"croatia": {
 		"name": "Хорватия",
 		"genetive": "Хорватии",
 		"neighbors": ["slovenia", "istria", "hungary", "vojvodina", "bosnia", "crna_gora"],
-		"secessionists": ["istria"]
+		"secessionists": ["istria"],
+		"capital": {
+			"name": "Загреб",
+			"coords": [1824, 1797]
+		}
 	},
 	"cyprus": {
 		"name": "Кипр",
@@ -701,7 +721,11 @@ var data = {
 	},
 	"fyrom": {
 		"name": "Македония",
-		"neighbors": ["kosovo", "serbia", "bulgaria", "greece", "northern_epirus", "albania"]
+		"neighbors": ["kosovo", "serbia", "bulgaria", "greece", "northern_epirus", "albania"],
+		"capital": {
+			"name": "Скопье",
+			"coords": [2112, 2021]
+		}
 	},
 	"gagauzia": {
 		"name": "Гагаузия",
@@ -719,12 +743,20 @@ var data = {
 	"istria": {
 		"name": "Истрия",
 		"neighbors": ["slovenia", "croatia"],
-		"part_of": ["croatia"]
+		"part_of": ["croatia"],
+		"capital": {
+			"name": "Пула",
+			"coords": [1727, 1866]
+		}
 	},
 	"kosovo": {
 		"name": "Косово",
 		"neighbors": ["sandzak", "serbia", "fyrom", "albania"],
-		"part_of": ["serbia"]
+		"part_of": ["serbia"],
+		"capital": {
+			"name": "Приштина",
+			"coords": [2088, 1978]
+		}
 	},
 	"moldavia": {
 		"name": "Молдавия",
@@ -735,7 +767,11 @@ var data = {
 	"northern_epirus": {
 		"name": "Северный Эпир",
 		"neighbors": ["albania", "fyrom", "greece"],
-		"part_of": ["albania"]
+		"part_of": ["albania"],
+		"capital": {
+			"name": "Корча",
+			"coords": [2099, 2113]
+		}
 	},
 	"romania": {
 		"name": "Румыния",
@@ -746,17 +782,29 @@ var data = {
 	"sandzak": {
 		"name": "Санджак",
 		"neighbors": ["bosnia", "serbia", "kosovo", "albania", "crna_gora"],
-		"part_of": ["serbia", "crna_gora"]
+		"part_of": ["serbia", "crna_gora"],
+		"capital": {
+			"name": "Нови-Пазар",
+			"coords": [2059, 1949]
+		}
 	},
 	"serbia": {
 		"name": "Сербия",
 		"genetive": "Сербии",
 		"neighbors": ["vojvodina", "romania", "bulgaria", "fyrom", "kosovo", "sandzak", "bosnia"],
-		"secessionists": ["sandzak", "kosovo", "vojvodina"]
+		"secessionists": ["sandzak", "kosovo", "vojvodina"],
+		"capital": {
+			"name": "Белград",
+			"coords": [2044, 1841]
+		}
 	},
 	"slovenia": {
 		"name": "Словения",
-		"neighbors": ["friuli-venezia_giulia", "carinthia", "austria", "hungary", "croatia", "istria"]
+		"neighbors": ["friuli-venezia_giulia", "carinthia", "austria", "hungary", "croatia", "istria"],
+		"capital": {
+			"name": "Любляна",
+			"coords": [1753, 1782]
+		}
 	},
 	"szekely_land": {
 		"name": "Секейский край",
@@ -779,7 +827,11 @@ var data = {
 	"vojvodina": {
 		"name": "Воеводина",
 		"neighbors": ["croatia", "hungary", "romania", "serbia", "bosnia"],
-		"part_of": ["serbia"]
+		"part_of": ["serbia"],
+		"capital": {
+			"name": "Нови-Сад",
+			"coords": [2012, 1812]
+		}
 	},
 	"turkey": {
 		"name": "Турция",
