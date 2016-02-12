@@ -40,9 +40,9 @@ Details.prototype.renderCountry = function (name) {
 	elements.push($name);
 
 	elements.push(createCapitalElement(countryData.capital));
-	elements.push(createCountryList(countryData.neighbors, dataLabels.neighbors));
 	elements.push(createPartOf(countryData.part_of));
 	elements.push(createCountryList(countryData.secessionists, dataLabels.secessionists));
+	elements.push(createCountryList(countryData.neighbors, dataLabels.neighbors));
 
 	clearContainer(this.$container);
 	for (var key in elements) {
