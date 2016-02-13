@@ -238,6 +238,7 @@ var data = {
 		"part_of": ["uk"],
 		"capital": {
 			"name": "Дуглас",
+			"url": "Дуглас_(остров_Мэн)",
 			"coords": [971, 1180]
 		}
 	},
@@ -362,6 +363,7 @@ var data = {
 		"part_of": ["uk"],
 		"capital": {
 			"name": "Ньюпорт",
+			"url": "Ньюпорт_(остров_Уайт)",
 			"coords": [1058, 1435]
 		}
 	},
@@ -564,6 +566,7 @@ var data = {
 		"part_of": ["spain"],
 		"capital": {
 			"name": "Пальма",
+			"url": "Пальма_(город)",
 			"coords": [1158, 2208]
 		}
 	},
@@ -574,6 +577,7 @@ var data = {
 		"capital": {
 			"name": "Сторновей",
 			"type": "admin_center",
+			"url": "Сторновей_(Шотландия)",
 			"coords": [963, 897]
 		}
 	},
@@ -637,7 +641,7 @@ var data = {
 		"neighbors": ["occitania", "aragon", "castile", "cantabria"],
 		"part_of": ["spain"],
 		"capital": {
-			"name": "Виктория-Гастейс",
+			"name": "Витория-Гастейс",
 			"coords": [906, 1949]
 		}
 	},
@@ -674,6 +678,7 @@ var data = {
 		"part_of": ["spain"],
 		"capital": {
 			"name": "Мерида",
+			"url": "Мерида_(Испания)",
 			"coords": [686, 2174]
 		}
 	},
@@ -692,6 +697,7 @@ var data = {
 		"part_of": ["spain"],
 		"capital": {
 			"name": "Леон",
+			"url": "Леон_(Испания)",
 			"type": "admin_center",
 			"coords": [765, 1947]
 		}
@@ -955,6 +961,7 @@ var data = {
 		"part_of": ["serbia", "crna_gora"],
 		"capital": {
 			"name": "Нови-Пазар",
+			"url": "Нови-Пазар_(город,_Сербия)",
 			"type": "largest_city",
 			"coords": [2059, 1949]
 		}

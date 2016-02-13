@@ -11,6 +11,8 @@ var dataLabels = {
 	"largest_city": "Крупнейший город"
 };
 
+var wikipediaPrefix = "https://ru.wikipedia.org/wiki/";
+
 var Details = function ($container) {
 	this.$container = $container;
 	this.countryCallbacks = [];
@@ -162,7 +164,8 @@ function createCapitalElement (capital) {
 
 	var $el = document.createElement('div');
 	$el.className = 'data';
-	$el.innerHTML = '<b>' + dataLabels[labelType] + ':</b> ' + capital.name;
+	var url = wikipediaPrefix + (capital.url || capital.name);
+	$el.innerHTML = '<b>' + dataLabels[labelType] + ':</b> <a href="' + url + '" target="_blank">' + capital.name + '</a>';
 
 	return $el;
 }

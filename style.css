@@ -3,6 +3,14 @@ html, body {
 	margin: 0;
 }
 
+a {
+	color: #0067B3;
+}
+
+a:hover {
+	color: #0C77C5;
+}
+
 .container {
 	font-size: 0;
 	white-space: nowrap;
