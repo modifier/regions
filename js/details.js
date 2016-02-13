@@ -6,7 +6,9 @@ var dataLabels = {
 	"gdp_per_capita": "ВВП на душу населения",
 	"neighbors": "Соседние страны",
 	"part_of": "Часть",
-	"secessionists": "Регионы"
+	"secessionists": "Регионы",
+	"admin_center": "Административный центр",
+	"largest_city": "Крупнейший город"
 };
 
 var Details = function ($container) {
@@ -156,9 +158,11 @@ function createCapitalElement (capital) {
 		return null;
 	}
 
+	var labelType = capital.type || 'capital'
+
 	var $el = document.createElement('div');
 	$el.className = 'data';
-	$el.innerHTML = '<b>' + dataLabels.capital + ':</b> ' + capital.name;
+	$el.innerHTML = '<b>' + dataLabels[labelType] + ':</b> ' + capital.name;
 
 	return $el;
 }

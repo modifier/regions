@@ -25,6 +25,7 @@ var data = {
 		"part_of": ["norway", "sweden", "finland", "russia"],
 		"capital": {
 			"name": "Мурманск",
+			"type": "largest_city",
 			"coords": [2096, 137]
 		}
 	},
@@ -62,6 +63,7 @@ var data = {
 		"part_of": ["russia"],
 		"capital": {
 			"name": "Санкт-Петербург",
+			"type": "largest_city",
 			"coords": [2221, 749]
 		}
 	},
@@ -75,11 +77,12 @@ var data = {
 		}
 	},
 	"aland": {
-		"name": "Аланды",
+		"name": "Аландские острова",
 		"neighbors": ["finland", "sweden", "skaneland"],
 		"part_of": ["finland"],
 		"capital": {
 			"name": "Мариехамн",
+			"type": "admin_center",
 			"coords": [1877, 812]
 		}
 	},
@@ -89,6 +92,7 @@ var data = {
 		"part_of": ["denmark"],
 		"capital": {
 			"name": "Рённе",
+			"type": "largest_city",
 			"coords": [1723, 1167]
 		}
 	},
@@ -115,6 +119,7 @@ var data = {
 		"part_of": ["latvia"],
 		"capital": {
 			"name": "Даугавпилс",
+			"type": "largest_city",
 			"coords": [2163, 1045]
 		}
 	},
@@ -143,6 +148,7 @@ var data = {
 		"part_of": ["russia"],
 		"capital": {
 			"name": "Кёнигсберг",
+			"type": "admin_center",
 			"coords": [1949, 1170]
 		}
 	},
@@ -152,6 +158,7 @@ var data = {
 		"part_of": ["lithuania"],
 		"capital": {
 			"name": "Тельшяй",
+			"type": "largest_city",
 			"coords": [2003, 1078]
 		}
 	},
@@ -161,6 +168,7 @@ var data = {
 		"part_of": ["sweden"],
 		"capital": {
 			"name": "Мальмё",
+			"type": "admin_center",
 			"coords": [1659, 1134]
 		}
 	},
@@ -268,6 +276,7 @@ var data = {
 		"part_of": ["germany"],
 		"capital": {
 			"name": "Гамбург",
+			"type": "largest_city",
 			"coords": [1519, 1232]
 		}
 	},
@@ -295,6 +304,7 @@ var data = {
 		"part_of": ["ukraine"],
 		"capital": {
 			"name": "Донецк",
+			"type": "largest_city",
 			"coords": [2772, 1424]
 		}
 	},
@@ -304,6 +314,7 @@ var data = {
 		"part_of": ["uk"],
 		"capital": {
 			"name": "Труро",
+			"type": "admin_center",
 			"coords": [894, 1435]
 		}
 	},
@@ -313,6 +324,7 @@ var data = {
 		"part_of": ["uk"],
 		"capital": {
 			"name": "Эксетер",
+			"type": "admin_center",
 			"coords": [962, 1422]
 		}
 	},
@@ -340,6 +352,7 @@ var data = {
 		"part_of": ["uk"],
 		"capital": {
 			"name": "Бристоль",
+			"type": "largest_city",
 			"coords": [1012, 1369]
 		}
 	},
@@ -358,6 +371,7 @@ var data = {
 		"part_of": ["uk"],
 		"capital": {
 			"name": "Йорк",
+			"type": "admin_center",
 			"coords": [1100, 1215]
 		}
 	},
@@ -403,6 +417,7 @@ var data = {
 		"part_of": ["czech"],
 		"capital": {
 			"name": "Брно",
+			"type": "admin_center",
 			"coords": [1838, 1566]
 		}
 	},
@@ -412,6 +427,7 @@ var data = {
 		"part_of": ["ukraine"],
 		"capital": {
 			"name": "Ужгород",
+			"type": "admin_center",
 			"coords": [2087, 1572]
 		}
 	},
@@ -421,6 +437,7 @@ var data = {
 		"part_of": ["poland", "czech"],
 		"capital": {
 			"name": "Катовице",
+			"type": "largest_city",
 			"coords": [1928, 1475]
 		}
 	},
@@ -448,6 +465,7 @@ var data = {
 		"part_of": ["france"],
 		"capital": {
 			"name": "Страсбург",
+			"type": "admin_center",
 			"coords": [1439, 1614]
 		}
 	},
@@ -467,6 +485,7 @@ var data = {
 		"part_of": ["france"],
 		"capital": {
 			"name": "Ренн",
+			"type": "admin_center",
 			"coords": [1012, 1604]
 		}
 	},
@@ -476,6 +495,7 @@ var data = {
 		"part_of": ["austria"],
 		"capital": {
 			"name": "Клагенфурт",
+			"type": "admin_center",
 			"coords": [1744, 1745]
 		}
 	},
@@ -496,7 +516,10 @@ var data = {
 	},
 	"liechtenstein": {
 		"name": "Лихтенштейн",
-		"neighbors": ["switzerland", "austria"]
+		"neighbors": ["switzerland", "austria"],
+		"capital": {
+			"name": "Вадуц"
+		}
 	},
 	"normandy": {
 		"name": "Нормандия",
@@ -513,6 +536,7 @@ var data = {
 		"part_of": ["france"],
 		"capital": {
 			"name": "Марсель",
+			"type": "largest_city",
 			"coords": [1312, 1970]
 		}
 	},
@@ -522,6 +546,7 @@ var data = {
 		"part_of": ["france"],
 		"capital": {
 			"name": "Шамбери",
+			"type": "largest_city",
 			"coords": [1354, 1815]
 		}
 	},
@@ -548,6 +573,7 @@ var data = {
 		"part_of": ["uk"],
 		"capital": {
 			"name": "Сторновей",
+			"type": "admin_center",
 			"coords": [963, 897]
 		}
 	},
@@ -556,7 +582,8 @@ var data = {
 		"neighbors": ["scotland", "shetland"],
 		"part_of": ["uk"],
 		"capital": {
-			"name": "Кёркуолл",
+			"name": "Керкуолл",
+			"type": "admin_center",
 			"coords": [1089, 870]
 		}
 	},
@@ -566,6 +593,7 @@ var data = {
 		"part_of": ["uk"],
 		"capital": {
 			"name": "Леруик",
+			"type": "admin_center",
 			"coords": [1164, 802]
 		}
 	},
@@ -600,7 +628,7 @@ var data = {
 		"neighbors": ["galicia", "leon", "cantabria"],
 		"part_of": ["spain"],
 		"capital": {
-			"name": "Авьедо",
+			"name": "Овьедо",
 			"coords": [765, 1880]
 		}
 	},
@@ -664,6 +692,7 @@ var data = {
 		"part_of": ["spain"],
 		"capital": {
 			"name": "Леон",
+			"type": "admin_center",
 			"coords": [765, 1947]
 		}
 	},
@@ -708,6 +737,7 @@ var data = {
 		"part_of": ["italy"],
 		"capital": {
 			"name": "Триест",
+			"type": "largest_city",
 			"coords": [1724, 1810]
 		}
 	},
@@ -727,6 +757,7 @@ var data = {
 		"part_of": ["italy"],
 		"capital": {
 			"name": "Генуя",
+			"type": "admin_center",
 			"coords": [1485, 1900]
 		}
 	},
@@ -744,6 +775,7 @@ var data = {
 		"part_of": ["italy"],
 		"capital": {
 			"name": "Милан",
+			"type": "largest_city",
 			"coords": [1500, 1836]
 		}
 	},
@@ -753,6 +785,7 @@ var data = {
 		"part_of": ["italy"],
 		"capital": {
 			"name": "Кальяри",
+			"type": "admin_center",
 			"coords": [1496, 2251]
 		}
 	},
@@ -762,6 +795,7 @@ var data = {
 		"part_of": ["italy"],
 		"capital": {
 			"name": "Палермо",
+			"type": "admin_center",
 			"coords": [1727, 2321]
 		}
 	},
@@ -771,6 +805,7 @@ var data = {
 		"part_of": ["italy"],
 		"capital": {
 			"name": "Больцано",
+			"type": "admin_center",
 			"coords": [1606, 1759]
 		}
 	},
@@ -853,6 +888,7 @@ var data = {
 		"part_of": ["moldavia"],
 		"capital": {
 			"name": "Комрат",
+			"type": "admin_center",
 			"coords": [2408, 1662]
 		}
 	},
@@ -870,6 +906,7 @@ var data = {
 		"part_of": ["croatia"],
 		"capital": {
 			"name": "Пула",
+			"type": "largest_city",
 			"coords": [1727, 1866]
 		}
 	},
@@ -898,6 +935,7 @@ var data = {
 		"part_of": ["albania"],
 		"capital": {
 			"name": "Корча",
+			"type": "largest_city",
 			"coords": [2099, 2113]
 		}
 	},
@@ -917,6 +955,7 @@ var data = {
 		"part_of": ["serbia", "crna_gora"],
 		"capital": {
 			"name": "Нови-Пазар",
+			"type": "largest_city",
 			"coords": [2059, 1949]
 		}
 	},
@@ -944,6 +983,7 @@ var data = {
 		"part_of": ["romania"],
 		"capital": {
 			"name": "Тыргу-Муреш",
+			"type": "admin_center",
 			"coords": [2221, 1689]
 		}
 	},
@@ -970,6 +1010,7 @@ var data = {
 		"part_of": ["serbia"],
 		"capital": {
 			"name": "Нови-Сад",
+			"type": "admin_center",
 			"coords": [2012, 1812]
 		}
 	},
