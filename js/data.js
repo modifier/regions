@@ -16,6 +16,7 @@ var data = {
 		"secessionists": ["sapmi", "aland"],
 		"capital": {
 			"name": "Хельсинки",
+			"position": "bottom-right",
 			"coords": [2035, 781]
 		}
 	},
@@ -46,6 +47,7 @@ var data = {
 		"secessionists": ["sapmi", "skaneland"],
 		"capital": {
 			"name": "Стокгольм",
+			"position": "top-left",
 			"coords": [1822, 872]
 		}
 	},
@@ -63,6 +65,7 @@ var data = {
 		"part_of": ["russia"],
 		"capital": {
 			"name": "Санкт-Петербург",
+			"position": "bottom-right",
 			"type": "largest_city",
 			"coords": [2221, 749]
 		}
@@ -73,6 +76,7 @@ var data = {
 		"part_of": ["russia"],
 		"capital": {
 			"name": "Петрозаводск",
+			"position": "top-left",
 			"coords": [2304, 581]
 		}
 	},
@@ -92,6 +96,7 @@ var data = {
 		"part_of": ["denmark"],
 		"capital": {
 			"name": "Рённе",
+			"position": "bottom-right",
 			"type": "largest_city",
 			"coords": [1723, 1167]
 		}
@@ -101,6 +106,7 @@ var data = {
 		"neighbors": ["ingria", "finland", "russia", "sweden", "latgalia", "latvia"],
 		"capital": {
 			"name": "Таллин",
+			"position": "bottom-right",
 			"coords": [2046, 827]
 		}
 	},
@@ -129,6 +135,7 @@ var data = {
 		"secessionists": ["latgalia"],
 		"capital": {
 			"name": "Рига",
+			"position": "bottom-right",
 			"coords": [2056, 990]
 		}
 	},
@@ -139,6 +146,7 @@ var data = {
 		"secessionists": ["samogitia"],
 		"capital": {
 			"name": "Вильнюс",
+			"position": "top-left",
 			"coords": [2136, 1140]
 		}
 	},
@@ -187,6 +195,7 @@ var data = {
 		"secessionists": ["bornholm", "faroe"],
 		"capital": {
 			"name": "Копенгаген",
+			"position": "bottom-left",
 			"coords": [1642, 1131]
 		}
 	},
@@ -221,6 +230,7 @@ var data = {
 		"secessionists": ["ulster"],
 		"capital": {
 			"name": "Дублин",
+			"position": "bottom-left",
 			"coords": [889, 1218]
 		}
 	},
@@ -249,6 +259,7 @@ var data = {
 		"secessionists": ["frisia"],
 		"capital": {
 			"name": "Амстердам",
+			"position": "bottom-right",
 			"coords": [1337, 1354]
 		}
 	},
@@ -287,6 +298,7 @@ var data = {
 		"part_of": ["uk", "ireland"],
 		"capital": {
 			"name": "Белфаст",
+			"position": "top-left",
 			"coords": [921, 1135]
 		}
 	},
@@ -353,6 +365,7 @@ var data = {
 		"part_of": ["uk"],
 		"capital": {
 			"name": "Бристоль",
+			"position": "bottom-right",
 			"type": "largest_city",
 			"coords": [1012, 1369]
 		}
@@ -478,6 +491,7 @@ var data = {
 		"secessionists": ["carinthia"],
 		"capital": {
 			"name": "Вена",
+			"position": "top-left",
 			"coords": [1833, 1629]
 		}
 	},
@@ -660,6 +674,7 @@ var data = {
 		"part_of": ["spain"],
 		"capital": {
 			"name": "Мадрид",
+			"position": "bottom-right",
 			"coords": [838, 2105]
 		}
 	},
@@ -669,6 +684,7 @@ var data = {
 		"part_of": ["spain"],
 		"capital": {
 			"name": "Барселона",
+			"position": "bottom-right",
 			"coords": [1139, 2080]
 		}
 	},
@@ -688,6 +704,7 @@ var data = {
 		"part_of": ["spain"],
 		"capital": {
 			"name": "Сантьяго-де-Компостела",
+			"position": "bottom-right",
 			"coords": [627, 1893]
 		}
 	},
@@ -708,6 +725,7 @@ var data = {
 		"part_of": ["spain"],
 		"capital": {
 			"name": "Мурсия",
+			"position": "top-left",
 			"coords": [947, 2281]
 		}
 	},
@@ -725,6 +743,7 @@ var data = {
 		"part_of": ["spain"],
 		"capital": {
 			"name": "Валенсия",
+			"position": "bottom-right",
 			"coords": [1000, 2188]
 		}
 	},
@@ -734,6 +753,7 @@ var data = {
 		"part_of": ["france"],
 		"capital": {
 			"name": "Аяччо",
+			"position": "top-left",
 			"coords": [1480, 2069]
 		}
 	},
@@ -791,6 +811,7 @@ var data = {
 		"part_of": ["italy"],
 		"capital": {
 			"name": "Кальяри",
+			"position": "bottom-right",
 			"type": "admin_center",
 			"coords": [1496, 2251]
 		}
@@ -821,6 +842,7 @@ var data = {
 		"part_of": ["italy"],
 		"capital": {
 			"name": "Венеция",
+			"position": "top-left",
 			"coords": [1654, 1823]
 		}
 	},
@@ -912,6 +934,7 @@ var data = {
 		"part_of": ["croatia"],
 		"capital": {
 			"name": "Пула",
+			"position": "bottom-right",
 			"type": "largest_city",
 			"coords": [1727, 1866]
 		}
@@ -932,6 +955,7 @@ var data = {
 		"secessionists": ["transnistria", "gagauzia"],
 		"capital": {
 			"name": "Кишинёв",
+			"position": "top-left",
 			"coords": [2409, 1615]
 		}
 	},
@@ -961,6 +985,7 @@ var data = {
 		"part_of": ["serbia", "crna_gora"],
 		"capital": {
 			"name": "Нови-Пазар",
+			"position": "bottom-left",
 			"url": "Нови-Пазар_(город,_Сербия)",
 			"type": "largest_city",
 			"coords": [2059, 1949]
@@ -973,6 +998,7 @@ var data = {
 		"secessionists": ["sandzak", "kosovo", "vojvodina"],
 		"capital": {
 			"name": "Белград",
+			"position": "bottom-right",
 			"coords": [2044, 1841]
 		}
 	},

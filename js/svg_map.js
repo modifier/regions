@@ -65,9 +65,10 @@ SvgMap.prototype.addPath = function (path, color, label, clickCallback) {
 	return polygon;
 };
 
-SvgMap.prototype.addCapital = function (position, name) {
+SvgMap.prototype.addCapital = function (coords, name, position) {
 	this.capitals.push({
-		position: position,
+		coords: coords,
+		position: position || 'top-right',
 		name: name,
 		path: null
 	});
@@ -292,11 +293,11 @@ SvgMap.prototype.checkCapitals = function () {
 			this.$map.removeChild(capital.label);
 		}
 
-		var scaleCoefficient =  Math.pow(2, this.scale);
+		var scaleCoefficient = Math.pow(2, this.scale);
 
 		var circle = document.createElementNS('http://www.w3.org/2000/svg', 'circle');
-		circle.setAttributeNS(null, 'cx', capital.position[0]);
-		circle.setAttributeNS(null, 'cy', capital.position[1]);
+		circle.setAttributeNS(null, 'cx', capital.coords[0]);
+		circle.setAttributeNS(null, 'cy', capital.coords[1]);
 		circle.setAttributeNS(null, 'r', 3 * scaleCoefficient);
 		circle.setAttributeNS(null, 'fill', 'black');
 
@@ -308,10 +309,23 @@ SvgMap.prototype.checkCapitals = function () {
 		label.setAttribute('fill', '#000');
 		label.setAttribute('font-size', 13 * scaleCoefficient);
 		label.setAttribute('font-family', 'Tahoma, sans-serif');
-		label.setAttribute('x', capital.position[0] + 5 * scaleCoefficient);
-		label.setAttribute('y', capital.position[1] - 5 * scaleCoefficient);
+		this.$map.appendChild(label);
+
+		var dimensions = label.getBBox();
+
+		var labelPosition = capital.position.split('-');
+		if (labelPosition[0] === 'top') {
+			label.setAttribute('y', capital.coords[1] - 5 * scaleCoefficient);
+		} else {
+			label.setAttribute('y', capital.coords[1] + dimensions.height);
+		}
+
+		if (labelPosition[1] === 'right') {
+			label.setAttribute('x', capital.coords[0] + 5 * scaleCoefficient);
+		} else {
+			label.setAttribute('x', capital.coords[0] - 10 * scaleCoefficient - dimensions.width);
+		}
 
 		capital.label = label;
-		this.$map.appendChild(label);
 	}
 };

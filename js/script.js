@@ -29,7 +29,7 @@ Application.prototype.initialize = function () {
 
 		this.paths[country] = this.map.addPath(contours[country], countryData.color, countryData.name, this.selectCountry.bind(this, country));
 		if (countryData.capital && countryData.capital.coords) {
-			this.map.addCapital(countryData.capital.coords, countryData.capital.name);
+			this.map.addCapital(countryData.capital.coords, countryData.capital.name, countryData.capital.position);
 		}
 	}
 
