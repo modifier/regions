@@ -3,7 +3,11 @@ var data = {
 		"name": "Россия",
 		"genetive": "России",
 		"neighbors": ["karelia", "ingria", "estonia", "latgalia", "belarus", "ukraine", "novorussia", "crimea"],
-		"secessionists": ["sapmi", "crimea", "karelia", "ingria", "prussia"]
+		"secessionists": ["sapmi", "crimea", "karelia", "ingria", "prussia"],
+		"capital": {
+			"name": "Москва",
+			"coords": [2618, 928]
+		}
 	},
 	"finland": {
 		"name": "Финляндия",
@@ -18,7 +22,11 @@ var data = {
 	"sapmi": {
 		"name": "Лапландия",
 		"neighbors": ["karelia", "finland", "norway", "sweden"],
-		"part_of": ["norway", "sweden", "finland", "russia"]
+		"part_of": ["norway", "sweden", "finland", "russia"],
+		"capital": {
+			"name": "Мурманск",
+			"coords": [2096, 137]
+		}
 	},
 	"norway": {
 		"name": "Норвегия",
@@ -158,7 +166,11 @@ var data = {
 	},
 	"belarus": {
 		"name": "Беларусь",
-		"neighbors": ["russia", "lithuania", "latgalia", "ukraine", "latvia", "poland"]
+		"neighbors": ["russia", "lithuania", "latgalia", "ukraine", "latvia", "poland"],
+		"capital": {
+			"name": "Минск",
+			"coords": [2236, 1174]
+		}
 	},
 	"denmark": {
 		"name": "Дания",
@@ -188,7 +200,11 @@ var data = {
 		"name": "Германия",
 		"genetive": "Германии",
 		"neighbors": ["poland", "netherlands", "frisia", "wallonia", "luxembourg", "france", "alsace", "bavaria", "switzerland", "czech", "slesvig", "austria"],
-		"secessionists": ["frisia", "bavaria", "slesvig"]
+		"secessionists": ["frisia", "bavaria", "slesvig"],
+		"capital": {
+			"name": "Берлин",
+			"coords": [1681, 1344]
+		}
 	},
 	"ireland": {
 		"name": "Ирландия",
@@ -202,7 +218,11 @@ var data = {
 	},
 	"luxembourg": {
 		"name": "Люксембург",
-		"neighbors": ["wallonia", "france", "germany"]
+		"neighbors": ["wallonia", "france", "germany"],
+		"capital": {
+			"name": "Люксембург",
+			"coords": [1370, 1544]
+		}
 	},
 	"isle_of_man": {
 		"name": "Остров Мэн",
@@ -227,7 +247,11 @@ var data = {
 		"name": "Польша",
 		"genetive": "Польши",
 		"neighbors": ["prussia", "germany", "czech", "silesia", "moravia", "slovakia", "ukraine", "belarus", "lithuania", "ruthenia"],
-		"secessionists": ["silesia"]
+		"secessionists": ["silesia"],
+		"capital": {
+			"name": "Варшава",
+			"coords": [1997, 1329]
+		}
 	},
 	"scotland": {
 		"name": "Шотландия",
@@ -268,7 +292,11 @@ var data = {
 	"novorussia": {
 		"name": "Новороссия",
 		"neighbors": ["russia", "ukraine"],
-		"part_of": ["ukraine"]
+		"part_of": ["ukraine"],
+		"capital": {
+			"name": "Донецк",
+			"coords": [2772, 1424]
+		}
 	},
 	"cornwall": {
 		"name": "Корнуолл",
@@ -336,68 +364,120 @@ var data = {
 	"bavaria": {
 		"name": "Бавария",
 		"neighbors": ["germany", "czech", "austria"],
-		"part_of": ["germany"]
+		"part_of": ["germany"],
+		"capital": {
+			"name": "Мюнхен",
+			"coords": [1612, 1646]
+		}
 	},
 	"czech": {
 		"name": "Чехия",
 		"genetive": "Чехии",
 		"neighbors": ["germany", "bavaria", "austria", "moravia", "poland", "silesia"],
-		"secessionists": ["moravia", "silesia"]
+		"secessionists": ["moravia", "silesia"],
+		"capital": {
+			"name": "Прага",
+			"coords": [1736, 1512]
+		}
 	},
 	"crimea": {
 		"name": "Крым",
 		"neighbors": ["ukraine", "russia"],
-		"part_of": ["ukraine", "russia"]
+		"part_of": ["ukraine", "russia"],
+		"capital": {
+			"name": "Симферополь",
+			"coords": [2677, 1677]
+		}
 	},
 	"hungary": {
 		"name": "Венгрия",
-		"neighbors": ["slovakia", "austria", "ruthenia", "romania", "slovenia", "croatia", "vojvodina"]
+		"neighbors": ["slovakia", "austria", "ruthenia", "romania", "slovenia", "croatia", "vojvodina"],
+		"capital": {
+			"name": "Будапешт",
+			"coords": [1956, 1665]
+		}
 	},
 	"moravia": {
 		"name": "Моравия",
 		"neighbors": ["slovakia", "silesia", "czech", "austria", "poland"],
-		"part_of": ["czech"]
+		"part_of": ["czech"],
+		"capital": {
+			"name": "Брно",
+			"coords": [1838, 1566]
+		}
 	},
 	"ruthenia": {
 		"name": "Закарпатье",
 		"neighbors": ["ukraine", "poland", "slovakia", "hungary", "romania"],
-		"part_of": ["ukraine"]
+		"part_of": ["ukraine"],
+		"capital": {
+			"name": "Ужгород",
+			"coords": [2087, 1572]
+		}
 	},
 	"silesia": {
 		"name": "Силезия",
 		"neighbors": ["poland", "czech", "moravia", "slovakia"],
-		"part_of": ["poland", "czech"]
+		"part_of": ["poland", "czech"],
+		"capital": {
+			"name": "Катовице",
+			"coords": [1928, 1475]
+		}
 	},
 	"slovakia": {
 		"name": "Словакия",
-		"neighbors": ["poland", "silesia", "moravia", "austria", "hungary", "ruthenia"]
+		"neighbors": ["poland", "silesia", "moravia", "austria", "hungary", "ruthenia"],
+		"capital": {
+			"name": "Братислава",
+			"coords": [1868, 1633]
+		}
 	},
 	"ukraine": {
 		"name": "Украина",
 		"genetive": "Украины",
 		"neighbors": ["belarus", "poland", "ruthenia", "romania", "moldavia", "transnistria", "crimea", "novorussia", "russia", "gagauzia"],
-		"secessionists": ["crimea", "ruthenia", "novorussia"]
+		"secessionists": ["crimea", "ruthenia", "novorussia"],
+		"capital": {
+			"name": "Киев",
+			"coords": [2423, 1367]
+		}
 	},
 	"alsace": {
 		"name": "Эльзас",
 		"neighbors": ["germany", "france", "switzerland"],
-		"part_of": ["france"]
+		"part_of": ["france"],
+		"capital": {
+			"name": "Страсбург",
+			"coords": [1439, 1614]
+		}
 	},
 	"austria": {
 		"name": "Австрия",
 		"genetive": "Австрии",
 		"neighbors": ["south_tyrol", "carinthia", "slovenia", "hungary", "slovakia", "moravia", "czech", "bavaria", "germany", "liechtenstein", "switzerland", "friuli-venezia_giulia", "venetia"],
-		"secessionists": ["carinthia"]
+		"secessionists": ["carinthia"],
+		"capital": {
+			"name": "Вена",
+			"coords": [1833, 1629]
+		}
 	},
 	"brittany": {
 		"name": "Бретань",
 		"neighbors": ["france", "channel_islands", "normandy"],
-		"part_of": ["france"]
+		"part_of": ["france"],
+		"capital": {
+			"name": "Ренн",
+			"coords": [1012, 1604]
+		}
 	},
 	"carinthia": {
 		"name": "Каринтия",
 		"neighbors": ["austria", "slovenia", "friuli-venezia_giulia", "south_tyrol", "venetia"],
-		"part_of": ["austria"]
+		"part_of": ["austria"],
+		"capital": {
+			"name": "Клагенфурт",
+			"coords": [1744, 1745]
+		}
 	},
 	"channel_islands": {
 		"name": "Нормандские острова",
@@ -408,7 +488,11 @@ var data = {
 		"name": "Франция",
 		"genetive": "Франции",
 		"neighbors": ["england", "normandy", "brittany", "occitania", "savoy", "switzerland", "alsace", "germany", "luxembourg", "wallonia", "flanders", "netherlands"],
-		"secessionists": ["alsace", "brittany", "normandy", "occitania", "savoy", "corsica"]
+		"secessionists": ["alsace", "brittany", "normandy", "occitania", "savoy", "corsica"],
+		"capital": {
+			"name": "Париж",
+			"coords": [1192, 1578]
+		}
 	},
 	"liechtenstein": {
 		"name": "Лихтенштейн",
@@ -417,7 +501,11 @@ var data = {
 	"normandy": {
 		"name": "Нормандия",
 		"neighbors": ["isle_of_wight", "channel_islands", "brittany", "france"],
-		"part_of": ["france"]
+		"part_of": ["france"],
+		"capital": {
+			"name": "Руан",
+			"coords": [1144, 1528]
+		}
 	},
 	"occitania": {
 		"name": "Окситания",
@@ -431,11 +519,19 @@ var data = {
 	"savoy": {
 		"name": "Савойя",
 		"neighbors": ["france", "occitania", "switzerland", "padania"],
-		"part_of": ["france"]
+		"part_of": ["france"],
+		"capital": {
+			"name": "Шамбери",
+			"coords": [1354, 1815]
+		}
 	},
 	"switzerland": {
 		"name": "Швейцария",
-		"neighbors": ["alsace", "france", "savoy", "austria", "liechtenstein", "germany", "padania", "south_tyrol"]
+		"neighbors": ["alsace", "france", "savoy", "austria", "liechtenstein", "germany", "padania", "south_tyrol"],
+		"capital": {
+			"name": "Берн",
+			"coords": [1420, 1722]
+		}
 	},
 	"balearic_islands": {
 		"name": "Балеарские острова",
@@ -609,13 +705,21 @@ var data = {
 	"friuli-venezia_giulia": {
 		"name": "Фриули-Венеция Джулия",
 		"neighbors": ["venetia", "carinthia", "austria", "slovenia"],
-		"part_of": ["italy"]
+		"part_of": ["italy"],
+		"capital": {
+			"name": "Триест",
+			"coords": [1724, 1810]
+		}
 	},
 	"italy": {
 		"name": "Италия",
 		"genetive": "Италии",
 		"neighbors": ["padania", "corsica", "sardinia", "sicily"],
-		"secessionists": ["padania", "venetia", "liguria", "south_tyrol", "friuli-venezia_giulia", "sicily", "sardinia"]
+		"secessionists": ["padania", "venetia", "liguria", "south_tyrol", "friuli-venezia_giulia", "sicily", "sardinia"],
+		"capital": {
+			"name": "Рим",
+			"coords": [1677, 2066]
+		}
 	},
 	"liguria": {
 		"name": "Лигурия",
@@ -628,12 +732,20 @@ var data = {
 	},
 	"malta": {
 		"name": "Мальта",
-		"neighbors": ["sicily"]
+		"neighbors": ["sicily"],
+		"capital": {
+			"name": "Валлетта",
+			"coords": [1792, 2471]
+		}
 	},
 	"padania": {
 		"name": "Падания",
 		"neighbors": ["switzerland", "savoy", "occitania", "liguria", "corsica", "sardinia", "italy", "venetia", "south_tyrol"],
-		"part_of": ["italy"]
+		"part_of": ["italy"],
+		"capital": {
+			"name": "Милан",
+			"coords": [1500, 1836]
+		}
 	},
 	"sardinia": {
 		"name": "Сардиния",
@@ -656,12 +768,20 @@ var data = {
 	"south_tyrol": {
 		"name": "Южный Тироль",
 		"neighbors": ["austria", "switzerland", "padania", "venetia", "carinthia"],
-		"part_of": ["italy"]
+		"part_of": ["italy"],
+		"capital": {
+			"name": "Больцано",
+			"coords": [1606, 1759]
+		}
 	},
 	"venetia": {
 		"name": "Венеция",
 		"neighbors": ["south_tyrol", "padania", "friuli-venezia_giulia", "carinthia", "austria"],
-		"part_of": ["italy"]
+		"part_of": ["italy"],
+		"capital": {
+			"name": "Венеция",
+			"coords": [1654, 1823]
+		}
 	},
 	"albania": {
 		"name": "Албания",
@@ -685,7 +805,7 @@ var data = {
 		"name": "Болгария",
 		"neighbors": ["romania", "greece", "fyrom", "serbia"],
 		"capital": {
-			"name": "Болгария",
+			"name": "София",
 			"coords": [2206, 1956]
 		}
 	},
@@ -730,7 +850,11 @@ var data = {
 	"gagauzia": {
 		"name": "Гагаузия",
 		"neighbors": ["moldavia", "transnistria", "ukraine", "romania"],
-		"part_of": ["moldavia"]
+		"part_of": ["moldavia"],
+		"capital": {
+			"name": "Комрат",
+			"coords": [2408, 1662]
+		}
 	},
 	"greece": {
 		"name": "Греция",
@@ -762,7 +886,11 @@ var data = {
 		"name": "Молдавия",
 		"genetive": "Молдавии",
 		"neighbors": ["romania", "ukraine", "transnistria", "gagauzia"],
-		"secessionists": ["transnistria", "gagauzia"]
+		"secessionists": ["transnistria", "gagauzia"],
+		"capital": {
+			"name": "Кишинёв",
+			"coords": [2409, 1615]
+		}
 	},
 	"northern_epirus": {
 		"name": "Северный Эпир",
@@ -777,7 +905,11 @@ var data = {
 		"name": "Румыния",
 		"genetive": "Румынии",
 		"neighbors": ["hungary", "ukraine", "moldavia", "gagauzia", "bulgaria", "serbia", "vojvodina", "ruthenia", "szekely_land"],
-		"secessionists": ["szekely_land"]
+		"secessionists": ["szekely_land"],
+		"capital": {
+			"name": "Бухарест",
+			"coords": [2322, 1811]
+		}
 	},
 	"sandzak": {
 		"name": "Санджак",
@@ -809,12 +941,20 @@ var data = {
 	"szekely_land": {
 		"name": "Секейский край",
 		"neighbors": ["romania"],
-		"part_of": ["romania"]
+		"part_of": ["romania"],
+		"capital": {
+			"name": "Тыргу-Муреш",
+			"coords": [2221, 1689]
+		}
 	},
 	"transnistria": {
 		"name": "Приднестровье",
 		"neighbors": ["ukraine", "moldavia", "gagauzia"],
-		"part_of": ["moldavia"]
+		"part_of": ["moldavia"],
+		"capital": {
+			"name": "Тирасполь",
+			"coords": [2446, 1618]
+		}
 	},
 	"trnc": {
 		"name": "Турецкая Республика Северного Кипра",
