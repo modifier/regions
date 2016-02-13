@@ -43,6 +43,7 @@ Details.prototype.renderCountry = function (name) {
 	$name.innerHTML = countryData.name;
 	elements.push($name);
 
+	elements.push(createDescription(countryData.description));
 	elements.push(createCapitalElement(countryData.capital));
 	elements.push(createPartOf(countryData.part_of));
 	elements.push(createCountryList(countryData.secessionists, dataLabels.secessionists));
@@ -166,6 +167,18 @@ function createCapitalElement (capital) {
 	$el.className = 'data';
 	var url = wikipediaPrefix + (capital.url || capital.name);
 	$el.innerHTML = '<b>' + dataLabels[labelType] + ':</b> <a href="' + url + '" target="_blank">' + capital.name + '</a>';
+
+	return $el;
+}
+
+function createDescription (description) {
+	if (!description) {
+		return null;
+	}
+
+	var $el = document.createElement('div');
+	$el.className = 'data';
+	$el.innerHTML = description;
 
 	return $el;
 }

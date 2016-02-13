@@ -296,6 +296,7 @@ var data = {
 		"name": "Шлезвиг",
 		"neighbors": ["denmark", "germany", "frisia"],
 		"part_of": ["germany"],
+		"offset": [3, -10],
 		"capital": {
 			"name": "Гамбург",
 			"type": "largest_city",
@@ -393,6 +394,7 @@ var data = {
 		"capital": {
 			"name": "Ньюпорт",
 			"url": "Ньюпорт_(остров_Уайт)",
+			"position": "bottom-right",
 			"coords": [1058, 1435]
 		}
 	},
@@ -517,6 +519,7 @@ var data = {
 	},
 	"brittany": {
 		"name": "Бретань",
+		"description": "В регионе проживает кельтский народ &mdash; бретонцы. Борьбу за независимость ведёт радикальная организация <a href=\"https://ru.wikipedia.org/wiki/Фронт_освобождения_Бретани\" target=\"_blank\">Фронт освобождения Бретани</a>.",
 		"neighbors": ["france", "channel_islands", "normandy"],
 		"part_of": ["france"],
 		"offset": [5, -10],
@@ -562,6 +565,7 @@ var data = {
 	},
 	"normandy": {
 		"name": "Нормандия",
+		"description": "В регионе действует регионалистская организация <a href=\"https://en.wikipedia.org/wiki/Mouvement_Normand\">Mouvement Normand</a>, которая добивается более широкой автономии Нормандии и сохранения её культурного наследия.",
 		"neighbors": ["isle_of_wight", "channel_islands", "brittany", "france"],
 		"part_of": ["france"],
 		"capital": {
@@ -571,6 +575,7 @@ var data = {
 	},
 	"occitania": {
 		"name": "Окситания",
+		"description": "",
 		"neighbors": ["france", "savoy", "padania", "liguria", "andorra", "aragon", "basque", "catalonia", "corsica"],
 		"part_of": ["france"],
 		"capital": {
@@ -834,6 +839,7 @@ var data = {
 		"name": "Падания",
 		"neighbors": ["switzerland", "savoy", "occitania", "liguria", "corsica", "sardinia", "italy", "venetia", "south_tyrol"],
 		"part_of": ["italy"],
+		"offset": [10, 10],
 		"capital": {
 			"name": "Милан",
 			"type": "largest_city",
