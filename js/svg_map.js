@@ -42,7 +42,7 @@ SvgMap.prototype.initializeElements = function () {
 	this.$scaler.appendChild($zoomOut);
 };
 
-SvgMap.prototype.addPath = function (path, color, label, clickCallback) {
+SvgMap.prototype.addPath = function (path, color, label, labelOffset, clickCallback) {
 	var polygon = document.createElementNS('http://www.w3.org/2000/svg', 'path');
 	polygon.setAttributeNS(null, 'd', path);
 	polygon.setAttributeNS(null, 'stroke', 'black');
@@ -52,7 +52,8 @@ SvgMap.prototype.addPath = function (path, color, label, clickCallback) {
 	this.$map.appendChild(polygon);
 	this.paths.push({
 		path: polygon,
-		label: label
+		label: label,
+		labelOffset: labelOffset || [0, 0]
 	});
 
 	var that = this;
@@ -279,7 +280,9 @@ SvgMap.prototype.checkLabels = function () {
 			continue;
 		}
 
-		text.setAttribute('transform', 'translate(' + (sizes.x + sizes.width / 2 - ownSizes.width / 2) + ' ' + (sizes.y + sizes.height / 2) +')');
+		var positionX = sizes.x + sizes.width / 2 - ownSizes.width / 2 + obj.labelOffset[0],
+			positionY = sizes.y + sizes.height / 2 + obj.labelOffset[1];
+		text.setAttribute('transform', 'translate(' + positionX + ' ' + positionY +')');
 		this.labels.push(text);
 	}
 };
