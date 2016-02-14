@@ -209,6 +209,7 @@ var data = {
 	},
 	"flanders": {
 		"name": "Фландрия",
+		"description": "В отличие от франкоязычной Валлонии, во Фландрии проживает нидерландоязычный народ &mdash; фламандцы. Интересы Фландрии в Европарламенте представляет <a href=\"https://ru.wikipedia.org/wiki/Новый_фламандский_альянс\" target=\"_blank\">Новый фламандский альянс</a>.",
 		"neighbors": ["netherlands", "wallonia", "france"],
 		"part_of": ["belgium"],
 		"capital": {
@@ -315,6 +316,7 @@ var data = {
 	},
 	"wallonia": {
 		"name": "Валлония",
+		"description": "Отделение Валлонии от Бельгии никто явно не продвигает, но возможная сецессия Фландрии фактически разделит Бельгию на два государства, одним из которых будет Валлония. Тем не менее, существует ирредентистская партия <a href=\"https://en.wikipedia.org/wiki/Rassemblement_Wallonie_France\" target=\"_blank\">Rassemblement Wallonie France</a>, которая нацелена на объединение Валлонии с Францией.",
 		"neighbors": ["luxembourg", "flanders", "france", "germany", "netherlands"],
 		"part_of": ["belgium"],
 		"offset": [10, -10],
@@ -497,6 +499,7 @@ var data = {
 	},
 	"alsace": {
 		"name": "Эльзас",
+		"description": "Эльзас, как пограничная территория для Франции и Германии, с течением времени образовала независимую от обеих государств культурную идентичность. Интересы Эльзаса представляет <a href=\"https://en.wikipedia.org/wiki/Alsace_independence_movement\" target=\"_blank\">Движение за независимость Эльзаса</a>, а также партия <a href=\"https://en.wikipedia.org/wiki/Unser_Land\" target=\"_blank\">Unser Land</a>.",
 		"neighbors": ["germany", "france", "switzerland"],
 		"part_of": ["france"],
 		"capital": {
@@ -519,7 +522,7 @@ var data = {
 	},
 	"brittany": {
 		"name": "Бретань",
-		"description": "В регионе проживает кельтский народ &mdash; бретонцы. Борьбу за независимость ведёт радикальная организация <a href=\"https://ru.wikipedia.org/wiki/Фронт_освобождения_Бретани\" target=\"_blank\">Фронт освобождения Бретани</a>.",
+		"description": "В регионе проживает кельтский народ &mdash; бретонцы. Борьбу за автономию ведёт партия <a href=\"https://ru.wikipedia.org/wiki/Демократический_бретонский_союз\">Демократический бретонский союз</a>.",
 		"neighbors": ["france", "channel_islands", "normandy"],
 		"part_of": ["france"],
 		"offset": [5, -10],
@@ -575,7 +578,7 @@ var data = {
 	},
 	"occitania": {
 		"name": "Окситания",
-		"description": "",
+		"description": "Из-за своих исторических и культурных особенностей, жители Окситании добиваются более широкой автономии вплоть до отделения. Интересы представляет <a href=\"https://ru.wikipedia.org/wiki/Окситанская_партия\" target=\"_blank\">Окситанская партия</a>.",
 		"neighbors": ["france", "savoy", "padania", "liguria", "andorra", "aragon", "basque", "catalonia", "corsica"],
 		"part_of": ["france"],
 		"capital": {
@@ -586,6 +589,7 @@ var data = {
 	},
 	"savoy": {
 		"name": "Савойя",
+		"description": "Савойя, бывшая частью Сардинского королевства, была передана во владение Франции в 1860 году. На текущий момент Савойя в составе Франции не имеет даже собственного региона. За образование соответствующего региона, предоставление ему автономии и за широкое использование франкопровансальского языка в нём выступает партия <a href=\"https://ru.wikipedia.org/wiki/Движение_Савойского_региона\" target=\"_blank\">Движение Савойского региона</a>.",
 		"neighbors": ["france", "occitania", "switzerland", "padania"],
 		"part_of": ["france"],
 		"offset": [0, -10],
@@ -787,6 +791,7 @@ var data = {
 	},
 	"corsica": {
 		"name": "Корсика",
+		"description": "Корсика была завоёвана Францией у Генуи в 1859 году. Сейчас на острове проживают корсиканцы, являющиеся близкородственным итальянцам народом. За более широкую автономию Корсики выступает регионалистская партия <a href=\"https://en.wikipedia.org/wiki/Party_of_the_Corsican_Nation\" target=\"_blank\">Party of the Corsican Nation</a>.",
 		"neighbors": ["liguria", "occitania", "padania", "italy", "sardinia"],
 		"part_of": ["france"],
 		"capital": {
