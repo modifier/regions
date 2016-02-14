@@ -254,6 +254,7 @@ var data = {
 	},
 	"isle_of_man": {
 		"name": "Остров Мэн",
+		"description": "Остров Мэн не входит в состав Великобритании, а является её самоуправляемой зависимой территорией. Партия <a href=\"https://en.wikipedia.org/wiki/Mec_Vannin\" target=\"_blank\">Mec Vannin</a> ставит целью полную независимость острова Мэн от Великобритании.",
 		"neighbors": ["ulster", "ireland", "scotland", "england", "wales"],
 		"part_of": ["uk"],
 		"capital": {
@@ -285,6 +286,7 @@ var data = {
 	},
 	"scotland": {
 		"name": "Шотландия",
+		"description": "Шотландия была независимым от Англии государством вплоть до образования Великобритании в 1707 году. На текущий момент Шотландия имеет самую широкую автономию в Соединённом Королевстве. За шотландскую независимость выступает <a href=\"https://ru.wikipedia.org/wiki/Шотландская_национальная_партия\" target=\"_blank\">Шотландская национальная партия</a>.",
 		"neighbors": ["england", "ulster", "isle_of_man", "ireland", "outer_hebrides", "orkney", "shetland"],
 		"part_of": ["uk"],
 		"offset": [20, 10],
@@ -306,6 +308,7 @@ var data = {
 	},
 	"ulster": {
 		"name": "Ольстер",
+		"description": "В отличие от католической республики Ирландия, в Северной Ирландии большинство является протестантами. Некоторые ольстерские националисты предполагают создание незавивимого государства Ольстер: такие взгляды, например, продвигала партия <a href=\"https://en.wikipedia.org/wiki/Ulster_Third_Way\" target=\"_blank\">Ulster Third Way</a>. Иные же нацелены на объединение Ольстера с республикой Ирландия, одной из партий, представляющих такие взгляды, является <a href=\"https://ru.wikipedia.org/wiki/Шинн_Фейн\" target=\"_blank\">Шинн Фейн</a>.",
 		"neighbors": ["ireland", "scotland", "isle_of_man"],
 		"part_of": ["uk", "ireland"],
 		"capital": {
@@ -337,6 +340,7 @@ var data = {
 	},
 	"cornwall": {
 		"name": "Корнуолл",
+		"description": "В Корнуолле проживает кельтские народ &mdash; корнцы. Партия <a href=\"https://ru.wikipedia.org/wiki/Сыны_Корнуолла\" target=\"_blank\">Mebyon Kernow</a> нацелена на более широкую автономию Корнуолла в составе Великобритании.",
 		"neighbors": ["devon", "channel_islands"],
 		"part_of": ["uk"],
 		"capital": {
@@ -358,6 +362,7 @@ var data = {
 	},
 	"england": {
 		"name": "Англия",
+		"description": "Англия является единственной страной в Соединённом Королевстве, которое не имеет собственного парламента. <a href=\"https://en.wikipedia.org/wiki/Campaign_for_an_English_Parliament\" target=\"_blank\">Campaign for an English Parliament</a> добивается его создания. Также существуют партии, которые ставят целью полную независимость Англии от Великобритании, например, <a href=\"https://en.wikipedia.org/wiki/English_Democrats\" target=\"_blank\">English Democrats</a>.",
 		"neighbors": ["wales", "wessex", "isle_of_wight", "isle_of_man", "yorkshire", "scotland", "france"],
 		"part_of": ["uk"],
 		"offset": [0, 10],
@@ -368,6 +373,7 @@ var data = {
 	},
 	"wales": {
 		"name": "Уэльс",
+		"description": "В Уэльсе проживает один из немногочисленных кельтских народов &mdash; валлийцы. За независимость от Великобритании выступает <a href=\"https://ru.wikipedia.org/wiki/Партия_Уэльса\" target=\"_blank\">Plaid Cymru</a>.",
 		"neighbors": ["england", "ireland", "isle_of_man", "wessex"],
 		"part_of": ["uk"],
 		"offset": [0, 20],
@@ -379,6 +385,7 @@ var data = {
 	},
 	"wessex": {
 		"name": "Уэссекс",
+		"description": "<a href=\"https://en.wikipedia.org/wiki/Wessex_Regionalist_Party\" target=\"_blank\">Регионалистская патия Уэссекса</a> нацелена на создание уэссекской культурной идентичности и создание автономии.",
 		"neighbors": ["england", "isle_of_wight", "wales", "devon", "channel_islands"],
 		"part_of": ["uk"],
 		"offset": [10, 15],
@@ -402,6 +409,7 @@ var data = {
 	},
 	"yorkshire": {
 		"name": "Йоркшир",
+		"description": "Регионалистская партия <a href=\"https://en.wikipedia.org/wiki/Yorkshire_First\" target=\"_blank\">Yorkshire First</a> нацелена на создание йоркширской автономии.",
 		"neighbors": ["england"],
 		"part_of": ["uk"],
 		"offset": [0, 10],
@@ -643,6 +651,7 @@ var data = {
 	},
 	"shetland": {
 		"name": "Шетландские острова",
+		"description": "Ранее всего Шетландские острова были колонизированы викингами и впоследствии переданы Шотландии. Современные шетландцы являются потомками викингов, но говорят преимущественно но шотландском языке.",
 		"neighbors": ["scotland", "orkney", "faroe"],
 		"part_of": ["uk"],
 		"capital": {
