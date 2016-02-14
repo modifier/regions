@@ -553,7 +553,7 @@ var data = {
 		"name": "Франция",
 		"genetive": "Франции",
 		"neighbors": ["england", "normandy", "brittany", "occitania", "savoy", "switzerland", "alsace", "germany", "luxembourg", "wallonia", "flanders", "netherlands"],
-		"secessionists": ["alsace", "brittany", "normandy", "occitania", "savoy", "corsica"],
+		"secessionists": ["alsace", "brittany", "normandy", "occitania", "savoy", "corsica", "basque"],
 		"capital": {
 			"name": "Париж",
 			"coords": [1192, 1578]
@@ -610,6 +610,7 @@ var data = {
 	},
 	"balearic_islands": {
 		"name": "Балеарские острова",
+		"description": "Исторически Балеарские острова являлись частью Арагонской короны. В настоящее время каталанские националисты претендуют на включение в состав Каталонии также Балеарских островов из-за проживания там каталонцев. Одной из партий, представляющей подобные интересы со стороны жителей островов, является <a href=\"https://en.wikipedia.org/wiki/Socialist_Party_of_Majorca\" target=\"_blank\">Социалистическая партия Майорки</a>.",
 		"neighbors": ["catalonia", "sardinia", "castile", "valencia"],
 		"part_of": ["spain"],
 		"offset": [0, 20],
@@ -652,6 +653,7 @@ var data = {
 	},
 	"andalusia": {
 		"name": "Андалусия",
+		"description": "В Андалусии присутствуют националистические движения, направленные на признание государственного статуса региона.",
 		"neighbors": ["portugal", "extremadura", "castile", "murcia", "leon"],
 		"part_of": ["spain"],
 		"offset": [0, 20],
@@ -670,6 +672,7 @@ var data = {
 	},
 	"aragon": {
 		"name": "Арагон",
+		"description": "Арагонские регионалисты добиваются более широкой автономии региона в связи с его уникальным культурным и лингвистическим статусом. За автономию выступает партия <a href=\"https://en.wikipedia.org/wiki/Chunta_Aragonesista\" target=\"_blank\">Chunta Aragonesista</a>.",
 		"neighbors": ["occitania", "basque", "catalonia", "castile", "valencia"],
 		"part_of": ["spain"],
 		"capital": {
@@ -679,6 +682,7 @@ var data = {
 	},
 	"asturia": {
 		"name": "Астурия",
+		"description": "Жители Астурии говорят на астурском языке, который и является символом их национальной идентичности. Крупнейшей регионалистской (не националистической) партией региона является <a href=\"https://en.wikipedia.org/wiki/Asturias_Forum\" target=\"_blank\"Foro Asturias</a>.",
 		"neighbors": ["galicia", "leon", "cantabria"],
 		"part_of": ["spain"],
 		"offset": [0, 5],
@@ -688,9 +692,10 @@ var data = {
 		}
 	},
 	"basque": {
-		"name": "Баскония",
+		"name": "Страна Басков",
+		"description": "В стране Басков проживают баски &mdash; народ, чей уникальный язык не относится ни к одной известной языковой группе. Наиболее активно за сепаратизм борется радикальная организация <a href=\"https://ru.wikipedia.org/wiki/%D0%AD%D0%A2%D0%90\" target=\"_blank\">ЭТА</a>. Во Франции интересы басков представляет партия <a href=\"https://en.wikipedia.org/wiki/Abertzaleen_Batasuna\" target=\"_blank\">Abertzaleen Batasuna</a>.",
 		"neighbors": ["occitania", "aragon", "castile", "cantabria"],
-		"part_of": ["spain"],
+		"part_of": ["spain", "france"],
 		"capital": {
 			"name": "Витория-Гастейс",
 			"coords": [906, 1949]
@@ -698,6 +703,7 @@ var data = {
 	},
 	"cantabria": {
 		"name": "Кантабрия",
+		"description": "В Кантабрии действует <a href=\"https://en.wikipedia.org/wiki/Regionalist_Party_of_Cantabria\" target=\"_blank\">Регионалистская партия Кантабрии</a>, которая добивается более широкой автономии.",
 		"neighbors": ["basque", "castile", "leon", "asturia"],
 		"part_of": ["spain"],
 		"offset": [0, -10],
@@ -708,6 +714,7 @@ var data = {
 	},
 	"castile": {
 		"name": "Кастилия",
+		"description": "Кастильские националисты добиваются объединения в составе Испании Кастилии, которая сейчас разделена на пять автономных сообществ, или, реже &mdash; полной независимости от Испании. Одной из партий, которая представляла данные интересы, являлась <a href=\"https://en.wikipedia.org/wiki/Tierra_Comunera\" target=\"_blank\">Tierra Comunera</a>.",
 		"neighbors": ["cantabria", "basque", "aragon", "valencia", "murcia", "andalusia", "extremadura", "leon", "balearic_islands"],
 		"part_of": ["spain"],
 		"offset": [0, -20],
@@ -718,6 +725,7 @@ var data = {
 	},
 	"catalonia": {
 		"name": "Каталония",
+		"description": "Каталония была одним из центральных княжеств Арагонской короны вплоть до её полного исчезновения в войне за испанское наследство. Сейчас Каталония является одним из самых известных европейских регионов, добивающихся независимости от Испании. За независимость региона борется множество партий, одной из центральных в движении является <a href=\"https://ru.wikipedia.org/wiki/Левая_республиканская_партия_Каталонии\" target=\"_blank\">Левая республиканская партия Каталонии</a>. Некоторые каталонцы также претендуют на включение в состав страны Валенсии и Балеарских островов.",
 		"neighbors": ["occitania", "andorra", "aragon", "valencia", "balearic_islands"],
 		"part_of": ["spain"],
 		"capital": {
@@ -728,6 +736,7 @@ var data = {
 	},
 	"extremadura": {
 		"name": "Эстремадура",
+		"description": "Эстремадура является одним из автономных сообществ Испании, но с довольно бедно представленными регионалистскими движениями.",
 		"neighbors": ["portugal", "leon", "castile", "andalusia"],
 		"part_of": ["spain"],
 		"capital": {
@@ -738,6 +747,7 @@ var data = {
 	},
 	"galicia": {
 		"name": "Галисия",
+		"description": "Галисийцы образуют отдельную от кастильцев этническую группу, более близкую португальцам, чем испанцам. Разные группы галисийцев стремятся как к автономии, так и к полному отделению. Одним из крупнейших политических блоков, представляющих интересы галисийцев, является <a href=\"https://en.wikipedia.org/wiki/Galician_Nationalist_Bloc\" target=\"_blank\">Galician Nationalist Bloc</a>.",
 		"neighbors": ["asturia", "leon", "portugal"],
 		"part_of": ["spain"],
 		"offset": [0, 10],
@@ -749,6 +759,7 @@ var data = {
 	},
 	"leon":  {
 		"name": "Леон",
+		"description": "В прошлом Леон являлся одним из образующих королевств Кастильской короны. Однако, на сегодняшний день Леон не имеет своего административного образования в составе Испании. Партия <a href=\"https://en.wikipedia.org/wiki/Leonese_People%27s_Union\" target=\"_blank\">Leonese People's Union</a> выступает за создание автономного сообщества Леон в составе Испании.",
 		"neighbors": ["galicia", "asturia", "cantabria", "castile", "andalusia", "portugal", "extremadura"],
 		"part_of": ["spain"],
 		"capital": {
@@ -780,6 +791,7 @@ var data = {
 	},
 	"valencia": {
 		"name": "Валенсия",
+		"description": "Наряду с Каталонией, Валенсия являлась одним из королевств, входящих в состав Арагонской короны. На сегодняшний день часть националистов Валенсии претендуют на её включение в состав Каталонии, иные же добиваются полной независимости. Валенсийский национализм представляет партия <a href=\"https://en.wikipedia.org/wiki/Coalici%C3%B3_Comprom%C3%ADs\" target=\"_blank\">Coalició Compromís</a>.",
 		"neighbors": ["murcia", "castile", "aragon", "catalonia", "balearic_islands"],
 		"part_of": ["spain"],
 		"offset": [-5, 45],
