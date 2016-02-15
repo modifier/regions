@@ -53,6 +53,7 @@ SvgMap.prototype.addPath = function (path, color, label, labelOffset, clickCallb
 	this.paths.push({
 		path: polygon,
 		label: label,
+		callback: clickCallback,
 		labelOffset: labelOffset || [0, 0]
 	});
 
@@ -66,11 +67,12 @@ SvgMap.prototype.addPath = function (path, color, label, labelOffset, clickCallb
 	return polygon;
 };
 
-SvgMap.prototype.addCapital = function (coords, name, position) {
+SvgMap.prototype.addCapital = function (coords, name, position, clickCallback) {
 	this.capitals.push({
 		coords: coords,
 		position: position || 'top-right',
 		name: name,
+		callback: clickCallback,
 		path: null
 	});
 }
@@ -256,38 +258,53 @@ SvgMap.prototype.onResize = function () {
 // source: http://stackoverflow.com/questions/10992691/how-to-place-text-in-the-center-of-an-svg-path
 SvgMap.prototype.checkLabels = function () {
 	for (var i = 0; i < this.labels.length; i++) {
-		this.$map.removeChild(this.labels[i]);
+		if (this.labels[i]) {
+			this.$map.removeChild(this.labels[i]);
+		}
 	}
 
+	var that = this;
 	this.labels = [];
 
 	for (var i = 0; i < this.paths.length; i++) {
-		var obj = this.paths[i],
-			sizes = obj.path.getBBox();
-
-		var text = document.createElementNS('http://www.w3.org/2000/svg', 'text');
-		text.textContent = obj.label.toUpperCase();
-		text.setAttribute('fill', '#666');
-		text.setAttribute('font-size', 13 * Math.pow(2, this.scale));
-		text.setAttribute('font-family', 'Tahoma, sans-serif');
-		text.setAttribute('font-weight', 'bold');
-		this.$map.appendChild(text);
-
-		var ownSizes = text.getBBox();
-		if (ownSizes.width > sizes.width / 2) {
-			this.$map.removeChild(text);
-
-			continue;
-		}
-
-		var positionX = sizes.x + sizes.width / 2 - ownSizes.width / 2 + obj.labelOffset[0],
-			positionY = sizes.y + sizes.height / 2 + obj.labelOffset[1];
-		text.setAttribute('transform', 'translate(' + positionX + ' ' + positionY +')');
-		this.labels.push(text);
+		this.labels.push(this.addLabel(this.paths[i]));
 	}
 };
 
+SvgMap.prototype.addLabel = function (obj) {
+	var that = this,
+		size = obj.path.getBBox(),
+		text = document.createElementNS('http://www.w3.org/2000/svg', 'text');
+
+	text.textContent = obj.label.toUpperCase();
+	text.setAttribute('fill', '#666');
+	text.setAttribute('font-size', 13 * Math.pow(2, this.scale));
+	text.setAttribute('font-family', 'Tahoma, sans-serif');
+	text.setAttribute('font-weight', 'bold');
+	text.addEventListener('mouseup', function () {
+		if (!that.isDrag) {
+			obj.callback();
+		}
+	});
+	this.$map.appendChild(text);
+
+	var ownSizes = text.getBBox();
+	if (ownSizes.width > size.width / 2) {
+		this.$map.removeChild(text);
+
+		return null;
+	}
+
+	var positionX = size.x + size.width / 2 - ownSizes.width / 2 + obj.labelOffset[0],
+		positionY = size.y + size.height / 2 + obj.labelOffset[1];
+	text.setAttribute('transform', 'translate(' + positionX + ' ' + positionY +')');
+
+	return text;
+};
+
 SvgMap.prototype.checkCapitals = function () {
+	var that = this;
+
 	for (var i = 0; i < this.capitals.length; i++) {
 		var capital = this.capitals[i];
 
@@ -313,6 +330,20 @@ SvgMap.prototype.checkCapitals = function () {
 		label.setAttribute('font-size', 13 * scaleCoefficient);
 		label.setAttribute('font-family', 'Tahoma, sans-serif');
 		this.$map.appendChild(label);
+
+		(function (capital) {
+			circle.addEventListener('mouseup', function () {
+				if (!that.isDrag) {
+					capital.callback();
+				}
+			});
+
+			label.addEventListener('mouseup', function () {
+				if (!that.isDrag) {
+					capital.callback();
+				}
+			});
+		})(capital);
 
 		var dimensions = label.getBBox();
 
