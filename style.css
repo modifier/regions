@@ -67,6 +67,9 @@ a:hover {
 	line-height: 15px;
 	font-family: Arial, sans-serif;
 	white-space: normal;
+	overflow: auto;
+	-webkit-overflow-scrolling: touch;
+	overflow-scrolling: touch;
 }
 
 .details-container {
@@ -116,7 +119,6 @@ h2 {
     padding: 10px;
     box-sizing: border-box;
     height: 100%;
-    overflow: auto;
 }
 
 .country-name {
