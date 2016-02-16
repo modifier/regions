@@ -61,8 +61,8 @@ a:hover {
 .countries-container {
 	display: inline-block;
 	vertical-align: top;
-	margin-left: 20px;
-	width: 435px;
+	margin-left: 10px;
+	width: 449px;
 	font-size: 13px;
 	line-height: 15px;
 	font-family: Arial, sans-serif;
@@ -73,9 +73,8 @@ a:hover {
 }
 
 .details-container {
-	padding-top: 20px;
-	padding-right: 20px;
-	width: 415px;
+	padding: 20px 10px 0;
+	box-sizing: border-box;
 }
 
 .details-container.hidden,
@@ -88,7 +87,7 @@ a:hover {
 }
 
 .details-container .data {
-	margin: 10px;
+	margin: 10px 0;
     line-height: 1.5em;
     font-size: 14px;
 }
@@ -102,7 +101,7 @@ a:hover {
 h2 {
     font-size: 30px;
     font-weight: normal;
-    margin: 20px 10px 10px;
+    margin: 20px 0 10px;
     line-height: 30px;
 }
 
