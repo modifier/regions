@@ -169,7 +169,7 @@ SvgMap.prototype.onResize = function () {
 		height = window.innerHeight;
 
 	this.width = width - 460;
-	this.height = height - 45;
+	this.height = height;
 
 	this.$map.setAttribute('width', this.width);
 	this.$map.setAttribute('height', this.height);
