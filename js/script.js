@@ -6,7 +6,7 @@ window.onload = function () {
 
 var Application = function ($map, $details, $list) {
 	this.details = new Details($details);
-	this.map = new SvgMap($map);
+	this.map = new RegionsMap($map);
 	this.list = new CountriesList($list);
 
 	this.colors = ['#FCEFDC', '#FCFBDC', '#E8FCDC', '#FCDCFB', '#FCDCDC'];

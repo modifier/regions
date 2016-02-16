@@ -1,81 +1,30 @@
 var SvgMap = function ($container) {
 	this.$container = $container;
 	this.scale = 0;
-	this.paths = [];
-	this.labels = [];
 	this.position = [0, 0];
 	this.scaleStep = 0.5;
 	this.minScale = -Infinity;
 	this.maxScale = Infinity;
-	this.selectedPath = null;
-	this.isDrag = false;
 	this.animationId = null;
+	this.isDrag = false;
 	this.oceanCallbacks = [];
-	this.capitals = [];
 	this.initializeElements();
 };
 
-SvgMap.prototype.initializeElements = function () {
-	this.$map = document.createElementNS('http://www.w3.org/2000/svg', 'svg');
-	this.$map.id = 'svg_path';
-	this.$container.appendChild(this.$map);
+// public
 
-	this.$scaler = document.createElement('div');
-	this.$scaler.id = 'scaler';
-	this.$container.appendChild(this.$scaler);
-
-	var that = this;
-	var $zoomIn = document.createElement('div');
-	$zoomIn.innerHTML = '+';
-	$zoomIn.className = 'scale-button';
-	this.$scaler.appendChild($zoomIn);
-	$zoomIn.addEventListener('click', function () {
-		that.setScale(that.scale - that.scaleStep);
-	});
-
-	var $zoomOut = document.createElement('div');
-	$zoomOut.innerHTML = '&minus;';
-	$zoomOut.className = 'scale-button';
-	$zoomOut.addEventListener('click', function () {
-		that.setScale(that.scale + that.scaleStep);
-	});
-	this.$scaler.appendChild($zoomOut);
+SvgMap.prototype.setScaleBounds = function (minScale, maxScale) {
+	this.minScale = minScale;
+	this.maxScale = maxScale;
 };
 
-SvgMap.prototype.addPath = function (path, color, label, labelOffset, clickCallback) {
-	var polygon = document.createElementNS('http://www.w3.org/2000/svg', 'path');
-	polygon.setAttributeNS(null, 'd', path);
-	polygon.setAttributeNS(null, 'stroke', 'black');
-	polygon.setAttributeNS(null, 'stroke-width', '1');
-	polygon.setAttributeNS(null, 'fill', color);
-
-	this.$map.appendChild(polygon);
-	this.paths.push({
-		path: polygon,
-		label: label,
-		callback: clickCallback,
-		labelOffset: labelOffset || [0, 0]
-	});
-
-	var that = this;
-	polygon.addEventListener('mouseup', function () {
-		if (!that.isDrag) {
-			clickCallback();
-		}
-	});
-
-	return polygon;
+SvgMap.prototype.setDimensions = function (dimensions) {
+	this.dimensions = dimensions;
 };
 
-SvgMap.prototype.addCapital = function (coords, name, position, clickCallback) {
-	this.capitals.push({
-		coords: coords,
-		position: position || 'top-right',
-		name: name,
-		callback: clickCallback,
-		path: null
-	});
-}
+SvgMap.prototype.addOceanCallback = function (oceanCallback) {
+	this.oceanCallbacks.push(oceanCallback);
+};
 
 SvgMap.prototype.initialize = function () {
 	this.position = [
@@ -84,79 +33,6 @@ SvgMap.prototype.initialize = function () {
 	];
 	this.attachEvents();
 	this.onResize();
-};
-
-SvgMap.prototype.setDimensions = function (dimensions) {
-	this.dimensions = dimensions;
-};
-
-SvgMap.prototype.setBounds = function () {
-	this.width = this.$map.width.baseVal.value;
-	this.height = this.$map.height.baseVal.value;
-
-	this.bounds = {
-		x: [this.dimensions.x1, this.dimensions.x2 - this.getScaledWidth() + this.dimensions.x1],
-		y: [this.dimensions.y1, this.dimensions.y2 - this.getScaledHeight() + this.dimensions.y1]
-	};
-
-	this.checkLabels();
-	this.checkCapitals();
-};
-
-SvgMap.prototype.getScaledWidth = function () {
-	return this.width * Math.pow(2, this.scale);
-};
-
-SvgMap.prototype.getScaledHeight = function () {
-	return this.height * Math.pow(2, this.scale);
-};
-
-SvgMap.prototype.setScaleBounds = function (minScale, maxScale) {
-	this.minScale = minScale;
-	this.maxScale = maxScale;
-}
-
-SvgMap.prototype.setScale = function (scale, positionX, positionY) {
-	var offsetX = positionX ? positionX / this.width : 0.5;
-	var offsetY = positionY ? positionY / this.height : 0.5;
-
-	var widthBefore = this.getScaledWidth(),
-		heightBefore = this.getScaledHeight();
-
-	this.scale = Math.min(Math.max(scale, this.minScale), this.maxScale);
-
-	var widthAfter = this.getScaledWidth(),
-		heightAfter = this.getScaledHeight();
-
-	this.position[0] += widthBefore * offsetX - widthAfter * offsetX;
-	this.position[1] += heightBefore * offsetY - heightAfter * offsetY;
-
-	this.setBounds();
-	this.resetViewport();
-};
-
-function clamp (value, bounds) {
-	if (bounds[0] > bounds[1]) {
-		return bounds[0];
-	}
-
-	return value < bounds[0] ? bounds[0] : (value > bounds[1] ? bounds[1] : value);
-}
-
-SvgMap.prototype.resetViewport = function () {
-	this.position[0] = clamp(this.position[0], this.bounds.x);
-	this.position[1] = clamp(this.position[1], this.bounds.y);
-
-	this.$map.setAttribute('viewBox', [this.position[0], this.position[1], this.getScaledWidth(), this.getScaledHeight()].join(' '));
-};
-
-SvgMap.prototype.recalculateViewport = function (e) {
-	this.position = [
-		this.initialPosition[0] - (e.clientX - this.currentEvent.clientX) * Math.pow(2, this.scale),
-		this.initialPosition[1] - (e.clientY - this.currentEvent.clientY) * Math.pow(2, this.scale)
-	];
-
-	this.resetViewport();
 };
 
 SvgMap.prototype.setPosition = function (positionX, positionY) {
@@ -190,54 +66,98 @@ SvgMap.prototype.setPosition = function (positionX, positionY) {
 	}, step);
 };
 
-SvgMap.prototype.attachEvents = function () {
+// protected
+
+SvgMap.prototype.initializeElements = function () {
+	// create map
+	this.$map = document.createElementNS('http://www.w3.org/2000/svg', 'svg');
+	this.$map.id = 'svg_path';
+	this.$container.appendChild(this.$map);
+
+	// create scale container
+	this.$scaler = document.createElement('div');
+	this.$scaler.id = 'scaler';
+	this.$container.appendChild(this.$scaler);
+
+	// create zoom in button
 	var that = this;
-
-	this.$map.addEventListener('mousedown', function (e) {
-		that.isDrag = false;
-
-		that.initialPosition = that.position;
-
-		that.currentEvent = e;
+	var $zoomIn = document.createElement('div');
+	$zoomIn.innerHTML = '+';
+	$zoomIn.className = 'scale-button';
+	this.$scaler.appendChild($zoomIn);
+	$zoomIn.addEventListener('click', function () {
+		that.setScale(that.scale - that.scaleStep);
 	});
 
-	window.addEventListener('mousemove', function (e) {
-		that.isDrag = true;
-
-		if (that.currentEvent) {
-			that.recalculateViewport(e);
-		}
+	// create zoom out button
+	var $zoomOut = document.createElement('div');
+	$zoomOut.innerHTML = '&minus;';
+	$zoomOut.className = 'scale-button';
+	$zoomOut.addEventListener('click', function () {
+		that.setScale(that.scale + that.scaleStep);
 	});
-
-	window.addEventListener('mouseup', function (e) {
-		if (e.target === that.$map && !that.isDrag) {
-			for (var i = 0; i < that.oceanCallbacks.length; i++) {
-				that.oceanCallbacks[i]();
-			}
-		}
-
-		if (that.currentEvent) {
-			that.recalculateViewport(e);
-
-			that.currentEvent = undefined;
-		}
-	});
-
-	this.$map.addEventListener('wheel', function (e) {
-		if (e.deltaY > 0) {
-			that.setScale(that.scale + that.scaleStep, e.layerX, e.layerY);
-		} else if (e.deltaY < 0) {
-			that.setScale(that.scale - that.scaleStep, e.layerX, e.layerY);
-		}
-	});
-
-	window.addEventListener('resize', function () {
-		that.onResize();
-	});
+	this.$scaler.appendChild($zoomOut);
 };
 
-SvgMap.prototype.addOceanCallback = function (oceanCallback) {
-	this.oceanCallbacks.push(oceanCallback);
+function clamp (value, bounds) {
+	if (bounds[0] > bounds[1]) {
+		return bounds[0];
+	}
+
+	return value < bounds[0] ? bounds[0] : (value > bounds[1] ? bounds[1] : value);
+}
+
+SvgMap.prototype.getScaledWidth = function () {
+	return this.width * Math.pow(2, this.scale);
+};
+
+SvgMap.prototype.getScaledHeight = function () {
+	return this.height * Math.pow(2, this.scale);
+};
+
+SvgMap.prototype.recalculateViewport = function (e) {
+	this.position = [
+		this.initialPosition[0] - (e.clientX - this.currentEvent.clientX) * Math.pow(2, this.scale),
+		this.initialPosition[1] - (e.clientY - this.currentEvent.clientY) * Math.pow(2, this.scale)
+	];
+
+	this.resetViewport();
+};
+
+SvgMap.prototype.resetViewport = function () {
+	this.position[0] = clamp(this.position[0], this.bounds.x);
+	this.position[1] = clamp(this.position[1], this.bounds.y);
+
+	this.$map.setAttribute('viewBox', [this.position[0], this.position[1], this.getScaledWidth(), this.getScaledHeight()].join(' '));
+};
+
+SvgMap.prototype.setBounds = function () {
+	this.width = this.$map.width.baseVal.value;
+	this.height = this.$map.height.baseVal.value;
+
+	this.bounds = {
+		x: [this.dimensions.x1, this.dimensions.x2 - this.getScaledWidth() + this.dimensions.x1],
+		y: [this.dimensions.y1, this.dimensions.y2 - this.getScaledHeight() + this.dimensions.y1]
+	};
+};
+
+SvgMap.prototype.setScale = function (scale, positionX, positionY) {
+	var offsetX = positionX ? positionX / this.width : 0.5;
+	var offsetY = positionY ? positionY / this.height : 0.5;
+
+	var widthBefore = this.getScaledWidth(),
+		heightBefore = this.getScaledHeight();
+
+	this.scale = Math.min(Math.max(scale, this.minScale), this.maxScale);
+
+	var widthAfter = this.getScaledWidth(),
+		heightAfter = this.getScaledHeight();
+
+	this.position[0] += widthBefore * offsetX - widthAfter * offsetX;
+	this.position[1] += heightBefore * offsetY - heightAfter * offsetY;
+
+	this.setBounds();
+	this.resetViewport();
 };
 
 SvgMap.prototype.onResize = function () {
@@ -254,112 +174,54 @@ SvgMap.prototype.onResize = function () {
 	this.resetViewport();
 };
 
-// add possibility to manually override position of label
-// source: http://stackoverflow.com/questions/10992691/how-to-place-text-in-the-center-of-an-svg-path
-SvgMap.prototype.checkLabels = function () {
-	for (var i = 0; i < this.labels.length; i++) {
-		if (this.labels[i]) {
-			this.$map.removeChild(this.labels[i]);
-		}
-	}
+SvgMap.prototype.onMoveStart = function (e) {
+	this.isDrag = false;
 
-	var that = this;
-	this.labels = [];
+	this.initialPosition = this.position;
 
-	for (var i = 0; i < this.paths.length; i++) {
-		this.labels.push(this.addLabel(this.paths[i]));
+	this.currentEvent = e;
+};
+
+SvgMap.prototype.onMove = function (e) {
+	this.isDrag = true;
+
+	if (this.currentEvent) {
+		this.recalculateViewport(e);
 	}
 };
 
-SvgMap.prototype.addLabel = function (obj) {
-	var that = this,
-		size = obj.path.getBBox(),
-		text = document.createElementNS('http://www.w3.org/2000/svg', 'text');
+SvgMap.prototype.onMoveEnd = function (e) {
+	if (e.target === this.$map && !this.isDrag) {
+		for (var i = 0; i < this.oceanCallbacks.length; i++) {
+			this.oceanCallbacks[i]();
+		}
+	}
 
-	text.textContent = obj.label.toUpperCase();
-	text.setAttribute('fill', '#666');
-	text.setAttribute('font-size', 13 * Math.pow(2, this.scale));
-	text.setAttribute('font-family', 'Tahoma, sans-serif');
-	text.setAttribute('font-weight', 'bold');
-	text.addEventListener('mouseup', function () {
-		if (!that.isDrag) {
-			obj.callback();
+	if (this.currentEvent) {
+		this.recalculateViewport(e);
+
+		this.currentEvent = undefined;
+	}
+};
+
+SvgMap.prototype.attachEvents = function () {
+
+	this.$map.addEventListener('mousedown', this.onMoveStart.bind(this));
+
+	window.addEventListener('mousemove', this.onMove.bind(this));
+
+	window.addEventListener('mouseup', this.onMoveEnd.bind(this));
+
+	var that = this;
+	this.$map.addEventListener('wheel', function (e) {
+		if (e.deltaY > 0) {
+			that.setScale(that.scale + that.scaleStep, e.layerX, e.layerY);
+		} else if (e.deltaY < 0) {
+			that.setScale(that.scale - that.scaleStep, e.layerX, e.layerY);
 		}
 	});
-	this.$map.appendChild(text);
 
-	var ownSizes = text.getBBox();
-	if (ownSizes.width > size.width / 2) {
-		this.$map.removeChild(text);
-
-		return null;
-	}
-
-	var positionX = size.x + size.width / 2 - ownSizes.width / 2 + obj.labelOffset[0],
-		positionY = size.y + size.height / 2 + obj.labelOffset[1];
-	text.setAttribute('transform', 'translate(' + positionX + ' ' + positionY +')');
-
-	return text;
-};
-
-SvgMap.prototype.checkCapitals = function () {
-	var that = this;
-
-	for (var i = 0; i < this.capitals.length; i++) {
-		var capital = this.capitals[i];
-
-		if (capital.circle && capital.label) {
-			this.$map.removeChild(capital.circle);
-			this.$map.removeChild(capital.label);
-		}
-
-		var scaleCoefficient = Math.pow(2, this.scale);
-
-		var circle = document.createElementNS('http://www.w3.org/2000/svg', 'circle');
-		circle.setAttributeNS(null, 'cx', capital.coords[0]);
-		circle.setAttributeNS(null, 'cy', capital.coords[1]);
-		circle.setAttributeNS(null, 'r', 3 * scaleCoefficient);
-		circle.setAttributeNS(null, 'fill', 'black');
-
-		capital.circle = circle;
-		this.$map.appendChild(circle);
-
-		var label = document.createElementNS('http://www.w3.org/2000/svg', 'text');
-		label.textContent = capital.name;
-		label.setAttribute('fill', '#000');
-		label.setAttribute('font-size', 13 * scaleCoefficient);
-		label.setAttribute('font-family', 'Tahoma, sans-serif');
-		this.$map.appendChild(label);
-
-		(function (capital) {
-			circle.addEventListener('mouseup', function () {
-				if (!that.isDrag) {
-					capital.callback();
-				}
-			});
-
-			label.addEventListener('mouseup', function () {
-				if (!that.isDrag) {
-					capital.callback();
-				}
-			});
-		})(capital);
-
-		var dimensions = label.getBBox();
-
-		var labelPosition = capital.position.split('-');
-		if (labelPosition[0] === 'top') {
-			label.setAttribute('y', capital.coords[1] - 5 * scaleCoefficient);
-		} else {
-			label.setAttribute('y', capital.coords[1] + dimensions.height);
-		}
-
-		if (labelPosition[1] === 'right') {
-			label.setAttribute('x', capital.coords[0] + 5 * scaleCoefficient);
-		} else {
-			label.setAttribute('x', capital.coords[0] - 10 * scaleCoefficient - dimensions.width);
-		}
-
-		capital.label = label;
-	}
+	window.addEventListener('resize', function () {
+		that.onResize();
+	});
 };
