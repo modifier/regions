@@ -140,6 +140,7 @@ var data = {
 	},
 	"latvia": {
 		"name": "Латвия",
+		"genetive": "Латвии",
 		"neighbors": ["estonia", "latgalia", "belarus", "samogitia", "lithuania"],
 		"secessionists": ["latgalia"],
 		"offset": [-20, 30],
