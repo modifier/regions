@@ -64,6 +64,7 @@ var data = {
 	},
 	"ingria": {
 		"name": "Ингерманландия",
+		"description": 'Исторически территория Ингерманландии была постоянным предметом споров между Швецией и Россией до тех пор, пока она не была окончательно завоёвана во время Северной войны. Коренное население региона представляет множество финно-угорских народов: ингерманландские финны, ижора, вепсы, водь, которых сейчас исчезающее меньшинство. В регионе действует движение <a href="https://vk.com/free_ingria" target="_blank">Свободная Ингрия</a> с недостаточно ясной деятельностью.',
 		"neighbors": ["karelia", "finland", "russia", "estonia"],
 		"part_of": ["russia"],
 		"capital": {
@@ -75,6 +76,7 @@ var data = {
 	},
 	"karelia": {
 		"name": "Карелия",
+		"description": 'На территории Карелии проживает родственный финнам народ карелов. На сегодняшний день на территории республики они находятся в меньшинстве. Регионалистское движение <a href="http://www.free-karelia.org/NorthWord.aspx" target="_blank">Свободная Карелия</a> нацелено на повышение самоуправления, а также сохранение и развитие культурно-экономического потенциала региона.',
 		"neighbors": ["finland", "sapmi", "russia", "ingria"],
 		"part_of": ["russia"],
 		"capital": {
@@ -85,6 +87,7 @@ var data = {
 	},
 	"aland": {
 		"name": "Аландские острова",
+		"description": 'На Аландских островах, принадлежащих Финляндии, проживают шведы. В результате <a href="https://ru.wikipedia.org/wiki/Аландский_кризис" target="_blank">Аландского кризиса</a> острова получили высокую степень автономии в составе Финляндии. Сейчас за независимость островов борется партия <a href="https://ru.wikipedia.org/wiki/Будущее_Аландов" target="_blank">Будущее Аландов</a>.',
 		"neighbors": ["finland", "sweden", "skaneland"],
 		"part_of": ["finland"],
 		"capital": {
@@ -95,6 +98,7 @@ var data = {
 	},
 	"bornholm": {
 		"name": "Борнхольм",
+		"description": 'Культурно и исторически Борнхольм является частью Скании, которая после Сконской войны вошла в состав Швеции, таким образом, оказавшись по разные стороны границ. Автономии в составе Дании ищет партия <a href="https://en.wikipedia.org/wiki/Bornholm\'s_Self-Government_Party" target="_blank">Bornholm\'s Self-Government Party</a>.',
 		"neighbors": ["finland", "sweden", "skaneland", "denmark"],
 		"part_of": ["denmark"],
 		"capital": {
@@ -115,6 +119,7 @@ var data = {
 	},
 	"faroe": {
 		"name": "Фарерские острова",
+		"description": 'Фарерские острова входят в состав Датского королевства, но обладают высоким уровнем автономии. Фарерские острова уже провозглашали независимость в результате <a href="https://en.wikipedia.org/wiki/Faroese_independence_referendum,_1946" target="_blank">референдума</a>, которая, однако, была аннулирована со стороны Дании. Сейчас независимости Фарер добивается несколько партий, из них крупнейшие &mdash; парламентские <a href="https://en.wikipedia.org/wiki/People\'s_Party_%28Faroe_Islands%29" target="_blank">People\'s Party</a> и <a href="https://en.wikipedia.org/wiki/Republic_%28Faroe_Islands%29" target="_blank">Republic</a>.',
 		"neighbors": ["iceland", "shetland"],
 		"part_of": ["denmark"],
 		"capital": {
