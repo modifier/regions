@@ -117,17 +117,12 @@ SvgMap.prototype.getScaledHeight = function () {
 };
 
 SvgMap.prototype.recalculateViewport = function (e) {
-	if (e instanceof MouseEvent) {
-		var offsetX = e.clientX - this.currentEvent.clientX,
-			offsetY = e.clientY - this.currentEvent.clientY;
-	} else if (e instanceof TouchEvent) {
-		var offsetX = e.touches[0].clientX - this.currentEvent.touches[0].clientX,
-			offsetY = e.touches[0].clientY - this.currentEvent.touches[0].clientY;
-	}
+	var startEvent = this.currentEvent instanceof TouchEvent ? this.currentEvent.touches[0] : this.currentEvent,
+		endEvent = e instanceof TouchEvent ? e.touches[0] : e;
 
 	this.position = [
-		this.initialPosition[0] - offsetX * Math.pow(2, this.scale),
-		this.initialPosition[1] - offsetY * Math.pow(2, this.scale)
+		this.initialPosition[0] - (endEvent.clientX - startEvent.clientX) * Math.pow(2, this.scale),
+		this.initialPosition[1] - (endEvent.clientY - startEvent.clientY) * Math.pow(2, this.scale)
 	];
 
 	this.resetViewport();
@@ -197,6 +192,8 @@ SvgMap.prototype.onMove = function (e) {
 	if (this.currentEvent) {
 		this.recalculateViewport(e);
 	}
+
+	e.preventDefault();
 };
 
 SvgMap.prototype.onOceanTap = function (e) {
@@ -208,11 +205,11 @@ SvgMap.prototype.onOceanTap = function (e) {
 };
 
 SvgMap.prototype.onMoveEnd = function (e) {
-	if (this.currentEvent) {
+	if (this.currentEvent instanceof MouseEvent) {
 		this.recalculateViewport(e);
-
-		this.currentEvent = undefined;
 	}
+
+	this.currentEvent = undefined;
 };
 
 SvgMap.prototype.onWheel = function (e) {
@@ -234,7 +231,7 @@ SvgMap.prototype.attachEvents = function () {
 	window.addEventListener('touchend', this.onOceanTap.bind(this));
 
 	window.addEventListener('mouseup', this.onMoveEnd.bind(this));
-	window.addEventListener('touchend', this.onOceanTap.bind(this));
+	window.addEventListener('touchend', this.onMoveEnd.bind(this));
 
 	this.$map.addEventListener('wheel', this.onWheel.bind(this));
 
