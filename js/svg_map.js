@@ -7,6 +7,7 @@ var SvgMap = function ($container) {
 	this.maxScale = Infinity;
 	this.animationId = null;
 	this.isDrag = false;
+	this.isScaling = false;
 	this.oceanCallbacks = [];
 	this.initializeElements();
 };
@@ -116,9 +117,17 @@ SvgMap.prototype.getScaledHeight = function () {
 };
 
 SvgMap.prototype.recalculateViewport = function (e) {
+	if (e instanceof MouseEvent) {
+		var offsetX = e.clientX - this.currentEvent.clientX,
+			offsetY = e.clientY - this.currentEvent.clientY;
+	} else if (e instanceof TouchEvent) {
+		var offsetX = e.touches[0].clientX - this.currentEvent.touches[0].clientX,
+			offsetY = e.touches[0].clientY - this.currentEvent.touches[0].clientY;
+	}
+
 	this.position = [
-		this.initialPosition[0] - (e.clientX - this.currentEvent.clientX) * Math.pow(2, this.scale),
-		this.initialPosition[1] - (e.clientY - this.currentEvent.clientY) * Math.pow(2, this.scale)
+		this.initialPosition[0] - offsetX * Math.pow(2, this.scale),
+		this.initialPosition[1] - offsetY * Math.pow(2, this.scale)
 	];
 
 	this.resetViewport();
@@ -190,13 +199,15 @@ SvgMap.prototype.onMove = function (e) {
 	}
 };
 
-SvgMap.prototype.onMoveEnd = function (e) {
+SvgMap.prototype.onOceanTap = function (e) {
 	if (e.target === this.$map && !this.isDrag) {
 		for (var i = 0; i < this.oceanCallbacks.length; i++) {
 			this.oceanCallbacks[i]();
 		}
 	}
+};
 
+SvgMap.prototype.onMoveEnd = function (e) {
 	if (this.currentEvent) {
 		this.recalculateViewport(e);
 
@@ -204,24 +215,28 @@ SvgMap.prototype.onMoveEnd = function (e) {
 	}
 };
 
-SvgMap.prototype.attachEvents = function () {
+SvgMap.prototype.onWheel = function (e) {
+	if (e.deltaY > 0) { // zoom in
+		this.setScale(this.scale + this.scaleStep, e.layerX, e.layerY);
+	} else if (e.deltaY < 0) { // zoom out
+		this.setScale(this.scale - this.scaleStep, e.layerX, e.layerY);
+	}
+};
 
+SvgMap.prototype.attachEvents = function () {
 	this.$map.addEventListener('mousedown', this.onMoveStart.bind(this));
+	this.$map.addEventListener('touchstart', this.onMoveStart.bind(this));
 
 	window.addEventListener('mousemove', this.onMove.bind(this));
+	window.addEventListener('touchmove', this.onMove.bind(this));
+
+	window.addEventListener('mouseup', this.onOceanTap.bind(this));
+	window.addEventListener('touchend', this.onOceanTap.bind(this));
 
 	window.addEventListener('mouseup', this.onMoveEnd.bind(this));
+	window.addEventListener('touchend', this.onOceanTap.bind(this));
 
-	var that = this;
-	this.$map.addEventListener('wheel', function (e) {
-		if (e.deltaY > 0) {
-			that.setScale(that.scale + that.scaleStep, e.layerX, e.layerY);
-		} else if (e.deltaY < 0) {
-			that.setScale(that.scale - that.scaleStep, e.layerX, e.layerY);
-		}
-	});
+	this.$map.addEventListener('wheel', this.onWheel.bind(this));
 
-	window.addEventListener('resize', function () {
-		that.onResize();
-	});
+	window.addEventListener('resize', this.onResize.bind(this));
 };
