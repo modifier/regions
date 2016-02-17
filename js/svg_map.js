@@ -117,8 +117,8 @@ SvgMap.prototype.getScaledHeight = function () {
 };
 
 SvgMap.prototype.recalculateViewport = function (e) {
-	var startEvent = this.currentEvent instanceof TouchEvent ? this.currentEvent.touches[0] : this.currentEvent,
-		endEvent = e instanceof TouchEvent ? e.touches[0] : e;
+	var startEvent = this.currentEvent instanceof MouseEvent ? this.currentEvent : this.currentEvent.touches[0],
+		endEvent = e instanceof MouseEvent ? e : e.touches[0];
 
 	this.position = [
 		this.initialPosition[0] - (endEvent.clientX - startEvent.clientX) * Math.pow(2, this.scale),
