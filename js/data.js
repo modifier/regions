@@ -856,6 +856,7 @@ var data = {
 	},
 	"liguria": {
 		"name": "Лигурия",
+		"description": 'Лигурия являлась ядром Генуэзской республики вплоть до её включения в состав Сардинского королевства после Наполеоновских войн, а затем &mdash; в состав Италии. Партия <a href="https://en.wikipedia.org/wiki/Ligurian_Independence_Movement" target="_blank">Movimento Indipendentista Ligure</a> считают незаконной аннексию Лигурии и требуют немедленной независимости региона.',
 		"neighbors": ["padania", "occitania", "corsica"],
 		"part_of": ["italy"],
 		"offset": [0, 13],
@@ -875,6 +876,7 @@ var data = {
 	},
 	"padania": {
 		"name": "Падания",
+		"description": 'Падания, объединённая с Южной Италией в ходе Рисорджименто, является более экономически развитым регионом. <a href="https://ru.wikipedia.org/wiki/Лига_Севера" target="_blank">Лига Севера</a> добивается федерализации унитарной Италии.',
 		"neighbors": ["switzerland", "savoy", "occitania", "liguria", "corsica", "sardinia", "italy", "venetia", "south_tyrol"],
 		"part_of": ["italy"],
 		"offset": [10, 10],
@@ -907,6 +909,7 @@ var data = {
 	},
 	"south_tyrol": {
 		"name": "Южный Тироль",
+		"description": 'Южный Тироль был включен в состав Италии по итогам Первой мировой войны. До сих пор большинство населения региона составляют австрийцы. Партия <a href="https://en.wikipedia.org/wiki/South_Tyrolean_Freedom" target="_blank">Süd-Tiroler Freiheit</a> добивается независимости Южного Тироля и объединения территории с Австрией.',
 		"neighbors": ["austria", "switzerland", "padania", "venetia", "carinthia"],
 		"part_of": ["italy"],
 		"capital": {
@@ -917,6 +920,7 @@ var data = {
 	},
 	"venetia": {
 		"name": "Венеция",
+		"description": 'По итогам наполеоновских войн Венецианская республика была включена в состав Австрийской империи, а затем, в ходе Рисорджименто, оказалась в составе объединённой Италии. Венетские националисты добиваются более широкой автономии региона. Эти идеи пользуются широкой популярностью, так, <a href="https://en.wikipedia.org/wiki/Liga_Veneta" target="_blank">Liga Veneta</a> занимает почти 50% мест в региональном парламенте Венеции.',
 		"neighbors": ["south_tyrol", "padania", "friuli-venezia_giulia", "carinthia", "austria"],
 		"part_of": ["italy"],
 		"capital": {
@@ -1013,6 +1017,7 @@ var data = {
 	},
 	"istria": {
 		"name": "Истрия",
+		"description": 'На протяжении всего времени существования Венецианской республике принадлежала Истрия. Полуостров оказался окончательно оторванным от Италии после Второй мировой, войдя в состав Югославии. На сегодняшний день на полуострове в качестве национального меньшинства проживают истрийцы &mdash; романоязычноый народ, родственный итальянцам. Партия <a href="https://ru.wikipedia.org/wiki/Демократическая_ассамблея_Истрии">Демократическая ассамблея Истрии</a> добивается равного статуса для хорватов и истрийцев на территории полуострова.',
 		"neighbors": ["slovenia", "croatia"],
 		"part_of": ["croatia"],
 		"capital": {
