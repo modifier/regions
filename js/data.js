@@ -289,7 +289,7 @@ var data = {
 	"poland": {
 		"name": "Польша",
 		"genetive": "Польши",
-		"neighbors": ["prussia", "germany", "czech", "silesia", "moravia", "slovakia", "ukraine", "belarus", "lithuania", "ruthenia"],
+		"neighbors": ["prussia", "germany", "czech", "silesia", "moravia", "slovakia", "ukraine", "belarus", "lithuania"],
 		"secessionists": ["silesia"],
 		"capital": {
 			"name": "Варшава",
@@ -314,9 +314,8 @@ var data = {
 		"part_of": ["germany"],
 		"offset": [3, -10],
 		"capital": {
-			"name": "Гамбург",
-			"type": "largest_city",
-			"coords": [1519, 1232]
+			"name": "Киль",
+			"coords": [1536, 1218]
 		}
 	},
 	"ulster": {
@@ -355,23 +354,12 @@ var data = {
 	"cornwall": {
 		"name": "Корнуолл",
 		"description": "В Корнуолле проживает кельтские народ &mdash; корнцы. Партия <a href=\"https://ru.wikipedia.org/wiki/Сыны_Корнуолла\" target=\"_blank\">Mebyon Kernow</a> нацелена на более широкую автономию Корнуолла в составе Великобритании.",
-		"neighbors": ["devon", "channel_islands"],
+		"neighbors": ["wessex", "channel_islands"],
 		"part_of": ["uk"],
 		"capital": {
 			"name": "Труро",
 			"type": "admin_center",
 			"coords": [894, 1435]
-		}
-	},
-	"devon": {
-		"name": "Девон",
-		"neighbors": ["cornwall", "wessex", "channel_islands"],
-		"part_of": ["uk"],
-		"offset": [-5, -10],
-		"capital": {
-			"name": "Эксетер",
-			"type": "admin_center",
-			"coords": [962, 1422]
 		}
 	},
 	"england": {
@@ -400,9 +388,9 @@ var data = {
 	"wessex": {
 		"name": "Уэссекс",
 		"description": "<a href=\"https://en.wikipedia.org/wiki/Wessex_Regionalist_Party\" target=\"_blank\">Регионалистская патия Уэссекса</a> нацелена на создание уэссекской культурной идентичности и создание автономии.",
-		"neighbors": ["england", "isle_of_wight", "wales", "devon", "channel_islands"],
+		"neighbors": ["england", "isle_of_wight", "wales", "wessex", "channel_islands", "cornwall"],
 		"part_of": ["uk"],
-		"offset": [10, 15],
+		"offset": [0, 15],
 		"capital": {
 			"name": "Бристоль",
 			"position": "bottom-right",
@@ -466,7 +454,7 @@ var data = {
 	},
 	"hungary": {
 		"name": "Венгрия",
-		"neighbors": ["slovakia", "austria", "ruthenia", "romania", "slovenia", "croatia", "vojvodina"],
+		"neighbors": ["slovakia", "austria", "ukraine", "romania", "slovenia", "croatia", "vojvodina"],
 		"capital": {
 			"name": "Будапешт",
 			"coords": [1956, 1665]
@@ -484,16 +472,6 @@ var data = {
 			"coords": [1838, 1566]
 		}
 	},
-	"ruthenia": {
-		"name": "Закарпатье",
-		"neighbors": ["ukraine", "poland", "slovakia", "hungary", "romania"],
-		"part_of": ["ukraine"],
-		"capital": {
-			"name": "Ужгород",
-			"type": "admin_center",
-			"coords": [2087, 1572]
-		}
-	},
 	"silesia": {
 		"name": "Верхняя Силезия",
 		"description": 'В Силезии проживает родственный полякам народ &mdash; силезцы. <a href="https://en.wikipedia.org/wiki/Silesian_Autonomy_Movement" target="_blank">Движение за автономию Силезии</a> стремится добиться автономии региона. Также существуют более радикальные сепаратистские организации.',
@@ -507,7 +485,7 @@ var data = {
 	},
 	"slovakia": {
 		"name": "Словакия",
-		"neighbors": ["poland", "silesia", "moravia", "austria", "hungary", "ruthenia"],
+		"neighbors": ["poland", "silesia", "moravia", "austria", "hungary", "ukraine"],
 		"capital": {
 			"name": "Братислава",
 			"coords": [1868, 1633]
@@ -516,8 +494,8 @@ var data = {
 	"ukraine": {
 		"name": "Украина",
 		"genetive": "Украины",
-		"neighbors": ["belarus", "poland", "ruthenia", "romania", "moldavia", "transnistria", "crimea", "novorussia", "russia", "gagauzia"],
-		"secessionists": ["crimea", "ruthenia", "novorussia"],
+		"neighbors": ["belarus", "poland", "slovakia", "hungary", "romania", "moldavia", "transnistria", "crimea", "novorussia", "russia"],
+		"secessionists": ["crimea", "novorussia"],
 		"capital": {
 			"name": "Киев",
 			"coords": [2423, 1367]
@@ -537,8 +515,7 @@ var data = {
 	"austria": {
 		"name": "Австрия",
 		"genetive": "Австрии",
-		"neighbors": ["south_tyrol", "carinthia", "slovenia", "hungary", "slovakia", "moravia", "czech", "bavaria", "germany", "liechtenstein", "switzerland", "friuli-venezia_giulia", "venetia"],
-		"secessionists": ["carinthia"],
+		"neighbors": ["south_tyrol", "slovenia", "hungary", "slovakia", "moravia", "czech", "bavaria", "germany", "liechtenstein", "switzerland", "friuli-venezia_giulia", "venetia"],
 		"offset": [40, 20],
 		"capital": {
 			"name": "Вена",
@@ -558,21 +535,9 @@ var data = {
 			"coords": [1012, 1604]
 		}
 	},
-	"carinthia": {
-		"name": "Каринтия",
-		"neighbors": ["austria", "slovenia", "friuli-venezia_giulia", "south_tyrol", "venetia"],
-		"part_of": ["austria"],
-		"offset": [0, -2],
-		"capital": {
-			"name": "Клагенфурт",
-			"type": "admin_center",
-			"position": "top-left",
-			"coords": [1744, 1745]
-		}
-	},
 	"channel_islands": {
 		"name": "Нормандские острова",
-		"neighbors": ["normandy", "brittany", "wessex", "devon", "cornwall", "isle_of_wight"],
+		"neighbors": ["normandy", "brittany", "wessex", "cornwall", "isle_of_wight"],
 		"part_of": ["uk"]
 	},
 	"france": {
@@ -844,7 +809,7 @@ var data = {
 	"friuli-venezia_giulia": {
 		"name": "Фриули-Венеция Джулия",
 		"description": 'Исторически регион на протяжении долгого времени принадлежал Австрии и поэтому романоязычное население говорят на отдельном от итальянского, фриульском языке, который является диалектом ретороманского. Также в регионе присутствует словенское меньшинство. Действует регионалистская партия <a href="https://en.wikipedia.org/wiki/Lega_Nord_Friuli-Venezia_Giulia" target="_blank">Lega Nord Friuli-Venezia Giulia</a>.',
-		"neighbors": ["venetia", "carinthia", "austria", "slovenia"],
+		"neighbors": ["venetia", "austria", "slovenia"],
 		"part_of": ["italy"],
 		"capital": {
 			"name": "Триест",
@@ -921,7 +886,7 @@ var data = {
 	"south_tyrol": {
 		"name": "Южный Тироль",
 		"description": 'Южный Тироль был включен в состав Италии по итогам Первой мировой войны. До сих пор большинство населения региона составляют австрийцы. Партия <a href="https://en.wikipedia.org/wiki/South_Tyrolean_Freedom" target="_blank">Süd-Tiroler Freiheit</a> добивается независимости Южного Тироля и объединения территории с Австрией.',
-		"neighbors": ["austria", "switzerland", "padania", "venetia", "carinthia"],
+		"neighbors": ["austria", "switzerland", "padania", "venetia"],
 		"part_of": ["italy"],
 		"capital": {
 			"name": "Больцано",
@@ -932,7 +897,7 @@ var data = {
 	"venetia": {
 		"name": "Венеция",
 		"description": 'По итогам наполеоновских войн Венецианская республика была включена в состав Австрийской империи, а затем, в ходе Рисорджименто, оказалась в составе объединённой Италии. Венетские националисты добиваются более широкой автономии региона. Эти идеи пользуются широкой популярностью, так, <a href="https://en.wikipedia.org/wiki/Liga_Veneta" target="_blank">Liga Veneta</a> занимает почти 50% мест в региональном парламенте Венеции.',
-		"neighbors": ["south_tyrol", "padania", "friuli-venezia_giulia", "carinthia", "austria"],
+		"neighbors": ["south_tyrol", "padania", "friuli-venezia_giulia", "austria"],
 		"part_of": ["italy"],
 		"capital": {
 			"name": "Венеция",
@@ -1007,16 +972,6 @@ var data = {
 			"coords": [2112, 2021]
 		}
 	},
-	"gagauzia": {
-		"name": "Гагаузия",
-		"neighbors": ["moldavia", "transnistria", "ukraine", "romania"],
-		"part_of": ["moldavia"],
-		"capital": {
-			"name": "Комрат",
-			"type": "admin_center",
-			"coords": [2408, 1662]
-		}
-	},
 	"greece": {
 		"name": "Греция",
 		"neighbors": ["northern_epirus", "fyrom", "bulgaria", "cyprus"],
@@ -1052,8 +1007,8 @@ var data = {
 	"moldavia": {
 		"name": "Молдавия",
 		"genetive": "Молдавии",
-		"neighbors": ["romania", "ukraine", "transnistria", "gagauzia"],
-		"secessionists": ["transnistria", "gagauzia"],
+		"neighbors": ["romania", "ukraine", "transnistria"],
+		"secessionists": ["transnistria"],
 		"offset": [0, -30],
 		"capital": {
 			"name": "Кишинёв",
@@ -1075,7 +1030,7 @@ var data = {
 	"romania": {
 		"name": "Румыния",
 		"genetive": "Румынии",
-		"neighbors": ["hungary", "ukraine", "moldavia", "gagauzia", "bulgaria", "serbia", "vojvodina", "ruthenia", "szekely_land"],
+		"neighbors": ["hungary", "ukraine", "moldavia", "bulgaria", "serbia", "vojvodina", "szekely_land"],
 		"secessionists": ["szekely_land"],
 		"offset": [0, 40],
 		"capital": {
@@ -1109,7 +1064,7 @@ var data = {
 	},
 	"slovenia": {
 		"name": "Словения",
-		"neighbors": ["friuli-venezia_giulia", "carinthia", "austria", "hungary", "croatia", "istria"],
+		"neighbors": ["friuli-venezia_giulia", "austria", "hungary", "croatia", "istria"],
 		"offset": [0, -7],
 		"capital": {
 			"name": "Любляна",
@@ -1130,7 +1085,7 @@ var data = {
 	"transnistria": {
 		"name": "Приднестровье",
 		"description": 'В отличие от более однородной Молдавии, в Приднестровье присутствует значительное русскоязычное население. Приднестровье провозгласило независимость от Молдавии в начале 90-х, политическая стабильность региона поддерживается российским военным присутствием. ПМР до сих пор не признана ни одним государством-членом ООН.',
-		"neighbors": ["ukraine", "moldavia", "gagauzia"],
+		"neighbors": ["ukraine", "moldavia"],
 		"part_of": ["moldavia"],
 		"capital": {
 			"name": "Тирасполь",
@@ -1176,7 +1131,7 @@ var data = {
 	"uk": {
 		"name": "Великобритания",
 		"genetive": "Великобритании",
-		"secessionists": ["scotland", "england", "wales", "ulster", "cornwall", "devon", "isle_of_wight", "isle_of_man", "wessex", "yorkshire", "channel_islands", "outer_hebrides", "orkney", "shetland"]
+		"secessionists": ["scotland", "england", "wales", "ulster", "cornwall", "isle_of_wight", "isle_of_man", "wessex", "yorkshire", "channel_islands", "outer_hebrides", "orkney", "shetland"]
 	},
 	"spain": {
 		"name": "Испания",
