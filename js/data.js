@@ -164,6 +164,7 @@ var data = {
 	},
 	"prussia": {
 		"name": "Пруссия",
+		"description": 'Восточная Пруссия была завоёвана СССР по итогам Второй мировой войны и включена в её состав. Всё немецкое население было депортировано с этой территории, сейчас абсолютное большинство населения представлено русскими.',
 		"neighbors": ["samogitia", "lithuania", "poland"],
 		"part_of": ["russia"],
 		"offset": [10, 0],
@@ -229,6 +230,7 @@ var data = {
 	},
 	"frisia": {
 		"name": "Фризия",
+		"description": 'Территория Фризии разделена между двумя государствами &mdash; Германией и Нидерландами. В Германии действует партия <a href="https://en.wikipedia.org/wiki/Die_Friesen" target="_blank">Die Friesen</a>, добивающаяся расширения прав фризского меньшинства. В Нидерландах действует <a href="https://en.wikipedia.org/wiki/Frisian_National_Party" target="_blank">Фризская национальная партия</a>, которая добивается федерализации государства.',
 		"neighbors": ["germany", "slesvig", "netherlands"],
 		"part_of": ["germany", "netherlands"],
 		"offset": [-15, 3],
@@ -307,6 +309,7 @@ var data = {
 	},
 	"slesvig": {
 		"name": "Шлезвиг",
+		"description": 'Шлезвиг является пограничной территорией между Данией и Германией, на каждой из сторон которой присутствуют этнические меньшинства. В Германии Шлезвиг представлен федеральной землёй Шлезвиг-Гольштейн, в Дании же такой административной единицы не существует. В Германии интересы датского меньшинства представляет партия <a href="https://ru.wikipedia.org/wiki/Союз_южношлезвигских_избирателей" target="_blank">Союз южношлезвигских избирателей</a>.',
 		"neighbors": ["denmark", "germany", "frisia"],
 		"part_of": ["germany"],
 		"offset": [3, -10],
@@ -492,7 +495,8 @@ var data = {
 		}
 	},
 	"silesia": {
-		"name": "Силезия",
+		"name": "Верхняя Силезия",
+		"description": 'В Силезии проживает родственный полякам народ &mdash; силезцы. <a href="https://en.wikipedia.org/wiki/Silesian_Autonomy_Movement" target="_blank">Движение за автономию Силезии</a> стремится добиться автономии региона. Также существуют более радикальные сепаратистские организации.',
 		"neighbors": ["poland", "czech", "moravia", "slovakia"],
 		"part_of": ["poland", "czech"],
 		"capital": {
@@ -1059,6 +1063,7 @@ var data = {
 	},
 	"northern_epirus": {
 		"name": "Северный Эпир",
+		"description": 'В Северном Эпире проживают греческое меньшинство. Права греческого меньшинства отстаивает организация <a href="https://en.wikipedia.org/wiki/Omonoia_(organization)" target="_blank">Omonoia</a>.',
 		"neighbors": ["albania", "fyrom", "greece"],
 		"part_of": ["albania"],
 		"capital": {
