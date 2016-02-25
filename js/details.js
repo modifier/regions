@@ -1,22 +1,17 @@
-var dataLabels = {
-	"population": "Население",
-	"capital": "Столица",
-	"large_cities": "Крупнейшие города",
-	"gdp": "ВВП",
-	"gdp_per_capita": "ВВП на душу населения",
-	"neighbors": "Соседние страны",
-	"part_of": "Часть",
-	"secessionists": "Регионы",
-	"admin_center": "Административный центр",
-	"largest_city": "Крупнейший город"
-};
-
-var wikipediaPrefix = "https://ru.wikipedia.org/wiki/";
-
 var Details = function ($container) {
 	this.$container = $container;
 	this.countryCallbacks = [];
+	this.wikipediaPrefix = "https://ru.wikipedia.org/wiki/";
 	this.initListeners();
+};
+
+Details.prototype.dataLabels = {
+	"neighbors": "Соседние страны",
+	"part_of": "Часть",
+	"secessionists": "Регионы",
+	"capital": "Столица",
+	"admin_center": "Административный центр",
+	"largest_city": "Крупнейший город"
 };
 
 Details.prototype.hide = function () {
@@ -43,13 +38,13 @@ Details.prototype.renderCountry = function (name) {
 	$name.innerHTML = countryData.name;
 	elements.push($name);
 
-	elements.push(createDescription(countryData.description));
-	elements.push(createCapitalElement(countryData.capital));
-	elements.push(createPartOf(countryData.part_of));
-	elements.push(createCountryList(countryData.secessionists, dataLabels.secessionists));
-	elements.push(createCountryList(countryData.neighbors, dataLabels.neighbors));
+	elements.push(this.createDescription(countryData.description));
+	elements.push(this.createCapitalElement(countryData.capital));
+	elements.push(this.createPartOf(countryData.part_of));
+	elements.push(this.createCountryList(countryData.secessionists, this.dataLabels.secessionists));
+	elements.push(this.createCountryList(countryData.neighbors, this.dataLabels.neighbors));
 
-	clearContainer(this.$container);
+	this.clearContainer();
 	for (var key in elements) {
 		if (elements[key] === null || !elements.hasOwnProperty(key)) {
 			continue;
@@ -77,32 +72,20 @@ Details.prototype.initListeners = function () {
 	});
 };
 
-function clearContainer ($container) {
-	while ($container.firstChild) {
-    	$container.removeChild($container.firstChild);
+Details.prototype.clearContainer = function () {
+	while (this.$container.firstChild) {
+    	this.$container.removeChild(this.$container.firstChild);
 	}
-}
+};
 
-function createDataElement (label, content) {
-	if (!content[label]) {
-		return null;
-	}
-
-	var $el = document.createElement('div');
-	$el.className = 'data';
-	$el.innerHTML = '<b>' + dataLabels[label] + ':</b> ' + (Array.isArray(content[label]) ? content[label].join(', ') : content[label]);
-
-	return $el;
-}
-
-function getCountrySpan (slug, genetive) {
+Details.prototype.getCountrySpan = function (slug, genetive) {
 	var name = genetive ? data[slug].genetive : data[slug].name;
 
 	return '<span class="country-name" data-name="' + slug + '">' +
 		'<img src="flags/' + slug + '.png" class="flag-icon" />' + name + '</span>';
 }
 
-function createCountryList (countries, label) {
+Details.prototype.createCountryList = function (countries, label) {
 	if (countries === undefined || countries.length === 0) {
 		return null;
 	}
@@ -113,7 +96,7 @@ function createCountryList (countries, label) {
 		countriesList = [];
 
 	for (var i = 0; i < countries.length; i++) {
-		countriesList.push(getCountrySpan(countries[i]));
+		countriesList.push(this.getCountrySpan(countries[i]));
 	}
 
 	$el.innerHTML = code + countriesList.join(', ');
@@ -121,26 +104,26 @@ function createCountryList (countries, label) {
 	return $el;
 }
 
-function createPartOf (countries) {
+Details.prototype.createPartOf = function (countries) {
 	if (countries === undefined || countries.length === 0) {
 		return null;
 	}
 
 	var $el = document.createElement('div');
 	$el.className = 'data';
-	var code = '<b>' + dataLabels.part_of + '</b> ',
+	var code = '<b>' + this.dataLabels.part_of + '</b> ',
 		countriesList = [];
 
 	for (var i = 0; i < countries.length; i++) {
-		countriesList.push(getCountrySpan(countries[i], true));
+		countriesList.push(this.getCountrySpan(countries[i], true));
 	}
 
-	$el.innerHTML = code + joinRussian(countriesList);
+	$el.innerHTML = code + this.joinRussian(countriesList);
 
 	return $el;
 }
 
-function joinRussian (list) {
+Details.prototype.joinRussian = function (list) {
 	if (list.length === 1) {
 		return list[0];
 	}
@@ -156,7 +139,7 @@ function joinRussian (list) {
 	return firstEls.join(', ') + ' и ' + lastEl;
 }
 
-function createCapitalElement (capital) {
+Details.prototype.createCapitalElement = function (capital) {
 	if (!capital) {
 		return null;
 	}
@@ -165,13 +148,13 @@ function createCapitalElement (capital) {
 
 	var $el = document.createElement('div');
 	$el.className = 'data';
-	var url = wikipediaPrefix + (capital.url || capital.name);
-	$el.innerHTML = '<b>' + dataLabels[labelType] + ':</b> <a href="' + url + '" target="_blank">' + capital.name + '</a>';
+	var url = this.wikipediaPrefix + (capital.url || capital.name);
+	$el.innerHTML = '<b>' + this.dataLabels[labelType] + ':</b> <a href="' + url + '" target="_blank">' + capital.name + '</a>';
 
 	return $el;
 }
 
-function createDescription (description) {
+Details.prototype.createDescription = function (description) {
 	if (!description) {
 		return null;
 	}
