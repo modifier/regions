@@ -37,6 +37,7 @@ var data = {
 		"genetive": "Норвегии",
 		"neighbors": ["sapmi", "sweden", "denmark"],
 		"secessionists": ["sapmi"],
+		"offset": [20, 0],
 		"capital": {
 			"name": "Осло",
 			"coords": [1563, 851]
@@ -47,6 +48,7 @@ var data = {
 		"genetive": "Швеции",
 		"neighbors": ["sapmi", "norway", "estonia", "aland", "bornholm", "skaneland"],
 		"secessionists": ["sapmi", "skaneland"],
+		"offset": [-20, 20],
 		"capital": {
 			"name": "Стокгольм",
 			"position": "top-left",
@@ -79,6 +81,7 @@ var data = {
 		"description": 'На территории Карелии проживает родственный финнам народ карелов. На сегодняшний день на территории республики они находятся в меньшинстве. Регионалистское движение <a href="http://www.free-karelia.org/NorthWord.aspx" target="_blank">Свободная Карелия</a> нацелено на повышение самоуправления, а также сохранение и развитие культурно-экономического потенциала региона.',
 		"neighbors": ["finland", "sapmi", "russia", "ingria"],
 		"part_of": ["russia"],
+		"offset": [-20, 20],
 		"capital": {
 			"name": "Петрозаводск",
 			"position": "top-left",
@@ -200,7 +203,7 @@ var data = {
 	"belarus": {
 		"name": "Беларусь",
 		"neighbors": ["russia", "lithuania", "latgalia", "ukraine", "latvia", "poland"],
-		"offset": [0, 10],
+		"offset": [0, 20],
 		"capital": {
 			"name": "Минск",
 			"coords": [2236, 1174]
@@ -233,7 +236,12 @@ var data = {
 		"description": 'Территория Фризии разделена между двумя государствами &mdash; Германией и Нидерландами. В Германии действует партия <a href="https://en.wikipedia.org/wiki/Die_Friesen" target="_blank">Die Friesen</a>, добивающаяся расширения прав фризского меньшинства. В Нидерландах действует <a href="https://en.wikipedia.org/wiki/Frisian_National_Party" target="_blank">Фризская национальная партия</a>, которая добивается федерализации государства.',
 		"neighbors": ["germany", "slesvig", "netherlands"],
 		"part_of": ["germany", "netherlands"],
-		"offset": [-15, 3],
+		"offset": [-15, 2],
+		"capital": {
+			"name": "Леуварден",
+			"position": "top-left",
+			"coords": [1370, 1300]
+		}
 	},
 	"germany": {
 		"name": "Германия",
@@ -426,6 +434,7 @@ var data = {
 		"description": 'Германия является федеративным государством, и Бавария в её составе уже является одной из федеральных земель. В отличие от протестантской Германии, жители Баварии преимущественно являются католиками, и говорят на диалекте, близком австрийскому. Отделения от Германии добивается <a href="https://en.wikipedia.org/wiki/Bavaria_Party" target="_blank">партия Баварии</a>.',
 		"neighbors": ["germany", "czech", "austria"],
 		"part_of": ["germany"],
+		"offset": [10, 0],
 		"capital": {
 			"name": "Мюнхен",
 			"coords": [1612, 1646]
@@ -447,6 +456,7 @@ var data = {
 		"description": 'До завоевания Российской империей на полуострове на протяжении пяти веков проживали крымские татары, чья доля среди населения со временем сокращалась. Сейчас крымские татары являются национальным меньшинством полуострова. После включения Крыма в состав России, статус полуострова стал предметом международных споров. Крымскотатарской автономии в регионе на текущий момент не существует.',
 		"neighbors": ["ukraine", "russia"],
 		"part_of": ["ukraine", "russia"],
+		"offset": [-10, -7],
 		"capital": {
 			"name": "Симферополь",
 			"coords": [2677, 1677]
@@ -455,6 +465,7 @@ var data = {
 	"hungary": {
 		"name": "Венгрия",
 		"neighbors": ["slovakia", "austria", "ukraine", "romania", "slovenia", "croatia", "vojvodina"],
+		"offset": [0, 20],
 		"capital": {
 			"name": "Будапешт",
 			"coords": [1956, 1665]
@@ -486,6 +497,7 @@ var data = {
 	"slovakia": {
 		"name": "Словакия",
 		"neighbors": ["poland", "silesia", "moravia", "austria", "hungary", "ukraine"],
+		"offset": [-30, 10],
 		"capital": {
 			"name": "Братислава",
 			"coords": [1868, 1633]
@@ -836,6 +848,7 @@ var data = {
 		"offset": [0, 13],
 		"capital": {
 			"name": "Генуя",
+			"position": "bottom-right",
 			"type": "admin_center",
 			"coords": [1485, 1900]
 		}
@@ -853,7 +866,7 @@ var data = {
 		"description": 'Падания, объединённая с Южной Италией в ходе Рисорджименто, является более экономически развитым регионом. <a href="https://ru.wikipedia.org/wiki/Лига_Севера" target="_blank">Лига Севера</a> добивается федерализации унитарной Италии.',
 		"neighbors": ["switzerland", "savoy", "occitania", "liguria", "corsica", "sardinia", "italy", "venetia", "south_tyrol"],
 		"part_of": ["italy"],
-		"offset": [10, 10],
+		"offset": [25, 15],
 		"capital": {
 			"name": "Милан",
 			"type": "largest_city",
@@ -930,6 +943,7 @@ var data = {
 		"neighbors": ["romania", "greece", "fyrom", "serbia"],
 		"capital": {
 			"name": "София",
+			"position": "bottom-right",
 			"coords": [2206, 1956]
 		}
 	},
