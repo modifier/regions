@@ -9,6 +9,15 @@ var data = {
 			"coords": [2618, 928]
 		}
 	},
+	"switzerland": {
+		"name": "Швейцария",
+		"neighbors": ["alsace", "france", "savoy", "austria", "liechtenstein", "germany", "padania", "south_tyrol"],
+		"offset": [0, 5],
+		"capital": {
+			"name": "Берн",
+			"coords": [1420, 1722]
+		}
+	},
 	"finland": {
 		"name": "Финляндия",
 		"genetive": "Финляндии",
@@ -91,7 +100,7 @@ var data = {
 	"aland": {
 		"name": "Аландские острова",
 		"description": 'На Аландских островах, принадлежащих Финляндии, проживают шведы. В результате <a href="https://ru.wikipedia.org/wiki/Аландский_кризис" target="_blank">Аландского кризиса</a> острова получили высокую степень автономии в составе Финляндии. Сейчас за независимость островов борется партия <a href="https://ru.wikipedia.org/wiki/Будущее_Аландов" target="_blank">Будущее Аландов</a>.',
-		"neighbors": ["finland", "sweden", "skaneland"],
+		"neighbors": ["finland", "sweden"],
 		"part_of": ["finland"],
 		"capital": {
 			"name": "Мариехамн",
@@ -192,7 +201,7 @@ var data = {
 	"skaneland": {
 		"name": "Скания",
 		"description": "До Сконской войны в XVII веке Скания была частью Датского королевства. Современная Скания в составе Швеции образует культурно и лингвистически обособленный регион. Партия <a href=\"https://en.wikipedia.org/wiki/Scania_Party\" target=\"_blank\">Skånepartiet</a> ставит своей целью сецессию из состава Швеции.",
-		"neighbors": ["sweden", "denmark", "bornholm", "aland"],
+		"neighbors": ["sweden", "denmark", "bornholm"],
 		"part_of": ["sweden"],
 		"offset": [-5, 20],
 		"capital": {
@@ -605,15 +614,6 @@ var data = {
 			"coords": [1354, 1815]
 		}
 	},
-	"switzerland": {
-		"name": "Швейцария",
-		"neighbors": ["alsace", "france", "savoy", "austria", "liechtenstein", "germany", "padania", "south_tyrol"],
-		"offset": [0, 5],
-		"capital": {
-			"name": "Берн",
-			"coords": [1420, 1722]
-		}
-	},
 	"balearic_islands": {
 		"name": "Балеарские острова",
 		"description": "Исторически Балеарские острова являлись частью Арагонской короны. В настоящее время каталанские националисты претендуют на включение в состав Каталонии также Балеарских островов из-за проживания там каталонцев. Одной из партий, представляющей подобные интересы со стороны жителей островов, является <a href=\"https://en.wikipedia.org/wiki/Socialist_Party_of_Majorca\" target=\"_blank\">Социалистическая партия Майорки</a>.",
@@ -845,7 +845,7 @@ var data = {
 	},
 	"liguria": {
 		"name": "Лигурия",
-		"description": 'Лигурия являлась ядром Генуэзской республики вплоть до её включения в состав Сардинского королевства после Наполеоновских войн, а затем &mdash; в состав Италии. Партия <a href="https://en.wikipedia.org/wiki/Ligurian_Independence_Movement" target="_blank">Movimento Indipendentista Ligure</a> считают незаконной аннексию Лигурии и требуют немедленной независимости региона.',
+		"description": 'Лигурия являлась ядром Генуэзской республики вплоть до её включения в состав Сардинского королевства после Наполеоновских войн, а затем &mdash; в состав Италии. Партия <a href="https://en.wikipedia.org/wiki/Ligurian_Independence_Movement" target="_blank">Movimento Indipendentista Ligure</a> считает незаконной аннексию Лигурии и требует немедленной независимости региона.',
 		"neighbors": ["padania", "occitania", "corsica"],
 		"part_of": ["italy"],
 		"offset": [0, 13],
