@@ -16,6 +16,9 @@ var Application = function ($map, $details, $list) {
 	this.paths = [];
 };
 
+/**
+ * Initializes application
+ */
 Application.prototype.initialize = function () {
 	this.colorizePaths();
 	this.checkNeighborsSymmetry();
@@ -53,6 +56,9 @@ Application.prototype.initialize = function () {
 	this.map.initialize();
 };
 
+/**
+ * Draw focus from the country: hide details and return regular color
+ */
 Application.prototype.deselectCountry = function () {
 	this.details.hide();
 	this.list.show();
@@ -67,6 +73,9 @@ Application.prototype.deselectCountry = function () {
 	}
 };
 
+/**
+ * Focus on the country: display its details and paint gold
+ */
 Application.prototype.selectCountry = function (country) {
 	this.deselectCountry();
 
@@ -88,6 +97,9 @@ Application.prototype.selectCountry = function (country) {
 	};
 };
 
+/**
+ * Animate moving to the country
+ */
 Application.prototype.followCountry = function (country) {
 	if (!this.paths[country]) {
 		return;
@@ -98,6 +110,9 @@ Application.prototype.followCountry = function (country) {
 	this.map.setPosition(bbox.x + bbox.width / 2, bbox.y + bbox.height / 2);
 };
 
+/**
+ * Assign colors to the countries using greedy coloring
+ */
 Application.prototype.colorizePaths = function () {
 	for (var i in data) {
 		if (data[i].disabled) {
@@ -110,6 +125,9 @@ Application.prototype.colorizePaths = function () {
 	}
 };
 
+/**
+ * Pick available color for non-colored country
+ */
 Application.prototype.getAvailableColor = function (country) {
 	var neighbors = data[country].neighbors;
 
@@ -138,6 +156,9 @@ Application.prototype.getAvailableColor = function (country) {
 	return availableColors[0];
 };
 
+/**
+ * Ensure that each country's neighbor has the country in the list of its neighbors
+ */
 Application.prototype.checkNeighborsSymmetry = function () {
 	for (var i in data) {
 		var country = data[i];
@@ -156,6 +177,9 @@ Application.prototype.checkNeighborsSymmetry = function () {
 	}
 };
 
+/**
+ * Ensure that each country's secessionist has the country in the list of its part_of and vice versa
+ */
 Application.prototype.checkSecessionSymmetry = function () {
 	for (var i in data) {
 		var country = data[i],

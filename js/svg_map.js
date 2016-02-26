@@ -12,21 +12,34 @@ var SvgMap = function ($container) {
 	this.initializeElements();
 };
 
-// public
+var sidePanelWidth = 460;
 
+// public
+/**
+ * Set minimum and maximum zoom
+ */
 SvgMap.prototype.setScaleBounds = function (minScale, maxScale) {
 	this.minScale = minScale;
 	this.maxScale = maxScale;
 };
 
+/**
+ * Set map dimenstions
+ */
 SvgMap.prototype.setDimensions = function (dimensions) {
 	this.dimensions = dimensions;
 };
 
+/**
+ * Add callback to fire when the empty area (i.e. ocean and seas) is clicked
+ */
 SvgMap.prototype.addOceanCallback = function (oceanCallback) {
 	this.oceanCallbacks.push(oceanCallback);
 };
 
+/**
+ * Initialize map
+ */
 SvgMap.prototype.initialize = function () {
 	this.position = [
 		(this.dimensions.x2 - this.dimensions.x1) / 2,
@@ -36,6 +49,9 @@ SvgMap.prototype.initialize = function () {
 	this.onResize();
 };
 
+/**
+ * Perform animation of moving to the specific position
+ */
 SvgMap.prototype.setPosition = function (positionX, positionY) {
 	if (this.animationId !== null) {
 		return;
@@ -68,7 +84,9 @@ SvgMap.prototype.setPosition = function (positionX, positionY) {
 };
 
 // protected
-
+/**
+ * Add general DOM elements into the container
+ */
 SvgMap.prototype.initializeElements = function () {
 	// create map
 	this.$map = document.createElementNS('http://www.w3.org/2000/svg', 'svg');
@@ -100,6 +118,9 @@ SvgMap.prototype.initializeElements = function () {
 	this.$scaler.appendChild($zoomOut);
 };
 
+/**
+ * Clamp value inside the bounds
+ */
 function clamp (value, bounds) {
 	if (bounds[0] > bounds[1]) {
 		return bounds[0];
@@ -108,14 +129,23 @@ function clamp (value, bounds) {
 	return value < bounds[0] ? bounds[0] : (value > bounds[1] ? bounds[1] : value);
 }
 
+/**
+ * Get viewport width granting scale
+ */
 SvgMap.prototype.getScaledWidth = function () {
 	return this.width * Math.pow(2, this.scale);
 };
 
+/**
+ * Get viewport height granting scale
+ */
 SvgMap.prototype.getScaledHeight = function () {
 	return this.height * Math.pow(2, this.scale);
 };
 
+/**
+ * Recalculate map viewport during drag
+ */
 SvgMap.prototype.recalculateViewport = function (e) {
 	var startEvent = this.currentEvent instanceof MouseEvent ? this.currentEvent : this.currentEvent.touches[0],
 		endEvent = e instanceof MouseEvent ? e : e.touches[0];
@@ -128,6 +158,9 @@ SvgMap.prototype.recalculateViewport = function (e) {
 	this.resetViewport();
 };
 
+/**
+ * Set viewport size
+ */
 SvgMap.prototype.resetViewport = function () {
 	this.position[0] = clamp(this.position[0], this.bounds.x);
 	this.position[1] = clamp(this.position[1], this.bounds.y);
@@ -135,6 +168,9 @@ SvgMap.prototype.resetViewport = function () {
 	this.$map.setAttribute('viewBox', [this.position[0], this.position[1], this.getScaledWidth(), this.getScaledHeight()].join(' '));
 };
 
+/**
+ * Set map bounds
+ */
 SvgMap.prototype.setBounds = function () {
 	this.width = this.$map.width.baseVal.value;
 	this.height = this.$map.height.baseVal.value;
@@ -145,6 +181,9 @@ SvgMap.prototype.setBounds = function () {
 	};
 };
 
+/**
+ * Zoom in or zoom out the map with the specific position in the center
+ */
 SvgMap.prototype.setScale = function (scale, positionX, positionY) {
 	var offsetX = positionX ? positionX / this.width : 0.5;
 	var offsetY = positionY ? positionY / this.height : 0.5;
@@ -164,11 +203,14 @@ SvgMap.prototype.setScale = function (scale, positionX, positionY) {
 	this.resetViewport();
 };
 
+/**
+ * Reset bounds and viewport on window resize
+ */
 SvgMap.prototype.onResize = function () {
 	var width = window.innerWidth,
 		height = window.innerHeight;
 
-	this.width = width - 460;
+	this.width = width - sidePanelWidth;
 	this.height = height;
 
 	this.$map.setAttribute('width', this.width);
@@ -178,6 +220,9 @@ SvgMap.prototype.onResize = function () {
 	this.resetViewport();
 };
 
+/**
+ * Start map drag
+ */
 SvgMap.prototype.onMoveStart = function (e) {
 	this.isDrag = false;
 
@@ -186,6 +231,9 @@ SvgMap.prototype.onMoveStart = function (e) {
 	this.currentEvent = e;
 };
 
+/**
+ * Change map viewport on drag
+ */
 SvgMap.prototype.onMove = function (e) {
 	this.isDrag = true;
 
@@ -196,6 +244,9 @@ SvgMap.prototype.onMove = function (e) {
 	e.preventDefault();
 };
 
+/**
+ * Fire callbacks on ocean click
+ */
 SvgMap.prototype.onOceanTap = function (e) {
 	if (e.target === this.$map && !this.isDrag) {
 		for (var i = 0; i < this.oceanCallbacks.length; i++) {
@@ -204,6 +255,9 @@ SvgMap.prototype.onOceanTap = function (e) {
 	}
 };
 
+/**
+ * Stop map drag
+ */
 SvgMap.prototype.onMoveEnd = function (e) {
 	if (this.currentEvent instanceof MouseEvent) {
 		this.recalculateViewport(e);
@@ -212,6 +266,9 @@ SvgMap.prototype.onMoveEnd = function (e) {
 	this.currentEvent = undefined;
 };
 
+/**
+ * Change zoom on wheel scroll
+ */
 SvgMap.prototype.onWheel = function (e) {
 	if (e.deltaY > 0) { // zoom in
 		this.setScale(this.scale + this.scaleStep, e.layerX, e.layerY);
@@ -220,6 +277,9 @@ SvgMap.prototype.onWheel = function (e) {
 	}
 };
 
+/**
+ * Initialize map events
+ */
 SvgMap.prototype.attachEvents = function () {
 	this.$map.addEventListener('mousedown', this.onMoveStart.bind(this));
 	this.$map.addEventListener('touchstart', this.onMoveStart.bind(this));

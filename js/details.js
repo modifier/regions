@@ -14,14 +14,23 @@ Details.prototype.dataLabels = {
 	"largest_city": "Крупнейший город"
 };
 
+/**
+ * Make details invisible
+ */
 Details.prototype.hide = function () {
 	this.$container.classList.add('hidden');
 };
 
+/**
+ * Make details visible
+ */
 Details.prototype.show = function () {
 	this.$container.classList.remove('hidden');
 };
 
+/**
+ * Render country's details
+ */
 Details.prototype.renderCountry = function (name) {
 	var elements = [],
 		countryData = data[name];
@@ -56,10 +65,16 @@ Details.prototype.renderCountry = function (name) {
 	this.show();
 };
 
+/**
+ * Add callback to fire when .country-name is clicked
+ */
 Details.prototype.addCountryCallback = function (callback) {
 	this.countryCallbacks.push(callback);
 };
 
+/**
+ * Initialize container events: fire country callback when .country-name is clicked
+ */
 Details.prototype.initListeners = function () {
 	var that = this;
 
@@ -72,12 +87,18 @@ Details.prototype.initListeners = function () {
 	});
 };
 
+/**
+ * Clear contents
+ */
 Details.prototype.clearContainer = function () {
 	while (this.$container.firstChild) {
     	this.$container.removeChild(this.$container.firstChild);
 	}
 };
 
+/**
+ * Get code of clickable country label with a small flag
+ */
 Details.prototype.getCountrySpan = function (slug, genetive) {
 	var name = genetive ? data[slug].genetive : data[slug].name;
 
@@ -85,6 +106,9 @@ Details.prototype.getCountrySpan = function (slug, genetive) {
 		'<img src="flags/' + slug + '.png" class="flag-icon" />' + name + '</span>';
 }
 
+/**
+ * Create element with the list of countries
+ */
 Details.prototype.createCountryList = function (countries, label) {
 	if (countries === undefined || countries.length === 0) {
 		return null;
@@ -104,6 +128,10 @@ Details.prototype.createCountryList = function (countries, label) {
 	return $el;
 }
 
+/**
+ * Create element with the list of countries of which country is part of
+ * Differs from createCountryList because of using genetive for country names instead of nominative
+ */
 Details.prototype.createPartOf = function (countries) {
 	if (countries === undefined || countries.length === 0) {
 		return null;
@@ -123,6 +151,9 @@ Details.prototype.createPartOf = function (countries) {
 	return $el;
 }
 
+/**
+ * Join words with commas and with the conjunction in the end
+ */
 Details.prototype.joinRussian = function (list) {
 	if (list.length === 1) {
 		return list[0];
@@ -139,6 +170,9 @@ Details.prototype.joinRussian = function (list) {
 	return firstEls.join(', ') + ' и ' + lastEl;
 }
 
+/**
+ * Create element with the name of the capital which has a link to wikipedia
+ */
 Details.prototype.createCapitalElement = function (capital) {
 	if (!capital) {
 		return null;
@@ -154,6 +188,9 @@ Details.prototype.createCapitalElement = function (capital) {
 	return $el;
 }
 
+/**
+ * Create element with the simple description
+ */
 Details.prototype.createDescription = function (description) {
 	if (!description) {
 		return null;

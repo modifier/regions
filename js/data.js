@@ -1,3 +1,22 @@
+/**
+ * Data structrure:
+ * "slug": {
+ * 		"name": "", // name of the country in nominative case
+ *		"genetive": "", // name ot the country in genetive case
+ * 		"neighbors": [], // list of neighbors (slugs as values)
+ *		"secessionists": [], // list of secessionists (slugs as values)
+ *		"part_of": [], // list of countries of which this is secessionist (slugs as values),
+ *		"offset": [], // offset of the label (offsetX, offsetY - numbers)
+ *		"capital": {
+ *			"name": "", // capital name in nominative case
+ *			"url": "", // overrides name in wikipedia link, if they are not equal
+ *			"position": "", // position of the capital label relative to its circle. (top|bottom)-(left|right). top-right by default
+ *			"type": "", // capital type. Possible values: capital, admin_center, largest_city. Capital by default
+ *			"coords": [] // coordinates of the capital on the map (coordX, coordY - numbers)
+ *		}
+ * }
+ */
+
 var data = {
 	"russia": {
 		"name": "Россия",
