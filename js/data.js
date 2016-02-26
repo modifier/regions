@@ -159,6 +159,7 @@ var data = {
 		"genetive": "Литвы",
 		"neighbors": ["samogitia", "prussia", "latvia", "belarus", "poland"],
 		"secessionists": ["samogitia"],
+		"offset": [30, 0],
 		"capital": {
 			"name": "Вильнюс",
 			"position": "top-left",
