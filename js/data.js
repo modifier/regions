@@ -2,7 +2,7 @@ var data = {
 	"russia": {
 		"name": "Россия",
 		"genetive": "России",
-		"neighbors": ["karelia", "ingria", "estonia", "latgalia", "belarus", "ukraine", "novorussia", "crimea"],
+		"neighbors": ["karelia", "ingria", "estonia", "latgalia", "belarus", "ukraine", "finland", "sapmi", "novorussia", "crimea"],
 		"secessionists": ["sapmi", "crimea", "karelia", "ingria", "prussia"],
 		"capital": {
 			"name": "Москва",
@@ -12,7 +12,7 @@ var data = {
 	"finland": {
 		"name": "Финляндия",
 		"genetive": "Финляндии",
-		"neighbors": ["karelia", "ingria", "sapmi", "aland", "bornholm", "estonia"],
+		"neighbors": ["karelia", "ingria", "sapmi", "aland", "bornholm", "estonia", "russia"],
 		"secessionists": ["sapmi", "aland"],
 		"capital": {
 			"name": "Хельсинки",
@@ -23,7 +23,7 @@ var data = {
 	"sapmi": {
 		"name": "Лапландия",
 		"description": "Саамы, являющиеся коренным населением Лапландии, на текущий момент составляют не более 5% населения региона. В Норвегии, Швеции и Финляндии присутствуют саамские парламенты, вместе с непризнанным властью РФ <a href=\"https://ru.wikipedia.org/wiki/Саамский_парламент_Кольского_полуострова\" target=\"_blank\">Саамским парламентом Кольского полуострова</a> они образуют <a href=\"https://ru.wikipedia.org/wiki/Союз_Саамов\" target=\"_blank\">Союз Саамов</a>.",
-		"neighbors": ["karelia", "finland", "norway", "sweden"],
+		"neighbors": ["karelia", "finland", "norway", "sweden", "russia"],
 		"part_of": ["norway", "sweden", "finland", "russia"],
 		"offset": [-50, -50],
 		"capital": {
@@ -240,6 +240,7 @@ var data = {
 		"offset": [-15, 2],
 		"capital": {
 			"name": "Леуварден",
+			"type": "largest_city",
 			"position": "top-left",
 			"coords": [1370, 1300]
 		}
