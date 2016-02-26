@@ -213,7 +213,7 @@ var data = {
 	"denmark": {
 		"name": "Дания",
 		"genetive": "Дании",
-		"neighbors": ["bornholm", "slesvig", "skaneland", "norway"],
+		"neighbors": ["bornholm", "slesvig", "skaneland", "norway", "germany"],
 		"secessionists": ["bornholm", "faroe"],
 		"offset": [-40, 0],
 		"capital": {
@@ -248,7 +248,7 @@ var data = {
 	"germany": {
 		"name": "Германия",
 		"genetive": "Германии",
-		"neighbors": ["poland", "netherlands", "frisia", "wallonia", "luxembourg", "france", "alsace", "bavaria", "switzerland", "czech", "slesvig", "austria"],
+		"neighbors": ["poland", "netherlands", "frisia", "wallonia", "luxembourg", "france", "alsace", "bavaria", "switzerland", "czech", "slesvig", "austria", "denmark"],
 		"secessionists": ["frisia", "bavaria", "slesvig"],
 		"capital": {
 			"name": "Берлин",
